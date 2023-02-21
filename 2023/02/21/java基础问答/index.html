@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>java基础问答 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. MyBatis1.1 mybatis 中 #{}和 ${}的区别是什么？1#&amp;#123;&amp;#125;是占位符，$&amp;#123;&amp;#125;是拼接符 ，#&amp;#123;&amp;#125;生成后的sql语句是？占位，而$&amp;#123;&amp;#125;直接是字符串拼接   1.2 mybatis 逻辑分页和物理分页的区别是什么？123456物理分页：sql语句指定，查询哪一页的数据，只会取那一页的那几条数据出来，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础问答">
+<meta property="og:url" content="http://example.com/2023/02/21/java%E5%9F%BA%E7%A1%80%E9%97%AE%E7%AD%94/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. MyBatis1.1 mybatis 中 #{}和 ${}的区别是什么？1#&amp;#123;&amp;#125;是占位符，$&amp;#123;&amp;#125;是拼接符 ，#&amp;#123;&amp;#125;生成后的sql语句是？占位，而$&amp;#123;&amp;#125;直接是字符串拼接   1.2 mybatis 逻辑分页和物理分页的区别是什么？123456物理分页：sql语句指定，查询哪一页的数据，只会取那一页的那几条数据出来，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-02-21T01:38:27.000Z">
+<meta property="article:modified_time" content="2023-02-21T01:42:36.229Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/21/java%E5%9F%BA%E7%A1%80%E9%97%AE%E7%AD%94/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java基础问答',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-21 09:42:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java基础问答</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-02-21T01:38:27.000Z" title="Created 2023-02-21 09:38:27">2023-02-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-02-21T01:42:36.229Z" title="Updated 2023-02-21 09:42:36">2023-02-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java基础问答"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-MyBatis"><a href="#1-MyBatis" class="headerlink" title="1. MyBatis"></a><strong>1. MyBatis</strong></h1><h3 id="1-1-mybatis-中-和-的区别是什么？"><a href="#1-1-mybatis-中-和-的区别是什么？" class="headerlink" title="1.1 mybatis 中 #{}和 ${}的区别是什么？"></a><strong>1.1 mybatis 中 #{}和 ${}的区别是什么？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#123;&#125;是占位符，$&#123;&#125;是拼接符 ，#&#123;&#125;生成后的sql语句是？占位，而$&#123;&#125;直接是字符串拼接</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-2-mybatis-逻辑分页和物理分页的区别是什么？"><a href="#1-2-mybatis-逻辑分页和物理分页的区别是什么？" class="headerlink" title="1.2 mybatis 逻辑分页和物理分页的区别是什么？"></a><strong>1.2 mybatis 逻辑分页和物理分页的区别是什么？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">物理分页：sql语句指定，查询哪一页的数据，只会取那一页的那几条数据出来，速度上并不一定快于逻辑分页。  </span><br><span class="line">逻辑分页：第一次将所有的数据全部取出来放入内存中，需要使用时，取对应页的片段。速度上也并不一定快于物理分页。</span><br><span class="line"></span><br><span class="line">物理分页总是优于逻辑分页：没有必要将属于数据库端的压力加诸到应用端来，就算速度上存在优势,然而其它性能上的优点足以弥补这个缺点</span><br><span class="line"></span><br><span class="line">pagehelper分页的实现原理就是通过拦截器拦截待执行的sql，然后再重写sql，添加物理分页语句和物理分页参数</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-3-mybatis-是否支持延迟加载？延迟加载的原理是什么？"><a href="#1-3-mybatis-是否支持延迟加载？延迟加载的原理是什么？" class="headerlink" title="1.3 mybatis 是否支持延迟加载？延迟加载的原理是什么？"></a><strong>1.3 mybatis 是否支持延迟加载？延迟加载的原理是什么？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MyBatis是支持延迟加载的。  </span><br><span class="line">其原理是通过cglib创建目标对象的代理对象，调用目标方法时，先进入拦截器方法，然后再进行数据库查询。</span><br><span class="line">比如说查询出一个a对象，a中有需要延时加载的b对象，b对象此时为null。通过cglib创建了a的代理对象，在调用a.getB().getName()时拦截器invoke()方法发现a.getB()是null，就会单独发送事先保存好的查询关联B对象的sql，把B查询出来。然后调用a.setB(b)，这样a对象的b属性就会有值了，接着完成a.getB().getName()方法的调用，这就是延迟加载的基本原理</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-4-说一下-mybatis-的一级缓存和二级缓存？"><a href="#1-4-说一下-mybatis-的一级缓存和二级缓存？" class="headerlink" title="1.4 说一下 mybatis 的一级缓存和二级缓存？"></a><strong>1.4 说一下 mybatis 的一级缓存和二级缓存？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一级缓存是Sqlsession级别的缓存，也就是同一个Sqlsession内执行两次或多次相同结果的查询语句，只会再第一次发送sql语句查询</span><br><span class="line"></span><br><span class="line">二级缓存默认是不开启的，是Mapper级别的缓存，是多个Sqlsession之间可以共享数据</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-5-mybatis-和-hibernate-的区别有哪些？"><a href="#1-5-mybatis-和-hibernate-的区别有哪些？" class="headerlink" title="1.5 mybatis 和 hibernate 的区别有哪些？"></a><strong>1.5 mybatis 和 hibernate 的区别有哪些？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mybatis和hibernate不同，它不完全是一个ORM框架，因为Mybatis需要程序员自己编写sql  </span><br><span class="line">mybatis直接编写原生态sql，可以严格控制sql执行性能，灵活度高，但是灵活的前提是mybatis无法做到数据库无关性  </span><br><span class="line">hibernate对象/关系映射能力强，数据库无关性好</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-6-mybatis-有哪些执行器（Executor）？"><a href="#1-6-mybatis-有哪些执行器（Executor）？" class="headerlink" title="1.6 mybatis 有哪些执行器（Executor）？"></a><strong>1.6 mybatis 有哪些执行器（Executor）？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SimpleExecutor：简单执行器，每次执行一个update或select，就开启一个statment对象，用完就关闭</span><br><span class="line"></span><br><span class="line">ReuseExecutor：重用执行器，执行update或  select，以sql作为key查找statment对象，存在就是用，不存在就创建，用完后不关闭</span><br><span class="line"></span><br><span class="line">BatchExecutor：批处理执行器，执行update，将所有sql都添加到批处理中，等待统一执行</span><br><span class="line"></span><br><span class="line">MyBatis中默认使用的是SimpleExecutor执行器，如果需要更改，可选择局部更改或全局更改  </span><br></pre></td></tr></table></figure>
+
+
+<img src="/imgs/i1.png">
+
+
+
+
+<h1 id="2-Spring"><a href="#2-Spring" class="headerlink" title="2. Spring"></a><strong>2. Spring</strong></h1><h3 id="2-1-什么是Spring？"><a href="#2-1-什么是Spring？" class="headerlink" title="2.1 什么是Spring？"></a><strong>2.1 什么是Spring？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Spring 是一个分层的 JavaSE/EE Full-Stack（一站式） 轻量级开源框架，可以说他是一个整合型框架，可以整合市场上大多数的框架，Spring的核心的IOC(控制反转)和AOP(切面编程)，同时他也能很方便的管理事务</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-为什么要使用-spring？"><a href="#2-2-为什么要使用-spring？" class="headerlink" title="2.2 为什么要使用 spring？"></a><strong>2.2 为什么要使用 spring？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.方便解耦，便于开发（Spring就是一个大工厂，可以将所有对象的创建和依赖关系维护都交给spring管理）</span><br><span class="line"></span><br><span class="line">2.spring支持aop编程（spring提供面向切面编程，可以很方便的实现对程序进行权限拦截和运行监控等功能）</span><br><span class="line"></span><br><span class="line">3.声明式事务的支持（通过配置就完成对事务的支持，不需要手动编程）</span><br><span class="line"></span><br><span class="line">5.方便集成各种优秀的框架</span><br><span class="line"></span><br><span class="line">4.方便程序的测试，spring 对junit4支持，可以通过注解方便的测试spring 程序</span><br><span class="line"></span><br><span class="line">6.降低javaEE API的使用难度（Spring 对javaEE开发中非常难用的一些API 例如JDBC,javaMail,远程调用等，都提供了封装，是这些API应用难度大大降低）</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-解释一下什么是-aop？"><a href="#2-3-解释一下什么是-aop？" class="headerlink" title="2.3 解释一下什么是 aop？"></a><strong>2.3 解释一下什么是 aop？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在业务系统中，总有一些不得不处理的事情，我们将这些重复性的代码抽取出来，放在专门的类中， 在通过spring的AOP的核心对代码段进行增强处理。 在不改变原代码的基础上进行功能增强。有五种增强方式，前置增强，后置增强，环绕增强，引介(返回)增强，异常增强。</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-4-解释一下什么是-ioc？"><a href="#2-4-解释一下什么是-ioc？" class="headerlink" title="2.4 解释一下什么是 ioc？"></a><strong>2.4 解释一下什么是 ioc？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ioc（inverse of control ）控制反转：所谓控制反转就是把对象（bean）和维护对象（bean）之间的关系 的权利转移到Sqring容器中去了，而程序本身不在维护。</span><br><span class="line"></span><br><span class="line">di（dependency injection）依赖注入：实际上DI和IOC是同一个概念，因为在ApplicationContext.xml配置文件中bean和bean之间通过ref来维护的时候是相互依赖的，所以又叫做依赖注入。</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-Spring创建bean的注解有几种？"><a href="#2-5-Spring创建bean的注解有几种？" class="headerlink" title="2.5 Spring创建bean的注解有几种？"></a><strong>2.5 Spring创建bean的注解有几种？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">主要有四种注解可以注册bean，每种注解可以任意使用，只是语义上有所差异：</span><br><span class="line">@Component：可以用于注册所有bean</span><br><span class="line">@Repository：主要用于注册dao层的bean</span><br><span class="line">@Controller：主要用于注册控 制层的bean</span><br><span class="line">@Service：主要用于注册服务层的bean</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-Spring创建bean的注解有几种？-1"><a href="#2-5-Spring创建bean的注解有几种？-1" class="headerlink" title="2.5 Spring创建bean的注解有几种？"></a><strong>2.5 Spring创建bean的注解有几种？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">构造方法注入，sette注入，基于注解的注入</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-7-spring-中的-bean-是线程安全的吗？"><a href="#2-7-spring-中的-bean-是线程安全的吗？" class="headerlink" title="2.7 spring 中的 bean 是线程安全的吗？"></a><strong>2.7 spring 中的 bean 是线程安全的吗？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">容器本身并没有提供Bean的线程安全策略，因此可以说Spring容器中的Bean本身不具备线程安全的特性，但是具体还是要结合具体scope的Bean去研究。</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-8-spring-支持几种-bean-的作用域？"><a href="#2-8-spring-支持几种-bean-的作用域？" class="headerlink" title="2.8 spring 支持几种 bean 的作用域？"></a><strong>2.8 spring 支持几种 bean 的作用域？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">singleton：单例模式，在整个Spring IoC容器中，使用 singleton 定义的 bean 只有一个实例</span><br><span class="line"></span><br><span class="line">prototype：原型模式，每次通过容器的getbean方法获取 prototype 定义的 bean 时，都产生一个新的 bean 实例</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-9-spring-自动装配-bean-有哪些方式？"><a href="#2-9-spring-自动装配-bean-有哪些方式？" class="headerlink" title="2.9 spring 自动装配 bean 有哪些方式？"></a><strong>2.9 spring 自动装配 bean 有哪些方式？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（1）在XML中进行显式配置  </span><br><span class="line">（2）在java中进行显式配置  </span><br><span class="line">（3）隐式的bean发现和自动装配（一般推荐使用自动装配bean的方式）  </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-10-spring-事务实现方式有哪些？"><a href="#2-10-spring-事务实现方式有哪些？" class="headerlink" title="2.10 spring 事务实现方式有哪些？"></a><strong>2.10 spring 事务实现方式有哪些？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1）编程式事务管理对基于 POJO 的应用来说是唯一选择。我们需要在代码中调用beginTransaction()、 commit()、rollback()等事务管理相关的方法，这就是编程式事务管理。</span><br><span class="line">（2）基于 TransactionProxyFactoryBean的声明式事务管理</span><br><span class="line">（3）基于 @Transactional 的声明式事务管理</span><br><span class="line">（4）基于Aspectj AOP配置事务</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-11-说一下-spring-的事务隔离？"><a href="#2-11-说一下-spring-的事务隔离？" class="headerlink" title="2.11 说一下 spring 的事务隔离？"></a><strong>2.11 说一下 spring 的事务隔离？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">READ UNCOMMITTED（读未提交数据）：允许事务读取未被其他事务提交的变更数据，会出现脏读、不可重复读和幻读问题。</span><br><span class="line"></span><br><span class="line">READ COMMITTED（读已提交数据）：只允许事务读取已经被其他事务提交的变更数据，</span><br><span class="line">可避免脏读，仍会出现不可重复读和幻读问题。</span><br><span class="line"></span><br><span class="line">REPEATABLE READ（可重复读）：确保事务可以多次从一个字</span><br><span class="line">段中读取相同的值，在此事务持续期间，禁止其他事务对此字段的更新，可以避免脏读和不可重复读，仍会出现幻读问题。</span><br><span class="line"></span><br><span class="line">SERIALIZABLE（序列化）：确保事务可以从一个表中读取相同的行，在这个事务持续期间，禁止</span><br><span class="line">其他事务对该表执行插入、更新和删除操作，可避免所有并发问题，但性能非常低。 Spring隔离级别</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="3-SpringMVC"><a href="#3-SpringMVC" class="headerlink" title="3. SpringMVC"></a><strong>3. SpringMVC</strong></h1><h3 id="3-1-SpringMVC和Spring的关系是什么？"><a href="#3-1-SpringMVC和Spring的关系是什么？" class="headerlink" title="3.1 SpringMVC和Spring的关系是什么？"></a><strong>3.1 SpringMVC和Spring的关系是什么？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">因为springMVC的运行需要依赖spring，可以将springMVC看做是spring的一个组件.</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-说一下-Spring-MVC-运行流程？"><a href="#3-2-说一下-Spring-MVC-运行流程？" class="headerlink" title="3.2 说一下 Spring MVC 运行流程？"></a><strong>3.2 说一下 Spring MVC 运行流程？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户发送请求到前端控制器DispatcherServlet，之后调用HanderMapping处理器找到具体的处理器返回，再调用 HanderAdapter处理适配器，再调用具体的Controller，执行完后返回Modeandview，HanderAdapter将结果返回 给DispatcherServlet，再传给ViewResover视图解析器解析后返回View，DispatcherServlet渲染后响应</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-spring-mvc-有哪些组件？"><a href="#3-3-spring-mvc-有哪些组件？" class="headerlink" title="3.3 spring mvc 有哪些组件？"></a><strong>3.3 spring mvc 有哪些组件？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HanderMapping处理请求，HanderAdapter适配器，ViewResolver视图解析，Contoller处理器，DispatcherServlet</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-RequestMapping-的作用是什么？"><a href="#3-4-RequestMapping-的作用是什么？" class="headerlink" title="3.4 @RequestMapping 的作用是什么？"></a><strong>3.4 @RequestMapping 的作用是什么？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">处理请求地址映射的注解，如果用于类上，表示类中的所有响应请求方法都是以该路径作为父路径</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-Autowired-的作用是什么？"><a href="#3-5-Autowired-的作用是什么？" class="headerlink" title="3.5 @Autowired 的作用是什么？"></a><strong>3.5 @Autowired 的作用是什么？</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对类成员变量、方法和构造函数进行标注，完成自动装配的工作</span><br></pre></td></tr></table></figure>
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/02/21/java%E5%9F%BA%E7%A1%80%E9%97%AE%E7%AD%94/">http://example.com/2023/02/21/java%E5%9F%BA%E7%A1%80%E9%97%AE%E7%AD%94/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/02/20/Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="Markdown_基本语法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Markdown_基本语法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-MyBatis"><span class="toc-number">1.</span> <span class="toc-text">1. MyBatis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-mybatis-%E4%B8%AD-%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.1 mybatis 中 #{}和 ${}的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-mybatis-%E9%80%BB%E8%BE%91%E5%88%86%E9%A1%B5%E5%92%8C%E7%89%A9%E7%90%86%E5%88%86%E9%A1%B5%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.2 mybatis 逻辑分页和物理分页的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-mybatis-%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%EF%BC%9F%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.3.</span> <span class="toc-text">1.3 mybatis 是否支持延迟加载？延迟加载的原理是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E8%AF%B4%E4%B8%80%E4%B8%8B-mybatis-%E7%9A%84%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98%E5%92%8C%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98%EF%BC%9F"><span class="toc-number">1.0.4.</span> <span class="toc-text">1.4 说一下 mybatis 的一级缓存和二级缓存？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-mybatis-%E5%92%8C-hibernate-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.0.5.</span> <span class="toc-text">1.5 mybatis 和 hibernate 的区别有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-mybatis-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%89%A7%E8%A1%8C%E5%99%A8%EF%BC%88Executor%EF%BC%89%EF%BC%9F"><span class="toc-number">1.0.6.</span> <span class="toc-text">1.6 mybatis 有哪些执行器（Executor）？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Spring"><span class="toc-number">2.</span> <span class="toc-text">2. Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AFSpring%EF%BC%9F"><span class="toc-number">2.0.1.</span> <span class="toc-text">2.1 什么是Spring？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-spring%EF%BC%9F"><span class="toc-number">2.0.2.</span> <span class="toc-text">2.2 为什么要使用 spring？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF-aop%EF%BC%9F"><span class="toc-number">2.0.3.</span> <span class="toc-text">2.3 解释一下什么是 aop？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF-ioc%EF%BC%9F"><span class="toc-number">2.0.4.</span> <span class="toc-text">2.4 解释一下什么是 ioc？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Spring%E5%88%9B%E5%BB%BAbean%E7%9A%84%E6%B3%A8%E8%A7%A3%E6%9C%89%E5%87%A0%E7%A7%8D%EF%BC%9F"><span class="toc-number">2.0.5.</span> <span class="toc-text">2.5 Spring创建bean的注解有几种？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Spring%E5%88%9B%E5%BB%BAbean%E7%9A%84%E6%B3%A8%E8%A7%A3%E6%9C%89%E5%87%A0%E7%A7%8D%EF%BC%9F-1"><span class="toc-number">2.0.6.</span> <span class="toc-text">2.5 Spring创建bean的注解有几种？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-spring-%E4%B8%AD%E7%9A%84-bean-%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-number">2.0.7.</span> <span class="toc-text">2.7 spring 中的 bean 是线程安全的吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-spring-%E6%94%AF%E6%8C%81%E5%87%A0%E7%A7%8D-bean-%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%9F"><span class="toc-number">2.0.8.</span> <span class="toc-text">2.8 spring 支持几种 bean 的作用域？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-spring-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D-bean-%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">2.0.9.</span> <span class="toc-text">2.9 spring 自动装配 bean 有哪些方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-spring-%E4%BA%8B%E5%8A%A1%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">2.0.10.</span> <span class="toc-text">2.10 spring 事务实现方式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-%E8%AF%B4%E4%B8%80%E4%B8%8B-spring-%E7%9A%84%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%EF%BC%9F"><span class="toc-number">2.0.11.</span> <span class="toc-text">2.11 说一下 spring 的事务隔离？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-SpringMVC"><span class="toc-number">3.</span> <span class="toc-text">3. SpringMVC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-SpringMVC%E5%92%8CSpring%E7%9A%84%E5%85%B3%E7%B3%BB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.0.1.</span> <span class="toc-text">3.1 SpringMVC和Spring的关系是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%AF%B4%E4%B8%80%E4%B8%8B-Spring-MVC-%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B%EF%BC%9F"><span class="toc-number">3.0.2.</span> <span class="toc-text">3.2 说一下 Spring MVC 运行流程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-spring-mvc-%E6%9C%89%E5%93%AA%E4%BA%9B%E7%BB%84%E4%BB%B6%EF%BC%9F"><span class="toc-number">3.0.3.</span> <span class="toc-text">3.3 spring mvc 有哪些组件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-RequestMapping-%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.0.4.</span> <span class="toc-text">3.4 @RequestMapping 的作用是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-Autowired-%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.0.5.</span> <span class="toc-text">3.5 @Autowired 的作用是什么？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/21/java%E5%9F%BA%E7%A1%80%E9%97%AE%E7%AD%94/" title="java基础问答">java基础问答</a><time datetime="2023-02-21T01:38:27.000Z" title="Created 2023-02-21 09:38:27">2023-02-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/20/Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="Markdown_基本语法">Markdown_基本语法</a><time datetime="2023-02-20T06:01:38.000Z" title="Created 2023-02-20 14:01:38">2023-02-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/20/github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-hexo/" title="github博客搭建(hexo)">github博客搭建(hexo)</a><time datetime="2023-02-20T05:52:00.000Z" title="Created 2023-02-20 13:52:00">2023-02-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/20/%E5%B8%B8%E8%A7%81Error/" title="常见Error">常见Error</a><time datetime="2023-02-20T03:07:37.000Z" title="Created 2023-02-20 11:07:37">2023-02-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
