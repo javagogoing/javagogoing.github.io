@@ -1,0 +1,2500 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>js思维引导 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="认识js.NET: C&#x2F;S 客户端服务器模式 （窗体）Java: B&#x2F;S 浏览器服务器模式 （网页） JS简介全名JavaScript ，又名浏览器脚本语言 作用：制作网页特效、实现网页表单验证 一个完整的网页需要：      html:网页基本架构     css:美化网页     js：动态特性和表单验证（在浏览器使用表单验证,减轻服务器的压力）  JS的基本结构1.行内脚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js思维引导">
+<meta property="og:url" content="http://example.com/2023/02/26/js%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="认识js.NET: C&#x2F;S 客户端服务器模式 （窗体）Java: B&#x2F;S 浏览器服务器模式 （网页） JS简介全名JavaScript ，又名浏览器脚本语言 作用：制作网页特效、实现网页表单验证 一个完整的网页需要：      html:网页基本架构     css:美化网页     js：动态特性和表单验证（在浏览器使用表单验证,减轻服务器的压力）  JS的基本结构1.行内脚">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-02-26T05:35:49.000Z">
+<meta property="article:modified_time" content="2023-03-01T07:55:24.560Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/26/js%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'js思维引导',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-01 15:55:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">js思维引导</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-02-26T05:35:49.000Z" title="Created 2023-02-26 13:35:49">2023-02-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-01T07:55:24.560Z" title="Updated 2023-03-01 15:55:24">2023-03-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="js思维引导"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="认识js"><a href="#认识js" class="headerlink" title="认识js"></a><strong><font color=#87CEFA>认识js</font></strong></h1><p>.NET: C&#x2F;S 客户端服务器模式 （窗体）<br>Java: B&#x2F;S 浏览器服务器模式 （网页）</p>
+<h2 id="JS简介"><a href="#JS简介" class="headerlink" title="JS简介"></a><strong><font color=#87CEFA>JS简介</font></strong></h2><p>全名JavaScript ，又名浏览器脚本语言</p>
+<p>作用：制作网页特效、实现网页表单验证</p>
+<p>一个完整的网页需要：    </p>
+<ul>
+<li>html:网页基本架构    </li>
+<li>css:美化网页    </li>
+<li>js：动态特性和表单验证（在浏览器使用表单验证,减轻服务器的压力）</li>
+</ul>
+<h2 id="JS的基本结构"><a href="#JS的基本结构" class="headerlink" title="JS的基本结构"></a><strong><font color=#87CEFA>JS的基本结构</font></strong></h2><p>1.行内脚本：写在具体的html标签内</p>
+<pre><code>&lt;input name=&quot;btn&quot; type=&quot;button&quot; value=&quot;点我弹出消息框&quot;onclick=&quot;javascript:alert(&#39;欢迎你&#39;);&quot;/&gt;
+</code></pre>
+<p>2.内嵌脚本：内嵌脚本可以写在html任意位置，但通常我们会写在标签内</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+//JavaScript 语句;
+&lt;/script&gt;
+</code></pre>
+<p>3.外部脚本：</p>
+<pre><code>①先新建单独的js脚本文件 如：export.js
+②在需要使用的html页面中引用
+&lt;script src=&quot;export.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>总结：</p>
+<pre><code>行内脚本简单，内嵌脚本实用，外部脚本可多个页面共享
+</code></pre>
+<h2 id="JS语法"><a href="#JS语法" class="headerlink" title="JS语法"></a><strong><font color=#87CEFA>JS语法</font></strong></h2><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a><strong><font color=#87CEFA>注释</font></strong></h3><pre><code>单行注释：//
+多行注释：/* */
+</code></pre>
+<h3 id="向页面写出"><a href="#向页面写出" class="headerlink" title="向页面写出"></a><strong><font color=#87CEFA>向页面写出</font></strong></h3><pre><code>//普通写出
+document.write(&quot;初学JavaScript&quot;);
+//写出html标签
+document.write(&quot;&lt;h1 align=&#39;center&#39; color=&#39;red&#39; &gt;Hello，JavaScript&lt;/h1&gt;&quot;);
+</code></pre>
+<h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a><strong><font color=#87CEFA>声明变量</font></strong></h3><pre><code>1、先声明再赋值 var a; a=5;
+2、声明并赋值 var a=5; var a,b,c,d=5;
+3、不用声明直接赋值： a=5;
+</code></pre>
+<p>var：用于声明变量的关键字（推算类型，可以用于表示任何类型）</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a><strong><font color=#87CEFA>数据类型</font></strong></h3><pre><code>number：
+    数值类型（整数和小数）
+string：
+    字符类型
+boolean：
+    布尔类型（true|false）
+undefined：
+    找不到具体类型 （如果变量没赋初始值，那就是undefined）
+null：
+    表示一个空值，与undefined值相等
+typeof
+    用于检测数据的具体类型，如：typeof(123)
+    会返回一个字符串形式的数据类型【number\string\boolean\undefined\object】
+        
+</code></pre>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a><strong><font color=#87CEFA>运算符</font></strong></h3><pre><code>赋值运算符： = += -=
+算术运算符：+ - * / % ++ --
+比较运算符：&gt; &lt; &gt;= &lt;= == != === !==
+逻辑运算符：&amp;&amp; || !
+</code></pre>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a><strong><font color=#87CEFA>数组</font></strong></h3><p>声明方式一：先初始长度 再赋值</p>
+<pre><code>var arr = new Array(3);
+fruit[0]=1;
+fruit[1]=5.5;
+fruit[2]=&quot;张三&quot;;
+</code></pre>
+<p>声明方式二：声明时赋值</p>
+<pre><code>var fruit= new Array(&quot;apple&quot;, &quot;orange&quot;, &quot; peach&quot;,&quot;banana&quot;);
+</code></pre>
+<p>数组的遍历</p>
+<pre><code>for(var i=0; i&lt;fruit.length; i++)&#123;
+document.write(fruit[i]+&quot;&lt;br/&gt;&quot;);
+&#125;
+</code></pre>
+<p>数组的遍历</p>
+<pre><code>for(var i=0; i&lt;fruit.length; i++)&#123;
+document.write(fruit[i]+&quot;&lt;br/&gt;&quot;);
+&#125;
+</code></pre>
+<h3 id="数组的常用方法"><a href="#数组的常用方法" class="headerlink" title="数组的常用方法"></a><strong><font color=#87CEFA>数组的常用方法</font></strong></h3><table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">join(str)</td>
+<td align="center">把所有数组元素以str连接成一个字符串</td>
+</tr>
+<tr>
+<td align="center">sort()</td>
+<td align="center">对数组排序</td>
+</tr>
+</tbody></table>
+<h3 id="字符串的常用方法"><a href="#字符串的常用方法" class="headerlink" title="字符串的常用方法"></a><strong><font color=#87CEFA>字符串的常用方法</font></strong></h3><table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">charAt(index)</td>
+<td align="center">返回指定位置的字符</td>
+</tr>
+<tr>
+<td align="center">indexOf(str,index)</td>
+<td align="center">返回str在字符串中的下标位置，从index开始找</td>
+</tr>
+<tr>
+<td align="center">substring(index1,index2)</td>
+<td align="center">返回index1下标到index2下标之间的字符串，包含index1，不包含index2</td>
+</tr>
+<tr>
+<td align="center">split(str)</td>
+<td align="center">返回index1下标到index2下标之间的字符串，包含index1，不包含index2</td>
+</tr>
+</tbody></table>
+<h2 id="JS函数"><a href="#JS函数" class="headerlink" title="JS函数"></a><strong><font color=#87CEFA>JS函数</font></strong></h2><h3 id="系统函数"><a href="#系统函数" class="headerlink" title="系统函数"></a><strong><font color=#87CEFA>系统函数</font></strong></h3><table>
+<thead>
+<tr>
+<th align="center">函数名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">parseInt(str)</td>
+<td align="center">把str字符串转换为整数</td>
+</tr>
+<tr>
+<td align="center">parseFloat(str)</td>
+<td align="center">把str字符串转换为小数</td>
+</tr>
+<tr>
+<td align="center">Number(str)</td>
+<td align="center">把str字符串转换为数字</td>
+</tr>
+<tr>
+<td align="center">isNaN(str)</td>
+<td align="center">判断字符串是否为非数字</td>
+</tr>
+</tbody></table>
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a><strong><font color=#87CEFA>自定义函数</font></strong></h3><p>关键字 ：function</p>
+<pre><code>function 函数名(参数列表)&#123;
+    //代码
+    return 返回值;
+&#125;
+</code></pre>
+<p>自定义函数通常会搭配具体的事件使用，如：按钮被点击时调用**函数</p>
+<pre><code>&lt;input name=&quot;btn&quot; type=&quot;button&quot; value=&quot;我是按钮&quot;onclick=&quot;函数名(参数列表)&quot;/&gt;
+</code></pre>
+<h3 id="常用事件"><a href="#常用事件" class="headerlink" title="常用事件"></a><strong><font color=#87CEFA>常用事件</font></strong></h3><pre><code>onload
+    一个页面或一幅图像完成加载
+onclick
+    鼠标单击某个对象
+onchenge
+    域内容被改变
+onmouseover
+    鼠标移到某个元素
+onmouseout
+    鼠标移出某个元素
+onkeydown
+    某个键盘的按键被按下
+</code></pre>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a><strong><font color=#87CEFA>扩展</font></strong></h2><p>根据id获取html页面元素：</p>
+<pre><code>//根据id获取到元素对象
+var inp=document.getElementById(&quot;inp1&quot;);
+//获取对象的value属性值
+var inpVal=btn.value;
+</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong><font color=#87CEFA>总结</font></strong></h2><p>1.JS是严格区分大小写的</p>
+<p>2.JS的错误消息不明显，效果没有出来，可能是某个语法写错了</p>
+<h1 id="BOM浏览器对象模型"><a href="#BOM浏览器对象模型" class="headerlink" title="BOM浏览器对象模型"></a><strong><font color=#87CEFA>BOM浏览器对象模型</font></strong></h1><p>JS程序的调试</p>
+<h2 id="BOM介绍"><a href="#BOM介绍" class="headerlink" title="BOM介绍"></a><strong><font color=#87CEFA>BOM介绍</font></strong></h2><p>BOM称之为浏览器对象模型（Browser Object Model），意思是把页面看成N个浏览器对象结构，每个对象都有自己的作用。</p>
+<img src="/imgs/js01.png">
+
+
+<h2 id="window对象介绍"><a href="#window对象介绍" class="headerlink" title="window对象介绍"></a><strong><font color=#87CEFA>window对象介绍</font></strong></h2><p>表示浏览器的根，所有的系统函数、事件都在window对象中补充window对象中的函数</p>
+<pre><code>prompt() 
+    弹出用户可输入的对话框
+
+alert() 
+    弹出一个有提示有确认按钮的警告框
+
+confirm()
+    弹出一个有提示，有确认和取消按钮的对话框
+
+close()
+    关闭浏览器窗口
+
+open() 
+    打开一个新的浏览器窗口
+</code></pre>
+<p>open的使用</p>
+<pre><code>window.open(&quot;弹出窗口的url&quot;,&quot;窗口名称&quot;,&quot;窗口特征1=值,窗口特征2=值”);
+
+特征属性如下：多个属性特征使用
+    height、width
+        窗口文档显示去的高度、宽度，单位为像素
+    left、top 
+        窗口的X坐标、Y坐标，单位为像素
+    toolbar=yes|no|1|0 
+        是否显示浏览器的工具栏，默认yes
+    scrollbars=yes|no 
+        是否显示滚动条，默认yes
+    location=yes|no 
+        是否显示地址地段，默认yes
+    status=yes|no 
+        是否显示状态栏，默认yes
+    menubar=yes|no 
+        是否显示菜单栏，默认yes
+    resizable=yes|no 
+        是否可调节窗口尺寸，默认yes
+    titlebar=yes|no
+        是否显示标题栏，默认yes
+</code></pre>
+<h2 id="loaction地址对象介绍"><a href="#loaction地址对象介绍" class="headerlink" title="loaction地址对象介绍"></a><strong><font color=#87CEFA>loaction地址对象介绍</font></strong></h2><p>属性</p>
+<pre><code>//获取当前页面地址
+var str=location.href;
+//设置当前页面地址
+location.href=&quot;../1.window/案例1.html&quot;；
+</code></pre>
+<p>方法</p>
+<pre><code>方法名称 
+    方法名称 
+reload() 
+    重新加载当前页面地址
+</code></pre>
+<h2 id="history对象介绍"><a href="#history对象介绍" class="headerlink" title="history对象介绍"></a><strong><font color=#87CEFA>history对象介绍</font></strong></h2><p>history保存了在浏览器窗口中访问过的 URL信息，通过a标签跳转页面或loaction.href跳转页面都会产生记录</p>
+<p>history的方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">back()</td>
+<td align="center">加载 history 对象列表中的后一个URL</td>
+</tr>
+<tr>
+<td align="center">forward()</td>
+<td align="center">加载 history 对象列表中的前一个URL</td>
+</tr>
+<tr>
+<td align="center">forward()</td>
+<td align="center">加载 history 对象列表中的某个具体URL</td>
+</tr>
+</tbody></table>
+<p>history.back() —-相当于—- history.go(-1) —-相当于后退</p>
+<p>history.forward() —-相当于—- history.go(1) —-相当于前进</p>
+<h2 id="document文档对象介绍"><a href="#document文档对象介绍" class="headerlink" title="document文档对象介绍"></a><strong><font color=#87CEFA>document文档对象介绍</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">write()</td>
+<td align="center">向页面写出</td>
+</tr>
+<tr>
+<td align="center">getElementById()</td>
+<td align="center">返回拥有指定id的第一个元素对象</td>
+</tr>
+<tr>
+<td align="center">getElementsByName()</td>
+<td align="center">返回拥有指定name的元素对象数组</td>
+</tr>
+<tr>
+<td align="center">getElementsByTagName()</td>
+<td align="center">返回拥有指定标签的元素对象数组</td>
+</tr>
+</tbody></table>
+<h3 id="页面元素对象的常用操作"><a href="#页面元素对象的常用操作" class="headerlink" title="页面元素对象的常用操作"></a><strong><font color=#87CEFA>页面元素对象的常用操作</font></strong></h3><p>1.获取或设置对象的属性</p>
+<pre><code>对象名.value
+对象名.innerHTML
+对象名.className
+图片对象.src
+</code></pre>
+<p>2.设置其css样式</p>
+<pre><code>对象名.style.backgroundColor=&quot;red&quot;;
+</code></pre>
+<h1 id="动态效果"><a href="#动态效果" class="headerlink" title="动态效果"></a><strong><font color=#87CEFA>动态效果</font></strong></h1><h2 id="JS内置对象"><a href="#JS内置对象" class="headerlink" title="JS内置对象"></a><strong><font color=#87CEFA>JS内置对象</font></strong></h2><h3 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a><strong><font color=#87CEFA>Date对象</font></strong></h3><pre><code>//创建Date对象，返回当前日期和时间
+var today=new Date();
+//创建指定时间的Date对象，表示2019年2月28日9时10分30秒
+var tdate=new Date(2019,1,28,9,10,30);//月的可填值范围是0~11，所以1表示2月
+</code></pre>
+<h3 id="Date对象的常用方法（获取日期的指定部分）"><a href="#Date对象的常用方法（获取日期的指定部分）" class="headerlink" title="Date对象的常用方法（获取日期的指定部分）"></a><strong><font color=#87CEFA>Date对象的常用方法（获取日期的指定部分）</font></strong></h3><table>
+<thead>
+<tr>
+<th align="center">方法名称</th>
+<th align="center">返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">getDate()</td>
+<td align="center">返回Date对象中的天，值介于1~31之间</td>
+</tr>
+<tr>
+<td align="center">getDay()</td>
+<td align="center">返回Date对象的星期，值介于0~6之间</td>
+</tr>
+<tr>
+<td align="center">getHours()</td>
+<td align="center">返回Date对象中的小时数，值介于0~23之间</td>
+</tr>
+<tr>
+<td align="center">getMinutes()</td>
+<td align="center">返回Date对象中的分钟数，值介于0~59之间</td>
+</tr>
+<tr>
+<td align="center">getSeconds()</td>
+<td align="center">返回Date对象中的秒数，值介于0~59之间</td>
+</tr>
+<tr>
+<td align="center">getFullYear()</td>
+<td align="center">返回Date对象中的年份，值为4位数</td>
+</tr>
+<tr>
+<td align="center">getTime()</td>
+<td align="center">返回1970年1月1日~Date对象之间的毫秒数</td>
+</tr>
+</tbody></table>
+<h2 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a><strong><font color=#87CEFA>Math对象</font></strong></h2><p>Math对象的常用方法</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ceil()</td>
+<td align="center">对数进行上舍入</td>
+<td align="center">Math.ceil(25.5) ;返回26</td>
+</tr>
+<tr>
+<td align="center">floor()</td>
+<td align="center">对数进行下舍入</td>
+<td align="center">Math.floor(25.5);返回25</td>
+</tr>
+<tr>
+<td align="center">round()</td>
+<td align="center">把数四舍五入为最接近的数</td>
+<td align="center">Math.round(25.5);返回26</td>
+</tr>
+<tr>
+<td align="center">random()</td>
+<td align="center">返回0~1之间的随机数</td>
+<td align="center">Math.random();返回0~1之间的任意小数</td>
+</tr>
+</tbody></table>
+<h2 id="延时器"><a href="#延时器" class="headerlink" title="延时器"></a><strong><font color=#87CEFA>延时器</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">setTimeout()</td>
+<td align="center">在指定的毫秒数后调用函数或计算表达式</td>
+</tr>
+<tr>
+<td align="center">clearTimeout()</td>
+<td align="center">清除指定的setTimeout对象</td>
+</tr>
+</tbody></table>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a><strong><font color=#87CEFA>定时器</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">setInterval()</td>
+<td align="center">在指定的毫秒数后调用函数或计算表达式</td>
+</tr>
+<tr>
+<td align="center">clearInterval()</td>
+<td align="center">清除指定的setInterval对象</td>
+</tr>
+</tbody></table>
+<h1 id="JS的DOM操作"><a href="#JS的DOM操作" class="headerlink" title="JS的DOM操作"></a><strong><font color=#87CEFA>JS的DOM操作</font></strong></h1><h2 id="DOM简介"><a href="#DOM简介" class="headerlink" title="DOM简介"></a><strong><font color=#87CEFA>DOM简介</font></strong></h2><p>JavaScript还提供了通过层次关系来获取元素对象，也就是我们今天学习的DOM节点操作。</p>
+<p>Document Object Model（文档对象模型），把页面看成一个大文档，可以更方便的获取元素</p>
+<h2 id="节点属性"><a href="#节点属性" class="headerlink" title="节点属性"></a><strong><font color=#87CEFA>节点属性</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">parentNode</td>
+<td align="center">返回当前对象的父节点</td>
+</tr>
+<tr>
+<td align="center">childNodes</td>
+<td align="center">返回当前对象的所有直系子节点集合</td>
+</tr>
+<tr>
+<td align="center">firstNode</td>
+<td align="center">返回当前对象的第一个子节点</td>
+</tr>
+<tr>
+<td align="center">astNode</td>
+<td align="center">返回当前对象的最后一个子节点</td>
+</tr>
+<tr>
+<td align="center">nextSibling</td>
+<td align="center">返回当前对象的 下一个兄弟节点</td>
+</tr>
+<tr>
+<td align="center">previousSibling</td>
+<td align="center">返回当前对象的上一个兄弟节点</td>
+</tr>
+</tbody></table>
+<p>案例</p>
+<pre><code>//获取到某个元素对象
+var div1=document.getElementById(&quot;div1&quot;);
+        //获取元素对象的所有儿子
+var nodes=div1.childNodes;
+        //获取元素对象的第2个儿子
+var node=div1.childNodes[1];
+        //获取元素对象的父亲
+var pNode=div1.parentNode;
+</code></pre>
+<h2 id="获取节点的信息"><a href="#获取节点的信息" class="headerlink" title="获取节点的信息"></a><strong><font color=#87CEFA>获取节点的信息</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nodeName</td>
+<td align="center">获取节点名称</td>
+</tr>
+<tr>
+<td align="center">nodeValue</td>
+<td align="center">获取节点的值</td>
+</tr>
+<tr>
+<td align="center">nodeType</td>
+<td align="center">获取节点的类型</td>
+</tr>
+</tbody></table>
+<p>nodeType的返回值说明</p>
+<table>
+<thead>
+<tr>
+<th align="center">nodeType值</th>
+<th align="center">节点类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">元素Element</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">属性attr</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">文本text</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">注释comments</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">文档document</td>
+</tr>
+</tbody></table>
+<h2 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a><strong><font color=#87CEFA>创建节点</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">createElement( tagName)</td>
+<td align="center">创建一个标签名为tagName的新元素节点</td>
+</tr>
+<tr>
+<td align="center">A.appendChild( B)</td>
+<td align="center">把B节点追加至A节点的末尾</td>
+</tr>
+<tr>
+<td align="center">insertBefore( A,B )</td>
+<td align="center">把A节点插入到B节点之前</td>
+</tr>
+</tbody></table>
+<p>案例</p>
+<pre><code>//创建图片元素对象
+    var img=document.createElement(&quot;img&quot;);
+//设置图片元素的属性
+    img.setAttribute(&quot;src&quot;,&quot;images/dog.jpg&quot;);
+    img.setAttribute(&quot;alt&quot;,&quot;我和狗狗一起活下来&quot;);
+//给图片的点击事件绑定函数
+    方式一：匿名函数
+    img.onclick=function ()&#123;
+        alert(&quot;测试&quot;);
+    &#125;
+方式二：绑定函数名
+    function aa()&#123;
+    alert(&quot;测试&quot;);
+    &#125;
+    mg.onclick=aa;
+//获取div对象，讲图片添加到div内的末尾
+    var div1=document.getElementById(&quot;div1&quot;);
+    div1.appendChild(img);
+
+在我们创建的节点元素内容过于复杂的情况下，也可以直接使用字符串创建内容
+//创建行节点
+    var newTr=document.createElement(&quot;tr&quot;);
+//创建行节点
+    var newTr=document.createElement(&quot;tr&quot;);
+//为行节点添加内容
+    newTr.innerHTML=str;
+        
+</code></pre>
+<h2 id="删除和替换节点"><a href="#删除和替换节点" class="headerlink" title="删除和替换节点"></a><strong><font color=#87CEFA>删除和替换节点</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">removeChild( node)</td>
+<td align="center">删除指定的节点</td>
+</tr>
+<tr>
+<td align="center">replaceChild( newNode, oldNode)</td>
+<td align="center">用其他的节点替换指定的节点</td>
+</tr>
+</tbody></table>
+<h1 id="初识jQuery"><a href="#初识jQuery" class="headerlink" title="初识jQuery"></a><strong><font color=#87CEFA>初识jQuery</font></strong></h1><h2 id="jQuery简介"><a href="#jQuery简介" class="headerlink" title="jQuery简介"></a><strong><font color=#87CEFA>jQuery简介</font></strong></h2><p>jQuery由美国人John Resig于2006年创建</p>
+<p>jQuery是对JavaScript对象和函数的封装，是目前最流行的JavaScript程序库之一</p>
+<p>jQuery的设计思想是write less,do more</p>
+<p>总结：jQuery能做的JavaScript都能做，但使用jQuery更简洁，能大幅提高开发效率</p>
+<h2 id="jQuery的优势"><a href="#jQuery的优势" class="headerlink" title="jQuery的优势"></a><strong><font color=#87CEFA>jQuery的优势</font></strong></h2><p>1.体积小，压缩后只有100KB左右<br>2.有强大的选择器<br>3.更出色的DOM封装<br>4.出色的浏览器兼容性<br>5.代码简洁<br>6.丰富的插件支持</p>
+<h2 id="使用jQuery"><a href="#使用jQuery" class="headerlink" title="使用jQuery"></a><strong><font color=#87CEFA>使用jQuery</font></strong></h2><p>1.下载jquery支持包：jQuery官网：<a target="_blank" rel="noopener" href="http://jquery.com/">http://jquery.com</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">版本名称j</th>
+<th align="center">大小</th>
+<th align="center">Query的开发版和发布版</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">jquery-1.版本号.js（开发版）</td>
+<td align="center">约286KB</td>
+<td align="center">完整无压缩版本，主要用于测试、学习和开发</td>
+</tr>
+<tr>
+<td align="center">jquery-1.版本号.min.js（发布版）</td>
+<td align="center">约94.8KB</td>
+<td align="center">经过工具压缩或经过服务器开启Gzip压缩，主要应用于发布的产品和项目</td>
+</tr>
+</tbody></table>
+<p>2.在页面中引入jQuery</p>
+<pre><code>&lt;script src=&quot;js/jquery-1.12.4.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>3.在script标签中写jQuery代码</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+$(document).ready(function() &#123;
+alert(&quot;我欲奔赴沙场征战jQuery，势必攻克之！&quot;);
+&#125;);
+&lt;/script&gt;
+</code></pre>
+<h2 id="jQuery语法学习"><a href="#jQuery语法学习" class="headerlink" title="jQuery语法学习"></a><strong><font color=#87CEFA>jQuery语法学习</font></strong></h2><p>获取页面元素对象：$(selector)</p>
+<pre><code>1.根据id名获取对象： var obj=$(&quot;#id名&quot;);
+2.根据class名获取对象： var obj=$(&quot;.class名&quot;);
+3.根据标签名获取对象： var obj=$(&quot;标签名&quot;);
+$()： 相当于 jQuery()
+</code></pre>
+<p>jQuery对象的常用操作：$(selector).action()</p>
+<pre><code>//获取jQuery对象的value值
+jQuery对象.val();
+
+//获取双标签之间的文本
+jQuery对象.html();
+
+//给jQuery对象添加“title”的class名
+jQuery对象.addClass(&quot;title&quot;);
+
+//给jQuery对象移除“title”的class名
+jQuery对象.removeClass(&quot;title&quot;);
+
+//给jQuery对象设置css样式属性
+//设置单个样式属性
+    jQuery对象.css(&quot;background-color&quot;,&quot;#ccffff&quot;);
+    
+//设置多个样式属性(冒号隔开属性和属性值,逗号隔开属性与属性之间)
+    jQuery对象.css(&#123;&quot;font-weight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;red&quot;&#125;);
+    
+//设置属性
+    jQuery对象.prop(&quot;title&quot;,&quot;我是图片&quot;);
+    
+//获取属性值
+    val t=jQuery对象.prop(&quot;title&quot;);
+    
+//让jQuery对象显示
+    jQuery对象.show();
+    
+//让jQuery对象显示
+    jQuery对象.show();
+                                    
+</code></pre>
+<h2 id="使用Jquery为元素对象添加事件"><a href="#使用Jquery为元素对象添加事件" class="headerlink" title="使用Jquery为元素对象添加事件"></a><strong><font color=#87CEFA>使用Jquery为元素对象添加事件</font></strong></h2><pre><code>//格式
+    $(selector).事件名称(function ()&#123;
+        //执行代码
+    &#125;);
+
+//为所有li标签添加点击事件
+    $(&quot;li&quot;).click(function ()&#123;
+        //执行代码
+    &#125;);
+    
+//为id=&quot;div1&quot;的元素添加鼠标进入事件
+    $(&quot;#div1&quot;).mouseover(function ()&#123;
+        //执行代码
+    &#125;);
+    
+</code></pre>
+<p>$(this) </p>
+<pre><code>可在事件函数中使用，表示产生事件的对象，可用于获取或设置其属性 如：$(this).value 等.
+    
+</code></pre>
+<p>jQuery的加载事件</p>
+<pre><code>$(document).ready(function() &#123;
+    //执行代码
+&#125;
+
+简写方式：
+$(function()&#123;
+    //执行代码
+&#125;) ;
+    
+    
+</code></pre>
+<p>jQuery加载事件和javascript加载事件的区别：</p>
+<table>
+<thead>
+<tr>
+<th align="center">事件</th>
+<th align="center">执行时机</th>
+<th align="center">编写个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">window.onload</td>
+<td align="center">必须等待网页中所有的内容加载完毕后（包括图片、flash、视频等）才能执行</td>
+<td align="center">一个页面只能有一个</td>
+</tr>
+<tr>
+<td align="center">$(document).ready()</td>
+<td align="center">网页中基本DOM结构加载完毕后即刻执行，可能DOM元素关联的内容（图片、flash、视频等）并没有加载完</td>
+<td align="center">一个页面能编写多个</td>
+</tr>
+</tbody></table>
+<h2 id="javascript对象和jQuery对象的转换"><a href="#javascript对象和jQuery对象的转换" class="headerlink" title="javascript对象和jQuery对象的转换"></a><strong><font color=#87CEFA>javascript对象和jQuery对象的转换</font></strong></h2><p>javascript对象和jQuery对象分别拥有一套独立的方法，不能混用</p>
+<pre><code>//javascript对象
+    var obj=document.getElementById(&quot;title&quot;);
+    var objHTML=obj.innerHTML;
+//jQuery对象
+    var obj=$(&quot;#title&quot;);
+    var objHTML=obj.html();
+    
+    
+</code></pre>
+<p>javascript对象转jQuery对象</p>
+<pre><code>var txtName =document.getElementById(&quot;txtName&quot;);
+var $txtName =$(txtName);
+</code></pre>
+<p>jQuery对象转javascript对象</p>
+<pre><code>var $txtName =$(&quot;#txtName&quot;);
+var txtName =$txtName[0]; //或者使用var txtName =$txtName.get(0);效果一样
+</code></pre>
+<h1 id="jQuery强大的选择器"><a href="#jQuery强大的选择器" class="headerlink" title="jQuery强大的选择器"></a><strong><font color=#87CEFA>jQuery强大的选择器</font></strong></h1><h2 id="本章简介"><a href="#本章简介" class="headerlink" title="本章简介"></a><strong><font color=#87CEFA>本章简介</font></strong></h2><p>jQuery使用选择器选取网页中的元素，选择器类似于CSS选择器。如：$(“h3”).css(“background”,”#09F”);该代码获取网页中所有<h3>标签元素，为其设置了css的背景颜色属性</p>
+<p>jQuery选择器功能强大，种类也很多，分类如下</p>
+<p>1.基本选择器<br>2.层次选择器<br>3.属性选择器<br>4.基本过滤选择器<br>5.可见性过滤选择器</p>
+<h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a><strong><font color=#87CEFA>基本选择器</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">标签</th>
+<th align="center">作用</th>
+<th align="center">案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">标签选择器</td>
+<td align="center">element</td>
+<td align="center">根据给定的标签名匹配元素</td>
+<td align="center">$(“h2” )选取所有h2元素</td>
+</tr>
+<tr>
+<td align="center">类选择器</td>
+<td align="center">.class</td>
+<td align="center">根据给定的class名匹配元素</td>
+<td align="center">$(“ .title”)选取所有class为title的元素</td>
+</tr>
+<tr>
+<td align="center">id选择器</td>
+<td align="center">#id</td>
+<td align="center">根据给定的id匹配元素</td>
+<td align="center">$(“ #title”)选取id为title的元素</td>
+</tr>
+<tr>
+<td align="center">并集选择器</td>
+<td align="center">selector1,selector2…</td>
+<td align="center">将每一个选择器匹配的元素合并后一起返回</td>
+<td align="center">$(“div,p,.title” )选取所有div标签、p标签和拥有class为title的元素</td>
+</tr>
+<tr>
+<td align="center">全局选择器</td>
+<td align="center">*</td>
+<td align="center">匹配所有元素</td>
+<td align="center">$(“*” )选取所有元素</td>
+</tr>
+</tbody></table>
+<h2 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a><strong><font color=#87CEFA>层次选择器</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">标签</th>
+<th align="center">作用</th>
+<th align="center">案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">后代选择器</td>
+<td align="center">ancestor  descendant</td>
+<td align="center">选取ancestor元素里的所有descendant（后代）元素</td>
+<td align="center">$(“#menu span” )选取#menu下的span元素</td>
+</tr>
+<tr>
+<td align="center">子选择器</td>
+<td align="center">parent&gt;child</td>
+<td align="center">选取parent元素下的child（子）元素</td>
+<td align="center">$(“ #menu&gt;span” )选取#menu的子元素span</td>
+</tr>
+<tr>
+<td align="center">相邻元素选择器</td>
+<td align="center">prev+next</td>
+<td align="center">选取紧邻prev元素之后的next元素</td>
+<td align="center">$(“ h2+dl “ )选取紧邻h2元素之后的同辈元素dl</td>
+</tr>
+<tr>
+<td align="center">同辈元素选择器</td>
+<td align="center">prev~sibings</td>
+<td align="center">选取prev元素之后的所有siblings元素</td>
+<td align="center">$(“ h2~dl “ )选取h2元素之后所有的同辈元素dl</td>
+</tr>
+</tbody></table>
+<h2 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a><strong><font color=#87CEFA>基本过滤选择器</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">标签</th>
+<th align="center">作用</th>
+<th align="center">案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">[attribute&#x3D;value]</td>
+<td align="center">选取给定属性等于value的元素</td>
+<td align="center">$(“input[type&#x3D;’button’]” )选取所有按钮元素</td>
+</tr>
+<tr>
+<td align="center">[attribute!&#x3D;value]</td>
+<td align="center">选取给定属性不等于value的元素</td>
+<td align="center">$(“input[type!&#x3D;’button’]” )选取非按钮的input元素</td>
+</tr>
+</tbody></table>
+<h2 id="jQuery强大的选择器-1"><a href="#jQuery强大的选择器-1" class="headerlink" title="jQuery强大的选择器"></a><strong><font color=#87CEFA>jQuery强大的选择器</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">标签</th>
+<th align="center">作用</th>
+<th align="center">案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:first</td>
+<td align="center">选取第一个元素</td>
+<td align="center">$(“li:first” )选取第一个li元素</td>
+</tr>
+<tr>
+<td align="center">:last</td>
+<td align="center">选取最后一个元素</td>
+<td align="center">$(“li:last” )选取最后一个li元素</td>
+</tr>
+<tr>
+<td align="center">:eq(index)</td>
+<td align="center">选取索引等于index的元素（index从0开始）</td>
+<td align="center">$(“li:eq(1)” )选取索引等于1的li元素</td>
+</tr>
+<tr>
+<td align="center">:gt(index)</td>
+<td align="center">选取索引大于index的元素（index从0开始）</td>
+<td align="center">$(“li:gt(1)” )选取索引大于1的li元素（注:不包1）</td>
+</tr>
+<tr>
+<td align="center">:lt(index)</td>
+<td align="center">选取索引小于index的元素（index从0开始）</td>
+<td align="center">$(“li:gt(1)” )选取索引小于1的li元素（注:不包1）</td>
+</tr>
+<tr>
+<td align="center">:even</td>
+<td align="center">选取索引为偶数行的元素</td>
+<td align="center">$(“li:even” )选取索引为偶数行的li元素（注:0属于偶数行）</td>
+</tr>
+<tr>
+<td align="center">:odd</td>
+<td align="center">选取索引为奇数行的元素</td>
+<td align="center">$(“li:odd” )选取索引为奇数行的li元素</td>
+</tr>
+<tr>
+<td align="center">:focus</td>
+<td align="center">选取当前获取焦点的元素</td>
+<td align="center">$(“:focus” )选取当前获取焦点的元素</td>
+</tr>
+<tr>
+<td align="center">.not(selector)</td>
+<td align="center">选取去除所有与给定选择器匹配的元素</td>
+<td align="center">$(“ li” ).not(“.three”)选取class不是three的li元素</td>
+</tr>
+</tbody></table>
+<h2 id="可见性过滤选择器"><a href="#可见性过滤选择器" class="headerlink" title="可见性过滤选择器"></a><strong><font color=#87CEFA>可见性过滤选择器</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">标签</th>
+<th align="center">作用</th>
+<th align="center">案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:visible</td>
+<td align="center">选取所有可见的元素</td>
+<td align="center">$(“p:visible” )选取所有可见的p元素</td>
+</tr>
+<tr>
+<td align="center">:hidden</td>
+<td align="center">选取所有隐藏的元素</td>
+<td align="center">$(“p:visible” )选取所有隐藏的p元素</td>
+</tr>
+</tbody></table>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a><strong><font color=#87CEFA>注意事项</font></strong></h2><p>1.\转义符</p>
+<pre><code>//如页面元素中id名带有#号
+    &lt;div id=&quot;id#a&quot;&gt;aa&lt;/div&gt;
+//错误示范
+    $(&quot;#id#a&quot;);
+//正确示范使用\\转义
+    $(&quot;#id\\#a&quot;);
+</code></pre>
+<p>2.选择器中的空格,选择器的书写规范很严格，多一个空格或少一个空格，都会影响选择器的效果</p>
+<pre><code>//如下带空格的jQuery选择器,选取class为“test”的元素内部的隐藏元素
+    var $t_a = $(&quot;.test :hidden&quot;);
+//如下不带空格的jQuery选择器,选取class为“test”的隐藏元素
+    var $t_b = $(&quot;.test:hidden&quot;);
+</code></pre>
+<h1 id="事件的总结和动画"><a href="#事件的总结和动画" class="headerlink" title="事件的总结和动画"></a><strong><font color=#87CEFA>事件的总结和动画</font></strong></h1><h2 id="常用事件汇总"><a href="#常用事件汇总" class="headerlink" title="常用事件汇总"></a><strong><font color=#87CEFA>常用事件汇总</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">名称</th>
+<th align="center">案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">click()</td>
+<td align="center">点击事件</td>
+<td align="center">$(‘触发位置’).click(function(){});</td>
+</tr>
+<tr>
+<td align="center">dbclick()</td>
+<td align="center">双击事件</td>
+<td align="center">$(‘触发位置’).dbclick(function(){});</td>
+</tr>
+<tr>
+<td align="center">mouseover()</td>
+<td align="center">鼠标移入事件</td>
+<td align="center">$(‘触发位置’).mouseover(function(){});</td>
+</tr>
+<tr>
+<td align="center">mouseout()</td>
+<td align="center">输出移出事件</td>
+<td align="center">$(‘触发位置’).mouseout(function(){});</td>
+</tr>
+<tr>
+<td align="center">change()</td>
+<td align="center">值改变事件</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">keydown()</td>
+<td align="center">键盘按下事件</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">focus()</td>
+<td align="center">获得焦点事件</td>
+<td align="center">$(‘触发位置’).focus(function(){});</td>
+</tr>
+<tr>
+<td align="center">blur()</td>
+<td align="center">失去焦点事件</td>
+<td align="center">$(‘触发位置’).blur(function(){});</td>
+</tr>
+<tr>
+<td align="center">submit()</td>
+<td align="center">表单的提交事件</td>
+<td align="center">$(‘触发位置’).submit(function{});</td>
+</tr>
+</tbody></table>
+<p>mouseover和mouseout的简写</p>
+<pre><code>jQuery对象.hover(
+    function ()&#123;
+        //第一个函数为mouseover事件
+    &#125;,function ()&#123;
+        //第一个函数为mouseout事件
+    &#125;
+);
+</code></pre>
+<h2 id="事件的绑定"><a href="#事件的绑定" class="headerlink" title="事件的绑定"></a><strong><font color=#87CEFA>事件的绑定</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">事件名称</th>
+<th align="center">说明</th>
+<th align="center">语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">bind()</td>
+<td align="center">向匹配元素绑定(添加)一个或更多事件处理器</td>
+<td align="center">$(“img”).bind(“click”,aa);&#x2F;&#x2F;单击事件 $(“img”).bind(“dblclick”,bb);&#x2F;&#x2F;双击事件</td>
+</tr>
+<tr>
+<td align="center">unbind()</td>
+<td align="center">从匹配元素解绑(删除)一个事件处理器</td>
+<td align="center">$(“img”).unbind(“click”,aa);</td>
+</tr>
+</tbody></table>
+<h2 id="隐藏和显示的动画效果"><a href="#隐藏和显示的动画效果" class="headerlink" title="隐藏和显示的动画效果"></a><strong><font color=#87CEFA>隐藏和显示的动画效果</font></strong></h2><p>1.显示 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]</p>
+<pre><code>jquery对象.show();
+</code></pre>
+<p>2.隐藏 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]</p>
+<pre><code>jquery对象.hide();
+</code></pre>
+<p>3.使用淡入效果来显示一个元素 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]</p>
+<pre><code>jquery对象.fadeIn();
+</code></pre>
+<p>4.使用淡出效果来隐藏一个元素 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]</p>
+<pre><code>jquery对象.fadeOut();
+</code></pre>
+<p>5.通过调整高度来隐藏一个元素 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]</p>
+<pre><code>jquery对象.slideUp();
+</code></pre>
+<p>6.通过调整高度来显示一个元素 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]</p>
+<pre><code>jquery对象.slideDown();
+</code></pre>
+<h1 id="jQuery的DOM操作"><a href="#jQuery的DOM操作" class="headerlink" title="jQuery的DOM操作"></a><strong><font color=#87CEFA>jQuery的DOM操作</font></strong></h1><h2 id="jQuery获取元素的方式"><a href="#jQuery获取元素的方式" class="headerlink" title="jQuery获取元素的方式"></a><strong><font color=#87CEFA>jQuery获取元素的方式</font></strong></h2><p>1.强大的选择器<br>2.通过层次关系获取</p>
+<h2 id="获取父元素"><a href="#获取父元素" class="headerlink" title="获取父元素"></a><strong><font color=#87CEFA>获取父元素</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">parent()</td>
+<td align="center">获取直系父元素</td>
+<td align="center">&#x2F;&#x2F;获取#divMain的直系父元素    $(“#divMain”).parent();</td>
+</tr>
+</tbody></table>
+<h2 id="获取子元素"><a href="#获取子元素" class="headerlink" title="获取子元素"></a><strong><font color=#87CEFA>获取子元素</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">children([selector])</td>
+<td align="center">获得当前元素的直系子元素，[selector]为可选参数，表示在子元素中再筛选  		在当前元素的所有后代中通过选择器再筛选</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<pre><code>children()的使用
+    //获取#divMain所有的直系子元素,不包含文本空格注释
+        $(&quot;#divMain&quot;).children();
+    //在#divMain所有的直系子元素中筛选出ul标签
+        $(&quot;#divMain&quot;).children(&quot;ul&quot;);
+    //在#divMain所有的直系子元素中筛选出类名为ul3的
+        $(&quot;#divMain&quot;).children(&quot;.ul3&quot;);
+    //在#divMain所有的直系子元素中筛选出第二个子元素
+        $(&quot;#divMain&quot;).children(&quot;:eq(1)&quot;);
+
+find()的使用
+    //在#divMain的所有后代中，根据 li:gt(3) 筛选
+        $(&quot;#divMain&quot;).find(&quot;li:gt(3)&quot;);
+</code></pre>
+<h2 id="获取同级元素"><a href="#获取同级元素" class="headerlink" title="获取同级元素"></a><strong><font color=#87CEFA>获取同级元素</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">next()</td>
+<td align="center">后一个相邻同级元素</td>
+</tr>
+<tr>
+<td align="center">.nextAll()</td>
+<td align="center">后面的所有同级元素</td>
+</tr>
+<tr>
+<td align="center">.prev()</td>
+<td align="center">前一个相邻同级元素</td>
+</tr>
+<tr>
+<td align="center">.prevAll()</td>
+<td align="center">前面的所有同级元素</td>
+</tr>
+<tr>
+<td align="center">.siblings()</td>
+<td align="center">前后所有的同级元素</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<pre><code>注：所有获取同级元素的方法，（）中都可以继续通过选择器筛选
+//获取#divMain后面的所有同级元素
+    $(&quot;#divMain&quot;).nextAll();
+//获取#divMain后面同级的p元素
+    $(&quot;#divMain&quot;).nextAll(&quot;p&quot;);
+</code></pre>
+<h2 id="复习总结jQuery元素对象的常用操作"><a href="#复习总结jQuery元素对象的常用操作" class="headerlink" title="复习总结jQuery元素对象的常用操作"></a><strong><font color=#87CEFA>复习总结jQuery元素对象的常用操作</font></strong></h2><p>获取&amp;设置value属性值</p>
+<pre><code>var str=jQuery对象.val(); //获取
+jQuery对象.val(&quot;值内容&quot;); //设置
+</code></pre>
+<p>获取&amp;设置双标签之间内容(包含标签)</p>
+<pre><code>var str=jQuery对象.html(); //获取
+jQuery对象.html(&quot;内容&quot;); //设置
+</code></pre>
+<p>获取双标签之间内容(仅内容)</p>
+<pre><code>var str=jQuery对象.text();
+</code></pre>
+<p>css样式的常用操作</p>
+<pre><code>jQuery对象.addClass(&quot;类名&quot;); //添加类名
+jQuery对象.removeClass(&quot;类名&quot;); //移除类名
+jQuery对象.css(&quot;css属性&quot;,&quot;值&quot;)； //设置指定的css属性值
+var str=jQuery对象.css(&quot;css属性&quot;)； //获取指定的css属性值
+jQuery对象.css(&#123;&quot;css属性1&quot;:&quot;值1&quot;,&quot;css属性2&quot;:&quot;值2&quot;&#125;)； //设置多个指定的css属性值
+</code></pre>
+<p>属性操作</p>
+<pre><code>//根据属性名称获取属性值
+    var f=jQuery对象.prop(&quot;checked&quot;);
+//根据属性名称设置属性值
+    jQuery对象.prop(&quot;checked&quot;,true);
+</code></pre>
+<p>显示和隐藏</p>
+<pre><code>.show() .hide() //普通隐藏方式
+.fadeOut() .fadeIn() //淡出淡入的隐藏方式
+.slideDown() .sildeUp() //调整高度的隐藏方式
+</code></pre>
+<h2 id="添加节点"><a href="#添加节点" class="headerlink" title="添加节点"></a><strong><font color=#87CEFA>添加节点</font></strong></h2><p>先创建新的节点</p>
+<pre><code>var newNode2=(&quot;&lt;li class=&#39;last&#39;&gt;北京申办冬奥会是再合适不过了！&lt;/li&gt;&quot;);
+</code></pre>
+<p>选择添加方式，添加到</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$(A).append(B)</td>
+<td align="center">表示将B追加到A中</td>
+</tr>
+<tr>
+<td align="center">$(A). prepend (B)</td>
+<td align="center">表示将B前置插入到A中</td>
+</tr>
+<tr>
+<td align="center">$(A).after (B)</td>
+<td align="center">表示将B插入到A之后</td>
+</tr>
+<tr>
+<td align="center">$(A). before (B)</td>
+<td align="center">表示将B插入至A之前</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<pre><code>//1.创建一个新的li元素
+    var newNode2=(&quot;&lt;li class=&#39;last&#39;&gt;北京申办冬奥会是再合适不过了！&lt;/li&gt;&quot;);
+//2.把新创建的元素追加到id为ul1的对象中
+    $(&quot;#ul1&quot;).append(newNode2);
+        
+</code></pre>
+<h2 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a><strong><font color=#87CEFA>删除节点</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.remove()</td>
+<td align="center">删除被选中的元素和其子元素</td>
+</tr>
+<tr>
+<td align="center">.empty()</td>
+<td align="center">清空选中的元素节点的内容</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<pre><code>//删除id为ul1的元素
+    $(&quot;#ul1&quot;).remove();
+//清空id为ul1的元素内容
+    $(&quot;#ul1&quot;).empty();
+</code></pre>
+<h1 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a><strong><font color=#87CEFA>表单验证</font></strong></h1><h2 id="什么是表单？"><a href="#什么是表单？" class="headerlink" title="什么是表单？"></a><strong><font color=#87CEFA>什么是表单？</font></strong></h2><p>网页用来收集数据的</p>
+<h2 id="什么是表单验证？"><a href="#什么是表单验证？" class="headerlink" title="什么是表单验证？"></a><strong><font color=#87CEFA>什么是表单验证？</font></strong></h2><p>验证数据输入的准确性</p>
+<h2 id="为什么要做表单验证？"><a href="#为什么要做表单验证？" class="headerlink" title="为什么要做表单验证？"></a><strong><font color=#87CEFA>为什么要做表单验证？</font></strong></h2><p>保证输入的数据符合要求，使用js&#x2F;jquery做验证减轻了服务器的压力</p>
+<h2 id="常用的验证"><a href="#常用的验证" class="headerlink" title="常用的验证"></a><strong><font color=#87CEFA>常用的验证</font></strong></h2><ul>
+<li>表单元素内容不能为空</li>
+<li>年龄只能在1~100之间</li>
+<li>用户名和密码长度必须大于6位</li>
+<li>日期格式是否正确</li>
+<li>E-mail地址是否正确</li>
+<li>身份证号码是否正确</li>
+</ul>
+<h2 id="表单验证的思路1"><a href="#表单验证的思路1" class="headerlink" title="表单验证的思路1"></a><strong><font color=#87CEFA>表单验证的思路1</font></strong></h2><p>在表单被提交时做验证，验证通过则提交，不通过则阻止<br>需要用到的事件</p>
+<pre><code>submit() ：表单的提交事件，当表单被提交时触发
+</code></pre>
+<p>jquery提供的表单选择器</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:input</td>
+<td align="center">匹配所有input、textarea、select和button 元素</td>
+</tr>
+<tr>
+<td align="center">:text</td>
+<td align="center">匹配所有单行文本框</td>
+</tr>
+<tr>
+<td align="center">:password</td>
+<td align="center">匹配所有密码框</td>
+</tr>
+<tr>
+<td align="center">:radio</td>
+<td align="center">匹配所有单项按钮</td>
+</tr>
+<tr>
+<td align="center">:checkbox</td>
+<td align="center">匹配所有复选框</td>
+</tr>
+<tr>
+<td align="center">:submit</td>
+<td align="center">匹配所有提交按钮</td>
+</tr>
+<tr>
+<td align="center">:reset</td>
+<td align="center">匹配所有重置按钮</td>
+</tr>
+<tr>
+<td align="center">:button</td>
+<td align="center">匹配所有按钮</td>
+</tr>
+<tr>
+<td align="center">:image</td>
+<td align="center">匹配所有图像域(type&#x3D;” image”)input元素</td>
+</tr>
+<tr>
+<td align="center">:file</td>
+<td align="center">匹配所有文件域 (type&#x3D;” file “)input元素</td>
+</tr>
+<tr>
+<td align="center">:hidden</td>
+<td align="center">匹配所有不可见元素，或者type 为hidden的元素</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<pre><code>$(&quot;#myform :input&quot;)//选取id=myform表单中所有的input、select和button元素
+
+$(&quot;#myform :text&quot; )//选取id=myform表单中所有的input type=&quot;text&quot; /&gt;元素
+</code></pre>
+<p>表单属性过滤选择器</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">:checked</td>
+<td align="center">匹配所有被选中元素（复选框、单项按钮、select 中的option）</td>
+</tr>
+<tr>
+<td align="center">:selected</td>
+<td align="center">匹配所有选中的option 元素</td>
+</tr>
+</tbody></table>
+<p>示例</p>
+<pre><code>$(&quot;#myform :checked&quot; )//能匹配所有单选按钮、复选框的选中项
+
+$(&quot;#myform :radio[name=&#39;sex&#39;]:checked&quot; ) //匹配name=&#39;sex&#39;的单选按钮选中项
+
+$(&quot;#myform :select[name=&#39;city&#39;]:selected&quot;) //匹配城市下拉框的选中option
+</code></pre>
+<h2 id="表单验证的思路2"><a href="#表单验证的思路2" class="headerlink" title="表单验证的思路2"></a><strong><font color=#87CEFA>表单验证的思路2</font></strong></h2><p>在失去焦点时就做验证，目的是及时看到错误提示。表单被提交时再做验证，不通过则阻止提交。</p>
+<p>需要用到的事件</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">blur()</td>
+<td align="center">失去焦点，当光标离开某个文本框时触发</td>
+</tr>
+<tr>
+<td align="center">focus()</td>
+<td align="center">获得焦点，当光标进入某个文本框时触发</td>
+</tr>
+<tr>
+<td align="center">submit()</td>
+<td align="center">表单的提交事件，当表单被提交时触发</td>
+</tr>
+</tbody></table>
+<p>正则表达式</p>
+<ul>
+<li>更严谨的验证文本框中的内容</li>
+</ul>
+<p>示例</p>
+<pre><code>var reg= /^\w+@\w+(\.[a-zA-Z]&#123;2,3&#125;)&#123;1,2&#125;$/;
+if(reg.test(email) ==false)&#123;
+    $email_prompt.html(&quot;电子邮件格式不正确,请重新输入&quot;);
+    return false;
+&#125;
+</code></pre>
+<p>语法</p>
+<pre><code>var reg=/表达式/;
+简单模式：只能表示具体的匹配
+    var reg=/china/;
+复合模式：以使用通配符表达更为抽象的规则
+    var reg=/^\w+@\w+.[a-zA-Z]&#123;2,3&#125;(.[a-zA-Z]&#123;2,3&#125;)?$/;
+</code></pre>
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a><strong><font color=#87CEFA>通配符</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">通配符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&#x2F;…&#x2F;</td>
+<td align="center">代表一个模式的开始和结束</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">匹配字符串的开始</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">匹配字符串的结束</td>
+</tr>
+<tr>
+<td align="center">\s</td>
+<td align="center">任何空白字符</td>
+</tr>
+<tr>
+<td align="center">\S</td>
+<td align="center">任何非空白字符</td>
+</tr>
+<tr>
+<td align="center">\d</td>
+<td align="center">匹配一个数字字符，等价于[0-9]</td>
+</tr>
+<tr>
+<td align="center">\D</td>
+<td align="center">除了数字之外的任何字符，等价于[^0-9]</td>
+</tr>
+<tr>
+<td align="center">\w</td>
+<td align="center">匹配一个数字、下划线或字母字符，等价于[A-Za-z0-9_]</td>
+</tr>
+<tr>
+<td align="center">\W</td>
+<td align="center">任何非单字字符，等价于[^a-zA-z0-9_]</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">除了换行符之外的任意字符</td>
+</tr>
+</tbody></table>
+<h2 id="匹配次数"><a href="#匹配次数" class="headerlink" title="匹配次数"></a><strong><font color=#87CEFA>匹配次数</font></strong></h2><table>
+<thead>
+<tr>
+<th align="center">通配符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">{n}</td>
+<td align="center">匹配前一项n次</td>
+</tr>
+<tr>
+<td align="center">{n,}</td>
+<td align="center">匹配前一项n次，或者更多次</td>
+</tr>
+<tr>
+<td align="center">{n,m}</td>
+<td align="center">匹配前一项至少n次，但是不能超过m次</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">匹配前一项0次或多次，等价于{0,}</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">匹配前一项1次或多次，等价于{1,}</td>
+</tr>
+<tr>
+<td align="center">？</td>
+<td align="center">匹配前一项0次或1次，也就是说前一项是可选的，等价于{0,1}</td>
+</tr>
+</tbody></table>
+<p>示例：<br>中国的邮政编码都是6位数字</p>
+<pre><code>var regCode=/^\d&#123;6&#125;$/;
+</code></pre>
+<p>手机号码都是1开头的11位数字</p>
+<pre><code>var regMobile=/^1\d&#123;10&#125;$/;
+</code></pre>
+<p>日期格式是否为yyyy-MM-dd</p>
+<pre><code>var reg=/^[12]\d&#123;3&#125;-((0[1-9])|(1[12]))-(([012][1-9])|(3[0-1]))$/;
+</code></pre>
+<p>邮箱格式：要求必须包含@ 必须是.com或者.cn结束</p>
+<pre><code>var reg=/^\w+@\w+.[a-zA-Z]&#123;2,3&#125;(.[a-zA-Z]&#123;2,3&#125;)?$/;
+</code></pre>
+<h1 id="ES6语法指南"><a href="#ES6语法指南" class="headerlink" title="ES6语法指南"></a><strong><font color=#87CEFA>ES6语法指南</font></strong></h1><h2 id="什么是ES6？"><a href="#什么是ES6？" class="headerlink" title="什么是ES6？"></a><strong><font color=#87CEFA>什么是ES6？</font></strong></h2><p>就是ECMAScript第6版标准。</p>
+<h2 id="javascript由三个部分组成"><a href="#javascript由三个部分组成" class="headerlink" title="javascript由三个部分组成"></a><strong><font color=#87CEFA>javascript由三个部分组成</font></strong></h2><p>1.dom: 节点<br>2.bom: window,location,history……<br>3.ECMAScript: var定义变量,[]定义数组,{}定义对象….</p>
+<h2 id="什么是ECMAScript"><a href="#什么是ECMAScript" class="headerlink" title="什么是ECMAScript"></a><strong><font color=#87CEFA>什么是ECMAScript</font></strong></h2><h2 id="前端的发展历程"><a href="#前端的发展历程" class="headerlink" title="前端的发展历程"></a><strong><font color=#87CEFA>前端的发展历程</font></strong></h2><p>web1.0时代</p>
+<pre><code>最初的网页以HTML为主，是纯静态的网页。网页是只读的，信息流只能从服务的到客户端单向流通。开发人员也只关心页面的样式和内容即可。
+</code></pre>
+<p>web2.0时代</p>
+<pre><code>1995年，网景工程师Brendan Eich 花了10天时间设计了JavaScript语言。
+1996年，微软发布了JScript，其实是JavaScript的逆向工程实现。
+1997年，为了统一各种不同script脚本语言，ECMA（欧洲计算机制造商协会）以JavaScript为基础，制定了ECMAscript 标准规范JavaScript和JScript都是 ECMAScript 的标准实现者，随后各大浏览器厂商纷纷实现了ECMAScript 标准。
+所以，ECMAScript是浏览器脚本语言的规范，而各种我们熟知的js语言，如JavaScript则是规范的具体实现。
+        
+</code></pre>
+<h2 id="ECMAScript的快速发展"><a href="#ECMAScript的快速发展" class="headerlink" title="ECMAScript的快速发展"></a><strong><font color=#87CEFA>ECMAScript的快速发展</font></strong></h2><pre><code>而后，ECMAScript就进入了快速发展期。
+1998年6月，ECMAScript 2.0 发布。
+1999年12月，ECMAScript 3.0 发布。这时，ECMAScript 规范本身也相对比较完善和稳定了，但是接下来的事情，就比较悲剧了。
+2007年10月。。。。ECMAScript 4.0 草案发布
+    这次的新规范，历时颇久，规范的新内容也有了很多争议。在制定ES4的时候，是分成了两个工作组同时工作的
+        一边是以 Adobe, Mozilla, Opera 和 Google为主的 ECMAScript 4.0 工作组。
+        一边是以 Microsoft 和 Yahoo 为主的 ECMAScript 3.1 工作组。
+    ECMAScript 4 的很多主张比较激进，改动较大。而 ECMAScript 3.1 则主张小幅更新。最终经过 TC39 的会议，决定将一部分不那么激进的改动保留发布为 ECMAScript 3.1，而ES4的内容，则延续到了后来的ECMAScript5和6版本中
+2009年12月，ECMAScript 5 发布。
+2011年6月，ECMAScript 5.1 发布。
+2015年6月，ECMAScript 6，也就是 ECMAScript 2015 发布了。 并且从 ECMAScript 6 开始，开始采用年号来做版本。即 ECMAScript 2015，就是ECMAScript6。 它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+</code></pre>
+<h2 id="ES5和6的一些新特性"><a href="#ES5和6的一些新特性" class="headerlink" title="ES5和6的一些新特性"></a><strong><font color=#87CEFA>ES5和6的一些新特性</font></strong></h2><p>创建一个空的html页面</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+    &lt;script&gt;
+    &lt;/script&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a><strong><font color=#87CEFA>let 和 const 命令</font></strong></h2><p>var</p>
+<pre><code>之前，js定义变量只有一个关键字： var
+var 有一个问题，就是定义的变量有时会莫名奇妙的成为全局变量
+例如这样的一段代码
+    for(var i = 0; i &lt; 5; i++)&#123;
+        console.log(i);
+    &#125;
+    console.log(&quot;循环外：&quot; + i)
+    打印结果
+    0
+    1
+    2
+    3
+    4
+    循环外 5
+</code></pre>
+<p>let<br>    let 所声明的变量，只在 let 命令所在的代码块内有效。<br>    把刚才的 var 改成 let<br>    for(let i &#x3D; 0; i &lt; 5; i++){<br>        console.log(i);<br>    }<br>    console.log(“循环外：” + i)<br>    打印结果<br>    0<br>    1<br>    2<br>    3<br>    4<br>    报错</p>
+<p>const<br>    const 声明的变量是常量，不能被修改</p>
+<h2 id="字符串扩展"><a href="#字符串扩展" class="headerlink" title="字符串扩展"></a><strong><font color=#87CEFA>字符串扩展</font></strong></h2><p>ES6为字符串扩展了几个新的API</p>
+<pre><code>includes() 
+    返回布尔值，表示是否找到了参数字符串。
+
+startsWith() 
+    返回布尔值，表示参数字符串是否在原字符串的头部。
+
+endsWith() 
+    返回布尔值，表示参数字符串是否在原字符串的尾部。
+</code></pre>
+<p>字符串模板<br>    ES6中提供了&#96;来作为字符串模板标记</p>
+<pre><code>    在两个`之间的部分都会被作为字符串的值，不管你任意换行，甚至加入js脚本
+            
+</code></pre>
+<h2 id="解构表达式"><a href="#解构表达式" class="headerlink" title="解构表达式"></a><strong><font color=#87CEFA>解构表达式</font></strong></h2><h3 id="数组解构"><a href="#数组解构" class="headerlink" title="数组解构"></a><strong><font color=#87CEFA>数组解构</font></strong></h3><p>比如有一个数组</p>
+<pre><code>let arr = [1,2,3]
+我想获取其中的值，只能通过角标。ES6可以这样
+    const [x,y,z] = arr;// x，y，z将与arr中的每个位置对应来取值
+    // 然后打印
+    console.log(x,y,z);
+    结果
+</code></pre>
+<img src="/imgs/es601.png">
+
+
+<h3 id="数组扩展"><a href="#数组扩展" class="headerlink" title="数组扩展"></a><strong><font color=#87CEFA>数组扩展</font></strong></h3><p>find(callback)：数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。</p>
+<p>findIndex(callback)：数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。</p>
+<p>includes(数组元素)：与find类似，如果匹配到元素，则返回true，代表找到了。</p>
+<p>语法</p>
+<pre><code>let arr2 = new Array(1,2,0,4);
+
+.find()
+    let bb = arr2.find(function(value,index,arr2)&#123;
+        return value &lt; 2;
+    &#125;)
+    console.log(bb);//返回是第一个符合条件成员值1
+    
+.findIndex()
+    let cc = arr2.findIndex(function(value,index,arr2)&#123;
+            return value &lt; 2;
+    &#125;)
+        console.log(cc);//下标0
+</code></pre>
+<h2 id="函数优化"><a href="#函数优化" class="headerlink" title="函数优化"></a><strong><font color=#87CEFA>函数优化</font></strong></h2><h3 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a><strong><font color=#87CEFA>函数参数默认值</font></strong></h3><p>在ES6以前，我们无法给一个函数参数设置默认值，只能采用变通写法</p>
+<pre><code>function add(a , b) &#123;
+    // 判断b是否为空，为空就给默认值1
+    b = b || 1;
+    return a + b;
+&#125;
+// 传一个参数
+console.log(add(10));
+</code></pre>
+<p>现在可以这么写</p>
+<pre><code>function add(a , b = 1) &#123;
+    return a + b;
+&#125;
+// 传一个参数
+console.log(add(10))
+</code></pre>
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a><strong><font color=#87CEFA>箭头函数</font></strong></h3><ul>
+<li><p>ES6中定义函数的简写方式<br>一个参数时</p>
+<p>  var print &#x3D; function (obj) {<br>  console.log(obj);<br>  }<br>  &#x2F;&#x2F; 简写为：<br>  var print2 &#x3D; obj &#x3D;&gt; console.log(obj);</p>
+</li>
+</ul>
+<p>多个参数</p>
+<pre><code>// 两个参数的情况：
+var sum = function (a , b) &#123;
+    return a + b;
+&#125;
+// 简写为：
+var sum2 = (a,b) =&gt; a+b;
+</code></pre>
+<p>多个参数</p>
+<pre><code>var sum3 = (a,b) =&gt; &#123;
+    return a + b;
+&#125;
+</code></pre>
+<h1 id="扩展-1"><a href="#扩展-1" class="headerlink" title="扩展"></a><strong><font color=#87CEFA>扩展</font></strong></h1><p>CSS样式</p>
+<pre><code>cursor: pointer;/* 鼠标变成手型 */
+</code></pre>
+<p>jQuery</p>
+<pre><code>类似循环（循环取值）
+    each
+    语法
+        $(&#39;&#39;).each(function(i,obj)&#123;&#125;);
+
+siblings()   其他
+index()  下标
+
+表单
+    :checked  单选框、单选框、下拉列表 是否选中
+
+document （准备）
+.ready()  加载事件
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/02/26/js%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/">http://example.com/2023/02/26/js%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/02/25/MySQL%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="MySQL思维引导"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">MySQL思维引导</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86js"><span class="toc-number">1.</span> <span class="toc-text">认识js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">JS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">JS的基本结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E8%AF%AD%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">JS语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.3.1.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%A1%B5%E9%9D%A2%E5%86%99%E5%87%BA"><span class="toc-number">1.3.2.</span> <span class="toc-text">向页面写出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="toc-number">1.3.3.</span> <span class="toc-text">声明变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.4.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.5.</span> <span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.3.6.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.7.</span> <span class="toc-text">数组的常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.8.</span> <span class="toc-text">字符串的常用方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">JS函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">系统函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.2.</span> <span class="toc-text">自定义函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.4.3.</span> <span class="toc-text">常用事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95"><span class="toc-number">1.5.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#BOM%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">BOM浏览器对象模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.</span> <span class="toc-text">BOM介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.2.</span> <span class="toc-text">window对象介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#loaction%E5%9C%B0%E5%9D%80%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.</span> <span class="toc-text">loaction地址对象介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.4.</span> <span class="toc-text">history对象介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#document%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.5.</span> <span class="toc-text">document文档对象介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">2.5.1.</span> <span class="toc-text">页面元素对象的常用操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">动态效果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text">JS内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Date%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.1.</span> <span class="toc-text">Date对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Date%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E7%9A%84%E6%8C%87%E5%AE%9A%E9%83%A8%E5%88%86%EF%BC%89"><span class="toc-number">3.1.2.</span> <span class="toc-text">Date对象的常用方法（获取日期的指定部分）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Math%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.2.</span> <span class="toc-text">Math对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6%E5%99%A8"><span class="toc-number">3.3.</span> <span class="toc-text">延时器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-number">3.4.</span> <span class="toc-text">定时器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JS%E7%9A%84DOM%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">JS的DOM操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM%E7%AE%80%E4%BB%8B"><span class="toc-number">4.1.</span> <span class="toc-text">DOM简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7"><span class="toc-number">4.2.</span> <span class="toc-text">节点属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%8A%82%E7%82%B9%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">4.3.</span> <span class="toc-text">获取节点的信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%8A%82%E7%82%B9"><span class="toc-number">4.4.</span> <span class="toc-text">创建节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%92%8C%E6%9B%BF%E6%8D%A2%E8%8A%82%E7%82%B9"><span class="toc-number">4.5.</span> <span class="toc-text">删除和替换节点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E8%AF%86jQuery"><span class="toc-number">5.</span> <span class="toc-text">初识jQuery</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery%E7%AE%80%E4%BB%8B"><span class="toc-number">5.1.</span> <span class="toc-text">jQuery简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">5.2.</span> <span class="toc-text">jQuery的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8jQuery"><span class="toc-number">5.3.</span> <span class="toc-text">使用jQuery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0"><span class="toc-number">5.4.</span> <span class="toc-text">jQuery语法学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Jquery%E4%B8%BA%E5%85%83%E7%B4%A0%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0%E4%BA%8B%E4%BB%B6"><span class="toc-number">5.5.</span> <span class="toc-text">使用Jquery为元素对象添加事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript%E5%AF%B9%E8%B1%A1%E5%92%8CjQuery%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">5.6.</span> <span class="toc-text">javascript对象和jQuery对象的转换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery%E5%BC%BA%E5%A4%A7%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">6.</span> <span class="toc-text">jQuery强大的选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E7%AB%A0%E7%AE%80%E4%BB%8B"><span class="toc-number">6.1.</span> <span class="toc-text">本章简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">6.1.1.</span> <span class="toc-text">标签元素，为其设置了css的背景颜色属性
+jQuery选择器功能强大，种类也很多，分类如下
+1.基本选择器2.层次选择器3.属性选择器4.基本过滤选择器5.可见性过滤选择器
+基本选择器
+
+
+名称
+标签
+作用
+案例
+
+
+
+标签选择器
+element
+根据给定的标签名匹配元素
+$(“h2” )选取所有h2元素
+
+
+类选择器
+.class
+根据给定的class名匹配元素
+$(“ .title”)选取所有class为title的元素
+
+
+id选择器
+#id
+根据给定的id匹配元素
+$(“ #title”)选取id为title的元素
+
+
+并集选择器
+selector1,selector2…
+将每一个选择器匹配的元素合并后一起返回
+$(“div,p,.title” )选取所有div标签、p标签和拥有class为title的元素
+
+
+全局选择器
+*
+匹配所有元素
+$(“*” )选取所有元素
+
+
+层次选择器
+
+
+名称
+标签
+作用
+案例
+
+
+
+后代选择器
+ancestor  descendant
+选取ancestor元素里的所有descendant（后代）元素
+$(“#menu span” )选取#menu下的span元素
+
+
+子选择器
+parent&gt;child
+选取parent元素下的child（子）元素
+$(“ #menu&gt;span” )选取#menu的子元素span
+
+
+相邻元素选择器
+prev+next
+选取紧邻prev元素之后的next元素
+$(“ h2+dl “ )选取紧邻h2元素之后的同辈元素dl
+
+
+同辈元素选择器
+prev~sibings
+选取prev元素之后的所有siblings元素
+$(“ h2~dl “ )选取h2元素之后所有的同辈元素dl
+
+
+基本过滤选择器
+
+
+标签
+作用
+案例
+
+
+
+[attribute&#x3D;value]
+选取给定属性等于value的元素
+$(“input[type&#x3D;’button’]” )选取所有按钮元素
+
+
+[attribute!&#x3D;value]
+选取给定属性不等于value的元素
+$(“input[type!&#x3D;’button’]” )选取非按钮的input元素
+
+
+jQuery强大的选择器
+
+
+标签
+作用
+案例
+
+
+
+:first
+选取第一个元素
+$(“li:first” )选取第一个li元素
+
+
+:last
+选取最后一个元素
+$(“li:last” )选取最后一个li元素
+
+
+:eq(index)
+选取索引等于index的元素（index从0开始）
+$(“li:eq(1)” )选取索引等于1的li元素
+
+
+:gt(index)
+选取索引大于index的元素（index从0开始）
+$(“li:gt(1)” )选取索引大于1的li元素（注:不包1）
+
+
+:lt(index)
+选取索引小于index的元素（index从0开始）
+$(“li:gt(1)” )选取索引小于1的li元素（注:不包1）
+
+
+:even
+选取索引为偶数行的元素
+$(“li:even” )选取索引为偶数行的li元素（注:0属于偶数行）
+
+
+:odd
+选取索引为奇数行的元素
+$(“li:odd” )选取索引为奇数行的li元素
+
+
+:focus
+选取当前获取焦点的元素
+$(“:focus” )选取当前获取焦点的元素
+
+
+.not(selector)
+选取去除所有与给定选择器匹配的元素
+$(“ li” ).not(“.three”)选取class不是three的li元素
+
+
+可见性过滤选择器
+
+
+标签
+作用
+案例
+
+
+
+:visible
+选取所有可见的元素
+$(“p:visible” )选取所有可见的p元素
+
+
+:hidden
+选取所有隐藏的元素
+$(“p:visible” )选取所有隐藏的p元素
+
+
+注意事项1.\转义符
+&#x2F;&#x2F;如页面元素中id名带有#号
+    &lt;div id&#x3D;&quot;id#a&quot;&gt;aa&lt;&#x2F;div&gt;
+&#x2F;&#x2F;错误示范
+    $(&quot;#id#a&quot;);
+&#x2F;&#x2F;正确示范使用\\转义
+    $(&quot;#id\\#a&quot;);
+
+2.选择器中的空格,选择器的书写规范很严格，多一个空格或少一个空格，都会影响选择器的效果
+&#x2F;&#x2F;如下带空格的jQuery选择器,选取class为“test”的元素内部的隐藏元素
+    var $t_a &#x3D; $(&quot;.test :hidden&quot;);
+&#x2F;&#x2F;如下不带空格的jQuery选择器,选取class为“test”的隐藏元素
+    var $t_b &#x3D; $(&quot;.test:hidden&quot;);
+
+事件的总结和动画常用事件汇总
+
+
+方法名
+名称
+案例
+
+
+
+click()
+点击事件
+$(‘触发位置’).click(function(){});
+
+
+dbclick()
+双击事件
+$(‘触发位置’).dbclick(function(){});
+
+
+mouseover()
+鼠标移入事件
+$(‘触发位置’).mouseover(function(){});
+
+
+mouseout()
+输出移出事件
+$(‘触发位置’).mouseout(function(){});
+
+
+change()
+值改变事件
+
+
+
+keydown()
+键盘按下事件
+
+
+
+focus()
+获得焦点事件
+$(‘触发位置’).focus(function(){});
+
+
+blur()
+失去焦点事件
+$(‘触发位置’).blur(function(){});
+
+
+submit()
+表单的提交事件
+$(‘触发位置’).submit(function{});
+
+
+mouseover和mouseout的简写
+jQuery对象.hover(
+    function (){
+        &#x2F;&#x2F;第一个函数为mouseover事件
+    },function (){
+        &#x2F;&#x2F;第一个函数为mouseout事件
+    }
+);
+
+事件的绑定
+
+
+事件名称
+说明
+语法
+
+
+
+bind()
+向匹配元素绑定(添加)一个或更多事件处理器
+$(“img”).bind(“click”,aa);&#x2F;&#x2F;单击事件 $(“img”).bind(“dblclick”,bb);&#x2F;&#x2F;双击事件
+
+
+unbind()
+从匹配元素解绑(删除)一个事件处理器
+$(“img”).unbind(“click”,aa);
+
+
+隐藏和显示的动画效果1.显示 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]
+jquery对象.show();
+
+2.隐藏 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]
+jquery对象.hide();
+
+3.使用淡入效果来显示一个元素 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]
+jquery对象.fadeIn();
+
+4.使用淡出效果来隐藏一个元素 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]
+jquery对象.fadeOut();
+
+5.通过调整高度来隐藏一个元素 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]
+jquery对象.slideUp();
+
+6.通过调整高度来显示一个元素 ()内可选参数：[slow(慢) &#x2F; normal（正常） &#x2F; fast(快) &#x2F; 毫秒数]
+jquery对象.slideDown();
+
+jQuery的DOM操作jQuery获取元素的方式1.强大的选择器2.通过层次关系获取
+获取父元素
+
+
+方法
+说明
+示例
+
+
+
+parent()
+获取直系父元素
+&#x2F;&#x2F;获取#divMain的直系父元素    $(“#divMain”).parent();
+
+
+获取子元素
+
+
+方法
+说明
+
+
+
+children([selector])
+获得当前元素的直系子元素，[selector]为可选参数，表示在子元素中再筛选  		在当前元素的所有后代中通过选择器再筛选
+
+
+示例
+children()的使用
+    &#x2F;&#x2F;获取#divMain所有的直系子元素,不包含文本空格注释
+        $(&quot;#divMain&quot;).children();
+    &#x2F;&#x2F;在#divMain所有的直系子元素中筛选出ul标签
+        $(&quot;#divMain&quot;).children(&quot;ul&quot;);
+    &#x2F;&#x2F;在#divMain所有的直系子元素中筛选出类名为ul3的
+        $(&quot;#divMain&quot;).children(&quot;.ul3&quot;);
+    &#x2F;&#x2F;在#divMain所有的直系子元素中筛选出第二个子元素
+        $(&quot;#divMain&quot;).children(&quot;:eq(1)&quot;);
+
+find()的使用
+    &#x2F;&#x2F;在#divMain的所有后代中，根据 li:gt(3) 筛选
+        $(&quot;#divMain&quot;).find(&quot;li:gt(3)&quot;);
+
+获取同级元素
+
+
+方法
+说明
+
+
+
+next()
+后一个相邻同级元素
+
+
+.nextAll()
+后面的所有同级元素
+
+
+.prev()
+前一个相邻同级元素
+
+
+.prevAll()
+前面的所有同级元素
+
+
+.siblings()
+前后所有的同级元素
+
+
+示例
+注：所有获取同级元素的方法，（）中都可以继续通过选择器筛选
+&#x2F;&#x2F;获取#divMain后面的所有同级元素
+    $(&quot;#divMain&quot;).nextAll();
+&#x2F;&#x2F;获取#divMain后面同级的p元素
+    $(&quot;#divMain&quot;).nextAll(&quot;p&quot;);
+
+复习总结jQuery元素对象的常用操作获取&amp;设置value属性值
+var str&#x3D;jQuery对象.val(); &#x2F;&#x2F;获取
+jQuery对象.val(&quot;值内容&quot;); &#x2F;&#x2F;设置
+
+获取&amp;设置双标签之间内容(包含标签)
+var str&#x3D;jQuery对象.html(); &#x2F;&#x2F;获取
+jQuery对象.html(&quot;内容&quot;); &#x2F;&#x2F;设置
+
+获取双标签之间内容(仅内容)
+var str&#x3D;jQuery对象.text();
+
+css样式的常用操作
+jQuery对象.addClass(&quot;类名&quot;); &#x2F;&#x2F;添加类名
+jQuery对象.removeClass(&quot;类名&quot;); &#x2F;&#x2F;移除类名
+jQuery对象.css(&quot;css属性&quot;,&quot;值&quot;)； &#x2F;&#x2F;设置指定的css属性值
+var str&#x3D;jQuery对象.css(&quot;css属性&quot;)； &#x2F;&#x2F;获取指定的css属性值
+jQuery对象.css({&quot;css属性1&quot;:&quot;值1&quot;,&quot;css属性2&quot;:&quot;值2&quot;})； &#x2F;&#x2F;设置多个指定的css属性值
+
+属性操作
+&#x2F;&#x2F;根据属性名称获取属性值
+    var f&#x3D;jQuery对象.prop(&quot;checked&quot;);
+&#x2F;&#x2F;根据属性名称设置属性值
+    jQuery对象.prop(&quot;checked&quot;,true);
+
+显示和隐藏
+.show() .hide() &#x2F;&#x2F;普通隐藏方式
+.fadeOut() .fadeIn() &#x2F;&#x2F;淡出淡入的隐藏方式
+.slideDown() .sildeUp() &#x2F;&#x2F;调整高度的隐藏方式
+
+添加节点先创建新的节点
+var newNode2&#x3D;(&quot;&lt;li class&#x3D;&#39;last&#39;&gt;北京申办冬奥会是再合适不过了！&lt;&#x2F;li&gt;&quot;);
+
+选择添加方式，添加到
+
+
+
+方法
+说明
+
+
+
+$(A).append(B)
+表示将B追加到A中
+
+
+$(A). prepend (B)
+表示将B前置插入到A中
+
+
+$(A).after (B)
+表示将B插入到A之后
+
+
+$(A). before (B)
+表示将B插入至A之前
+
+
+示例
+&#x2F;&#x2F;1.创建一个新的li元素
+    var newNode2&#x3D;(&quot;&lt;li class&#x3D;&#39;last&#39;&gt;北京申办冬奥会是再合适不过了！&lt;&#x2F;li&gt;&quot;);
+&#x2F;&#x2F;2.把新创建的元素追加到id为ul1的对象中
+    $(&quot;#ul1&quot;).append(newNode2);
+        
+
+删除节点
+
+
+方法
+说明
+
+
+
+.remove()
+删除被选中的元素和其子元素
+
+
+.empty()
+清空选中的元素节点的内容
+
+
+示例
+&#x2F;&#x2F;删除id为ul1的元素
+    $(&quot;#ul1&quot;).remove();
+&#x2F;&#x2F;清空id为ul1的元素内容
+    $(&quot;#ul1&quot;).empty();
+
+表单验证什么是表单？网页用来收集数据的
+什么是表单验证？验证数据输入的准确性
+为什么要做表单验证？保证输入的数据符合要求，使用js&#x2F;jquery做验证减轻了服务器的压力
+常用的验证
+表单元素内容不能为空
+年龄只能在1~100之间
+用户名和密码长度必须大于6位
+日期格式是否正确
+E-mail地址是否正确
+身份证号码是否正确
+
+表单验证的思路1在表单被提交时做验证，验证通过则提交，不通过则阻止需要用到的事件
+submit() ：表单的提交事件，当表单被提交时触发
+
+jquery提供的表单选择器
+
+
+
+方法
+说明
+
+
+
+:input
+匹配所有input、textarea、select和button 元素
+
+
+:text
+匹配所有单行文本框
+
+
+:password
+匹配所有密码框
+
+
+:radio
+匹配所有单项按钮
+
+
+:checkbox
+匹配所有复选框
+
+
+:submit
+匹配所有提交按钮
+
+
+:reset
+匹配所有重置按钮
+
+
+:button
+匹配所有按钮
+
+
+:image
+匹配所有图像域(type&#x3D;” image”)input元素
+
+
+:file
+匹配所有文件域 (type&#x3D;” file “)input元素
+
+
+:hidden
+匹配所有不可见元素，或者type 为hidden的元素
+
+
+示例
+$(&quot;#myform :input&quot;)&#x2F;&#x2F;选取id&#x3D;myform表单中所有的input、select和button元素
+
+$(&quot;#myform :text&quot; )&#x2F;&#x2F;选取id&#x3D;myform表单中所有的input type&#x3D;&quot;text&quot; &#x2F;&gt;元素
+
+表单属性过滤选择器
+
+
+
+方法
+说明
+
+
+
+:checked
+匹配所有被选中元素（复选框、单项按钮、select 中的option）
+
+
+:selected
+匹配所有选中的option 元素
+
+
+示例
+$(&quot;#myform :checked&quot; )&#x2F;&#x2F;能匹配所有单选按钮、复选框的选中项
+
+$(&quot;#myform :radio[name&#x3D;&#39;sex&#39;]:checked&quot; ) &#x2F;&#x2F;匹配name&#x3D;&#39;sex&#39;的单选按钮选中项
+
+$(&quot;#myform :select[name&#x3D;&#39;city&#39;]:selected&quot;) &#x2F;&#x2F;匹配城市下拉框的选中option
+
+表单验证的思路2在失去焦点时就做验证，目的是及时看到错误提示。表单被提交时再做验证，不通过则阻止提交。
+需要用到的事件
+
+
+
+方法
+说明
+
+
+
+blur()
+失去焦点，当光标离开某个文本框时触发
+
+
+focus()
+获得焦点，当光标进入某个文本框时触发
+
+
+submit()
+表单的提交事件，当表单被提交时触发
+
+
+正则表达式
+
+更严谨的验证文本框中的内容
+
+示例
+var reg&#x3D; &#x2F;^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$&#x2F;;
+if(reg.test(email) &#x3D;&#x3D;false){
+    $email_prompt.html(&quot;电子邮件格式不正确,请重新输入&quot;);
+    return false;
+}
+
+语法
+var reg&#x3D;&#x2F;表达式&#x2F;;
+简单模式：只能表示具体的匹配
+    var reg&#x3D;&#x2F;china&#x2F;;
+复合模式：以使用通配符表达更为抽象的规则
+    var reg&#x3D;&#x2F;^\w+@\w+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$&#x2F;;
+
+通配符
+
+
+通配符
+说明
+
+
+
+&#x2F;…&#x2F;
+代表一个模式的开始和结束
+
+
+^
+匹配字符串的开始
+
+
+$
+匹配字符串的结束
+
+
+\s
+任何空白字符
+
+
+\S
+任何非空白字符
+
+
+\d
+匹配一个数字字符，等价于[0-9]
+
+
+\D
+除了数字之外的任何字符，等价于[^0-9]
+
+
+\w
+匹配一个数字、下划线或字母字符，等价于[A-Za-z0-9_]
+
+
+\W
+任何非单字字符，等价于[^a-zA-z0-9_]
+
+
+.
+除了换行符之外的任意字符
+
+
+匹配次数
+
+
+通配符
+说明
+
+
+
+{n}
+匹配前一项n次
+
+
+{n,}
+匹配前一项n次，或者更多次
+
+
+{n,m}
+匹配前一项至少n次，但是不能超过m次
+
+
+*
+匹配前一项0次或多次，等价于{0,}
+
+
++
+匹配前一项1次或多次，等价于{1,}
+
+
+？
+匹配前一项0次或1次，也就是说前一项是可选的，等价于{0,1}
+
+
+示例：中国的邮政编码都是6位数字
+var regCode&#x3D;&#x2F;^\d{6}$&#x2F;;
+
+手机号码都是1开头的11位数字
+var regMobile&#x3D;&#x2F;^1\d{10}$&#x2F;;
+
+日期格式是否为yyyy-MM-dd
+var reg&#x3D;&#x2F;^[12]\d{3}-((0[1-9])|(1[12]))-(([012][1-9])|(3[0-1]))$&#x2F;;
+
+邮箱格式：要求必须包含@ 必须是.com或者.cn结束
+var reg&#x3D;&#x2F;^\w+@\w+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$&#x2F;;
+
+ES6语法指南什么是ES6？就是ECMAScript第6版标准。
+javascript由三个部分组成1.dom: 节点2.bom: window,location,history……3.ECMAScript: var定义变量,[]定义数组,{}定义对象….
+什么是ECMAScript前端的发展历程web1.0时代
+最初的网页以HTML为主，是纯静态的网页。网页是只读的，信息流只能从服务的到客户端单向流通。开发人员也只关心页面的样式和内容即可。
+
+web2.0时代
+1995年，网景工程师Brendan Eich 花了10天时间设计了JavaScript语言。
+1996年，微软发布了JScript，其实是JavaScript的逆向工程实现。
+1997年，为了统一各种不同script脚本语言，ECMA（欧洲计算机制造商协会）以JavaScript为基础，制定了ECMAscript 标准规范JavaScript和JScript都是 ECMAScript 的标准实现者，随后各大浏览器厂商纷纷实现了ECMAScript 标准。
+所以，ECMAScript是浏览器脚本语言的规范，而各种我们熟知的js语言，如JavaScript则是规范的具体实现。
+        
+
+ECMAScript的快速发展而后，ECMAScript就进入了快速发展期。
+1998年6月，ECMAScript 2.0 发布。
+1999年12月，ECMAScript 3.0 发布。这时，ECMAScript 规范本身也相对比较完善和稳定了，但是接下来的事情，就比较悲剧了。
+2007年10月。。。。ECMAScript 4.0 草案发布
+    这次的新规范，历时颇久，规范的新内容也有了很多争议。在制定ES4的时候，是分成了两个工作组同时工作的
+        一边是以 Adobe, Mozilla, Opera 和 Google为主的 ECMAScript 4.0 工作组。
+        一边是以 Microsoft 和 Yahoo 为主的 ECMAScript 3.1 工作组。
+    ECMAScript 4 的很多主张比较激进，改动较大。而 ECMAScript 3.1 则主张小幅更新。最终经过 TC39 的会议，决定将一部分不那么激进的改动保留发布为 ECMAScript 3.1，而ES4的内容，则延续到了后来的ECMAScript5和6版本中
+2009年12月，ECMAScript 5 发布。
+2011年6月，ECMAScript 5.1 发布。
+2015年6月，ECMAScript 6，也就是 ECMAScript 2015 发布了。 并且从 ECMAScript 6 开始，开始采用年号来做版本。即 ECMAScript 2015，就是ECMAScript6。 它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+
+ES5和6的一些新特性创建一个空的html页面
+&lt;!DOCTYPE html&gt;
+&lt;html lang&#x3D;&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;&#x2F;title&gt;
+&lt;&#x2F;head&gt;
+    &lt;script&gt;
+    &lt;&#x2F;script&gt;
+&lt;body&gt;
+&lt;&#x2F;body&gt;
+&lt;&#x2F;html&gt;
+
+let 和 const 命令var
+之前，js定义变量只有一个关键字： var
+var 有一个问题，就是定义的变量有时会莫名奇妙的成为全局变量
+例如这样的一段代码
+    for(var i &#x3D; 0; i &lt; 5; i++){
+        console.log(i);
+    }
+    console.log(&quot;循环外：&quot; + i)
+    打印结果
+    0
+    1
+    2
+    3
+    4
+    循环外 5
+
+let    let 所声明的变量，只在 let 命令所在的代码块内有效。    把刚才的 var 改成 let    for(let i &#x3D; 0; i &lt; 5; i++){        console.log(i);    }    console.log(“循环外：” + i)    打印结果    0    1    2    3    4    报错
+const    const 声明的变量是常量，不能被修改
+字符串扩展ES6为字符串扩展了几个新的API
+includes() 
+    返回布尔值，表示是否找到了参数字符串。
+
+startsWith() 
+    返回布尔值，表示参数字符串是否在原字符串的头部。
+
+endsWith() 
+    返回布尔值，表示参数字符串是否在原字符串的尾部。
+
+字符串模板    ES6中提供了&#96;来作为字符串模板标记
+    在两个&#96;之间的部分都会被作为字符串的值，不管你任意换行，甚至加入js脚本
+            
+
+解构表达式数组解构比如有一个数组
+let arr &#x3D; [1,2,3]
+我想获取其中的值，只能通过角标。ES6可以这样
+    const [x,y,z] &#x3D; arr;&#x2F;&#x2F; x，y，z将与arr中的每个位置对应来取值
+    &#x2F;&#x2F; 然后打印
+    console.log(x,y,z);
+    结果
+
+
+
+
+数组扩展find(callback)：数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。
+findIndex(callback)：数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。
+includes(数组元素)：与find类似，如果匹配到元素，则返回true，代表找到了。
+语法
+let arr2 &#x3D; new Array(1,2,0,4);
+
+.find()
+    let bb &#x3D; arr2.find(function(value,index,arr2){
+        return value &lt; 2;
+    })
+    console.log(bb);&#x2F;&#x2F;返回是第一个符合条件成员值1
+    
+.findIndex()
+    let cc &#x3D; arr2.findIndex(function(value,index,arr2){
+            return value &lt; 2;
+    })
+        console.log(cc);&#x2F;&#x2F;下标0
+
+函数优化函数参数默认值在ES6以前，我们无法给一个函数参数设置默认值，只能采用变通写法
+function add(a , b) {
+    &#x2F;&#x2F; 判断b是否为空，为空就给默认值1
+    b &#x3D; b || 1;
+    return a + b;
+}
+&#x2F;&#x2F; 传一个参数
+console.log(add(10));
+
+现在可以这么写
+function add(a , b &#x3D; 1) {
+    return a + b;
+}
+&#x2F;&#x2F; 传一个参数
+console.log(add(10))
+
+箭头函数
+ES6中定义函数的简写方式一个参数时
+  var print &#x3D; function (obj) {  console.log(obj);  }  &#x2F;&#x2F; 简写为：  var print2 &#x3D; obj &#x3D;&gt; console.log(obj);
+
+
+多个参数
+&#x2F;&#x2F; 两个参数的情况：
+var sum &#x3D; function (a , b) {
+    return a + b;
+}
+&#x2F;&#x2F; 简写为：
+var sum2 &#x3D; (a,b) &#x3D;&gt; a+b;
+
+多个参数
+var sum3 &#x3D; (a,b) &#x3D;&gt; {
+    return a + b;
+}
+
+扩展CSS样式
+cursor: pointer;&#x2F;* 鼠标变成手型 *&#x2F;
+
+jQuery
+类似循环（循环取值）
+    each
+    语法
+        $(&#39;&#39;).each(function(i,obj){});
+
+siblings()   其他
+index()  下标
+
+表单
+    :checked  单选框、单选框、下拉列表 是否选中
+
+document （准备）
+.ready()  加载事件
+
+</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">6.2.</span> <span class="toc-text">基本选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">6.3.</span> <span class="toc-text">层次选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%BF%87%E6%BB%A4%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">6.4.</span> <span class="toc-text">基本过滤选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery%E5%BC%BA%E5%A4%A7%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8-1"><span class="toc-number">6.5.</span> <span class="toc-text">jQuery强大的选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A7%81%E6%80%A7%E8%BF%87%E6%BB%A4%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">6.6.</span> <span class="toc-text">可见性过滤选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">6.7.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%80%BB%E7%BB%93%E5%92%8C%E5%8A%A8%E7%94%BB"><span class="toc-number">7.</span> <span class="toc-text">事件的总结和动画</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6%E6%B1%87%E6%80%BB"><span class="toc-number">7.1.</span> <span class="toc-text">常用事件汇总</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%BB%91%E5%AE%9A"><span class="toc-number">7.2.</span> <span class="toc-text">事件的绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%92%8C%E6%98%BE%E7%A4%BA%E7%9A%84%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C"><span class="toc-number">7.3.</span> <span class="toc-text">隐藏和显示的动画效果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery%E7%9A%84DOM%E6%93%8D%E4%BD%9C"><span class="toc-number">8.</span> <span class="toc-text">jQuery的DOM操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">8.1.</span> <span class="toc-text">jQuery获取元素的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%88%B6%E5%85%83%E7%B4%A0"><span class="toc-number">8.2.</span> <span class="toc-text">获取父元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AD%90%E5%85%83%E7%B4%A0"><span class="toc-number">8.3.</span> <span class="toc-text">获取子元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%90%8C%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-number">8.4.</span> <span class="toc-text">获取同级元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E4%B9%A0%E6%80%BB%E7%BB%93jQuery%E5%85%83%E7%B4%A0%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">8.5.</span> <span class="toc-text">复习总结jQuery元素对象的常用操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%8A%82%E7%82%B9"><span class="toc-number">8.6.</span> <span class="toc-text">添加节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="toc-number">8.7.</span> <span class="toc-text">删除节点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81"><span class="toc-number">9.</span> <span class="toc-text">表单验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%A1%A8%E5%8D%95%EF%BC%9F"><span class="toc-number">9.1.</span> <span class="toc-text">什么是表单？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%EF%BC%9F"><span class="toc-number">9.2.</span> <span class="toc-text">什么是表单验证？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%EF%BC%9F"><span class="toc-number">9.3.</span> <span class="toc-text">为什么要做表单验证？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E9%AA%8C%E8%AF%81"><span class="toc-number">9.4.</span> <span class="toc-text">常用的验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%9A%84%E6%80%9D%E8%B7%AF1"><span class="toc-number">9.5.</span> <span class="toc-text">表单验证的思路1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E7%9A%84%E6%80%9D%E8%B7%AF2"><span class="toc-number">9.6.</span> <span class="toc-text">表单验证的思路2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-number">9.7.</span> <span class="toc-text">通配符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E6%AC%A1%E6%95%B0"><span class="toc-number">9.8.</span> <span class="toc-text">匹配次数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97"><span class="toc-number">10.</span> <span class="toc-text">ES6语法指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFES6%EF%BC%9F"><span class="toc-number">10.1.</span> <span class="toc-text">什么是ES6？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript%E7%94%B1%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86%E7%BB%84%E6%88%90"><span class="toc-number">10.2.</span> <span class="toc-text">javascript由三个部分组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFECMAScript"><span class="toc-number">10.3.</span> <span class="toc-text">什么是ECMAScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B"><span class="toc-number">10.4.</span> <span class="toc-text">前端的发展历程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMAScript%E7%9A%84%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B1%95"><span class="toc-number">10.5.</span> <span class="toc-text">ECMAScript的快速发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5%E5%92%8C6%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">10.6.</span> <span class="toc-text">ES5和6的一些新特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#let-%E5%92%8C-const-%E5%91%BD%E4%BB%A4"><span class="toc-number">10.7.</span> <span class="toc-text">let 和 const 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%A9%E5%B1%95"><span class="toc-number">10.8.</span> <span class="toc-text">字符串扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">10.9.</span> <span class="toc-text">解构表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E8%A7%A3%E6%9E%84"><span class="toc-number">10.9.1.</span> <span class="toc-text">数组解构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%89%A9%E5%B1%95"><span class="toc-number">10.9.2.</span> <span class="toc-text">数组扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BC%98%E5%8C%96"><span class="toc-number">10.10.</span> <span class="toc-text">函数优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-number">10.10.1.</span> <span class="toc-text">函数参数默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="toc-number">10.10.2.</span> <span class="toc-text">箭头函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A9%E5%B1%95-1"><span class="toc-number">11.</span> <span class="toc-text">扩展</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/26/js%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="js思维引导">js思维引导</a><time datetime="2023-02-26T05:35:49.000Z" title="Created 2023-02-26 13:35:49">2023-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/25/MySQL%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="MySQL思维引导">MySQL思维引导</a><time datetime="2023-02-25T01:02:29.000Z" title="Created 2023-02-25 09:02:29">2023-02-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/24/HTML-CSS/" title="HTML_CSS">HTML_CSS</a><time datetime="2023-02-24T01:30:56.000Z" title="Created 2023-02-24 09:30:56">2023-02-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/22/java%E5%9F%BA%E7%A1%80%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="java基础思维引导">java基础思维引导</a><time datetime="2023-02-22T01:00:59.000Z" title="Created 2023-02-22 09:00:59">2023-02-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/21/Error/" title="Error">Error</a><time datetime="2023-02-21T09:07:56.000Z" title="Created 2023-02-21 17:07:56">2023-02-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
