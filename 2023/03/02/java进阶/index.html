@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2023-03-02T05:22:37.000Z">
-<meta property="article:modified_time" content="2023-03-02T06:24:03.405Z">
+<meta property="article:modified_time" content="2023-03-02T07:06:42.249Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-03-02 14:24:03'
+  postUpdate: '2023-03-02 15:06:42'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -160,7 +160,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java进阶</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-02T05:22:37.000Z" title="Created 2023-03-02 13:22:37">2023-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-02T06:24:03.405Z" title="Updated 2023-03-02 14:24:03">2023-03-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java进阶"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a><strong><font color=#87CEFA>反射</font></strong></h1><h2 id="类的加载器？"><a href="#类的加载器？" class="headerlink" title="类的加载器？"></a><strong><font color=#87CEFA>类的加载器？</font></strong></h2><p>我们编写的Java为后缀的文件，编译器会将我们编写的.Java的文件编译成.class文件，简单来说加载机制就是jvm从文件系统将一系列class 文件z转换为二进制流加载jvm内存中并生成一个类Class对象，为后续程序运行提供资源的动作。</p>
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java进阶</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-02T05:22:37.000Z" title="Created 2023-03-02 13:22:37">2023-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-02T07:06:42.249Z" title="Updated 2023-03-02 15:06:42">2023-03-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java进阶"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a><strong><font color=#87CEFA>反射</font></strong></h1><h2 id="类的加载器？"><a href="#类的加载器？" class="headerlink" title="类的加载器？"></a><strong><font color=#87CEFA>类的加载器？</font></strong></h2><p>我们编写的Java为后缀的文件，编译器会将我们编写的.Java的文件编译成.class文件，简单来说加载机制就是jvm从文件系统将一系列class 文件z转换为二进制流加载jvm内存中并生成一个类Class对象，为后续程序运行提供资源的动作。</p>
 <img src="/imgs/javax01.png">
 
 
@@ -771,157 +771,1234 @@ public @interface MyTest &#123;
 <pre><code>生成get/set，toString，hashCode，equals，无参构造方法
 </code></pre>
 <p>注解只能写在类上</p>
-<h1 id="枚举和设计模式"><a href="#枚举和设计模式" class="headerlink" title="枚举和设计模式"></a><strong><font color=#87CEFA>枚举和设计模式</font></strong></h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h2><h3 id="枚举-1"><a href="#枚举-1" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h3><p>枚举的概念</p>
-<pre><code>枚举是Java中的一种特殊类型，用来表示固定个数值的引用数据类型,例如性别,季节,方向等等这些数据都是有固定个数数值的。
+<h1 id="枚举和设计模式"><a href="#枚举和设计模式" class="headerlink" title="枚举和设计模式"></a><strong><font color=#87CEFA>枚举和设计模式</font></strong></h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h2><h3 id="枚举的概念"><a href="#枚举的概念" class="headerlink" title="枚举的概念"></a><strong><font color=#87CEFA>枚举的概念</font></strong></h3><pre><code>枚举是Java中的一种特殊类型，用来表示固定个数值的引用数据类型,例如性别,季节,方向等等这些数据都是有固定个数数值的。
 </code></pre>
-<h3 id="枚举-2"><a href="#枚举-2" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h3><p>枚举的作用</p>
-<pre><code>是为了做信息的标志和信息的分类。
+<h3 id="枚举的作用"><a href="#枚举的作用" class="headerlink" title="枚举的作用"></a><strong><font color=#87CEFA>枚举的作用</font></strong></h3><pre><code>是为了做信息的标志和信息的分类。
 </code></pre>
-<h3 id="枚举-3"><a href="#枚举-3" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h3><pre><code>枚举的定义和使用
-    定义枚举
-        public enum 枚举名&#123;
-            // 第一行都是罗列枚举实例，这些枚举实列直接大写名字即可
-            实例,实例,实例...;
+<h3 id="枚举的定义和使用"><a href="#枚举的定义和使用" class="headerlink" title="枚举的定义和使用"></a><strong><font color=#87CEFA>枚举的定义和使用</font></strong></h3><p>定义枚举</p>
+<pre><code>public enum 枚举名&#123;
+    // 第一行都是罗列枚举实例，这些枚举实列直接大写名字即可
+    实例,实例,实例...;
+&#125;
+
+例
+    //定义
+    public enum Season &#123;
+        SPEING, SUMMER, AUTUMN, WINTER;
+    &#125;
+反编译后我们看到的枚举会是这样的
+    Compiled from &quot;Season.java&quot;
+    public final class Season extends java.lang.Enum&lt;Season&gt; &#123;
+        public static final Season SPRING = new Season();
+        public static final Season SUMMER = new Season();
+        public static final Season AUTUMN = new Season();
+        public static final Season WINTER = new Season();
+        public static Season[] values();
+        public static Season valueOf(java.lang.String);
+    &#125;
+</code></pre>
+<p>使用枚举</p>
+<pre><code>// 使用
+public class EnumDemo1 &#123;
+    public static void main(String[] args) &#123;
+        /*
+            使用枚举:  其实就是把枚举当成一个数据类型来使用
+        */
+        // 定义一个Season枚举类型的变量,并赋值
+        Season season1 = Season.SPRING;
+        Season season2 = Season.SUMMER;
+        Season season3 = Season.AUTUMN;
+        Season season4 = Season.WINTER;
+​
+    &#125;
+&#125;
+</code></pre>
+<p>总结</p>
+<pre><code>枚举类第一行默认都是罗列枚举对象的名称的
+枚举类都是继承了枚举类型：java.lang.Enum
+枚举都是最终类，不可以被继承
+构造器都是私有的，枚举对外不能创建对象
+枚举类相当于是多列模式。
+</code></pre>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a><strong><font color=#87CEFA>设计模式</font></strong></h2><h3 id="什么是设计模式"><a href="#什么是设计模式" class="headerlink" title="什么是设计模式"></a><strong><font color=#87CEFA>什么是设计模式</font></strong></h3><pre><code>其实我们可以说设计模式是一些前辈们总结的经验，来帮我们解决程序中遇见的问题。提高代码的质量。 更简单的说就是设计模式可以帮我们更简单的解决一些程序问题。
+</code></pre>
+<h3 id="java-23种设计模式设"><a href="#java-23种设计模式设" class="headerlink" title="java 23种设计模式设"></a><strong><font color=#87CEFA>java 23种设计模式设</font></strong></h3><h4 id="创建模式"><a href="#创建模式" class="headerlink" title="创建模式"></a><strong><font color=#87CEFA>创建模式</font></strong></h4><p>工厂模式</p>
+<p>什么是工厂模式？</p>
+<pre><code>之前我们创建类对象时, 都是使用new 对象的形式创建,在很多业务场景下也提供了不直接new的方式
+
+工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一， 这种类型的设计模式属于创建型模式，它提供了一种获取对象的方式。
+</code></pre>
+<p>工厂模式的作用</p>
+<pre><code>工厂的方法可以封装对象的创建细节，比如：为该对象进行加工和数据注入。 可以实现类与类之间的解耦操作（核心思想）。
+</code></pre>
+<p>耦合度</p>
+<pre><code>类与类之间的关系,如果关系比较强,高耦合, 如果关系比较弱,低耦合
+</code></pre>
+<h5 id="案例演示"><a href="#案例演示" class="headerlink" title="案例演示"></a><strong><font color=#87CEFA>案例演示</font></strong></h5><p>需求</p>
+<pre><code>编写一个Car接口, 提供run方法
+编写一个Falali类实现Car接口,重写run方法
+编写一个Benchi类实现Car接口,重写run方法
+
+// Car接口
+public interface Car &#123;
+    public void run();
+&#125;
+​
+​
+//Falali类实现Car接口
+public class Falali implements Car &#123;
+    @Override
+    public void run() &#123;
+        System.out.println(&quot;法拉利以每小时500公里的速度在奔跑.....&quot;);
+    &#125;
+&#125;
+​
+​
+//Benchi类实现Car接口
+public class Benchi implements Car &#123;
+    @Override
+    public void run() &#123;
+        System.out.println(&quot;奔驰汽车以每秒1米的速度在挪动.....&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>提供一个CarFactory(汽车工厂),用于生产汽车对象</p>
+<pre><code>public class CarFactory &#123;
+    /**
+        * @param id : 车的标识
+        *           benchi : 代表需要创建Benchi类对象
+        *           falali : 代表需要创建Falali类对象
+        *           如果传入的车标识不正确,代表当前工厂生成不了当前车对象,则返回null
+        * @return
+        */
+    public Car createCar(String id)&#123;
+        if(&quot;falali&quot;.equals(id))&#123;
+            return new Falali();
+        &#125;else if(&quot;benchi&quot;.equals(id))&#123;
+            return new Benchi();
         &#125;
-        例
-            //定义
-            public enum Season &#123;
-                SPEING, SUMMER, AUTUMN, WINTER;
-            &#125;
-        反编译后我们看到的枚举会是这样的
-            Compiled from &quot;Season.java&quot;
-            public final class Season extends java.lang.Enum&lt;Season&gt; &#123;
-                public static final Season SPRING = new Season();
-                public static final Season SUMMER = new Season();
-                public static final Season AUTUMN = new Season();
-                public static final Season WINTER = new Season();
-                public static Season[] values();
-                public static Season valueOf(java.lang.String);
-            &#125;
-    使用枚举
-        // 使用
-        public class EnumDemo1 &#123;
-            public static void main(String[] args) &#123;
-                /*
-                   使用枚举:  其实就是把枚举当成一个数据类型来使用
-                */
-                // 定义一个Season枚举类型的变量,并赋值
-                Season season1 = Season.SPRING;
-                Season season2 = Season.SUMMER;
-                Season season3 = Season.AUTUMN;
-                Season season4 = Season.WINTER;
-        ​
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<p>定义CarFactoryTest测试汽车工厂</p>
+<pre><code>public class CarFactoryTest &#123;
+    public static void main(String[] args) &#123;
+        CarFactory carFactory = new CarFactory();
+        Car benchi = carFactory.createCar(&quot;benchi&quot;);
+        benchi.run();
+        Car falali = carFactory.createCar(&quot;falali&quot;);
+        falali.run();
+    &#125;
+&#125;
+</code></pre>
+<p>总结</p>
+<pre><code>工厂模式的存在可以改变创建类的对象的方式,解决类与类之间的耦合.
+</code></pre>
+<p>工厂方法模式<br>抽象工厂模式</p>
+<p>单例模式</p>
+<p>什么是单例模式？</p>
+<pre><code>可以保证系统中，应用该模式的这个类永远只有一个实例，即一个类永远只能创建一个对象。
+</code></pre>
+<p>单例的实现方式</p>
+<p>饿汉单例</p>
+<pre><code>在用类获取对象的时候，对象已经提前为你创建好了。
+设计步骤
+    定义一个类，把构造器私有。
+    定义一个静态变量存储一个对象。
+    例
+        /** 1.定义一个单例类 */
+        public class SingleInstance &#123;
+            /** 3.定义一个静态变量存储一个对象即可 :属于类，与类一起加载一次 */
+            public static SingleInstance instance = new SingleInstance ();
+            /** 2.单例必须私有构造器*/  
+            private SingleInstance ()&#123;
+                System.out.println(&quot;创建了一个对象&quot;); 
             &#125;
         &#125;
-    总结
-        枚举类第一行默认都是罗列枚举对象的名称的
-        枚举类都是继承了枚举类型：java.lang.Enum
-        枚举都是最终类，不可以被继承
-        构造器都是私有的，枚举对外不能创建对象
-        枚举类相当于是多列模式。
+                
 </code></pre>
-<p>设计模式<br>    什么是设计模式<br>        其实我们可以说设计模式是一些前辈们总结的经验，来帮我们解决程序中遇见的问题。提高代码的质量。 更简单的说就是设计模式可以帮我们更简单的解决一些程序问题。<br>    java 23种设计模式。<br>        创建模式<br>            工厂模式<br>                什么是工厂模式？<br>                    之前我们创建类对象时, 都是使用new 对象的形式创建,在很多业务场景下也提供了不直接new的方式<br>                    工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一， 这种类型的设计模式属于创建型模式，它提供了一种获取对象的方式。<br>                工厂模式的作用<br>                    工厂的方法可以封装对象的创建细节，比如：为该对象进行加工和数据注入。 可以实现类与类之间的解耦操作（核心思想）。<br>                耦合度<br>                    类与类之间的关系,如果关系比较强,高耦合, 如果关系比较弱,低耦合<br>                案例演示<br>                    需求<br>                        编写一个Car接口, 提供run方法<br>                        编写一个Falali类实现Car接口,重写run方法<br>                        编写一个Benchi类实现Car接口,重写run方法<br>                        &#x2F;&#x2F; Car接口<br>                        public interface Car {<br>                            public void run();<br>                        }<br>                        ​<br>                        ​<br>                        &#x2F;&#x2F;Falali类实现Car接口<br>                        public class Falali implements Car {<br>                            @Override<br>                            public void run() {<br>                                System.out.println(“法拉利以每小时500公里的速度在奔跑…..”);<br>                            }<br>                        }<br>                        ​<br>                        ​<br>                        &#x2F;&#x2F;Benchi类实现Car接口<br>                        public class Benchi implements Car {<br>                            @Override<br>                            public void run() {<br>                                System.out.println(“奔驰汽车以每秒1米的速度在挪动…..”);<br>                            }<br>                        }<br>                    提供一个CarFactory(汽车工厂),用于生产汽车对象<br>                        public class CarFactory {<br>                            &#x2F;**<br>                             * @param id : 车的标识<br>                             *           benchi : 代表需要创建Benchi类对象<br>                             *           falali : 代表需要创建Falali类对象<br>                             *           如果传入的车标识不正确,代表当前工厂生成不了当前车对象,则返回null<br>                             * @return<br>                             *&#x2F;<br>                            public Car createCar(String id){<br>                                if(“falali”.equals(id)){<br>                                    return new Falali();<br>                                }else if(“benchi”.equals(id)){<br>                                    return new Benchi();<br>                                }<br>                                return null;<br>                            }<br>                        }<br>                    定义CarFactoryTest测试汽车工厂<br>                        public class CarFactoryTest {<br>                            public static void main(String[] args) {<br>                                CarFactory carFactory &#x3D; new CarFactory();<br>                                Car benchi &#x3D; carFactory.createCar(“benchi”);<br>                                benchi.run();<br>                                Car falali &#x3D; carFactory.createCar(“falali”);<br>                                falali.run();<br>                            }<br>                        }<br>                    总结<br>                        工厂模式的存在可以改变创建类的对象的方式,解决类与类之间的耦合.</p>
-<pre><code>        工厂方法模式
-        抽象工厂模式
-        单例模式
-            什么是单例模式？
-                可以保证系统中，应用该模式的这个类永远只有一个实例，即一个类永远只能创建一个对象。
-            单例的实现方式
-                饿汉单例
-                    在用类获取对象的时候，对象已经提前为你创建好了。
-                    设计步骤
-                        定义一个类，把构造器私有。
-                        定义一个静态变量存储一个对象。
-                        例
-                            /** 1.定义一个单例类 */
-                            public class SingleInstance &#123;
-                                /** 3.定义一个静态变量存储一个对象即可 :属于类，与类一起加载一次 */
-                                public static SingleInstance instance = new SingleInstance ();
-                                /** 2.单例必须私有构造器*/  
-                                private SingleInstance ()&#123;
-                                    System.out.println(&quot;创建了一个对象&quot;); 
-                                &#125;
-                            &#125;
-                懒汉单例
-                    在真正需要该对象的时候，才去创建一个对象(延迟加载对象)。
-                    设计步骤
-                        定义一个类，把构造器私有。
-                        定义一个静态变量存储一个对象。
-                        提供一个返回单例对象的方法
-                        例
-                            /** 1.定义一个单例类 */
-                            public class SingleInstance &#123;
-                              
-                                /** 2.单例必须私有构造器*/  
-                                private SingleInstance ()&#123;
-                                    System.out.println(&quot;创建了一个对象&quot;); 
-                                &#125;
-                                
-                                /** 3.定义一个静态私有变量存储一个对象即可 :属于类，与类一起加载一次 */
-                                private static SingleInstance instance ; // null
-                                
-                                /** 4. 提供一个方法返回一个单例对象  */
-                                public static SingleInstance getInstance()&#123;
-                                    if(instance==null)&#123;
-                                        instance=new SingleInstance();
-                                    &#125;
-                                    return instance;
-                                &#125;
-                            &#125;
-        建造者模式
-        原型模式
-    结构型模式
-        适配器模式
-        装饰器模式
-        代理模式
-        外观模式
-        桥接模式
-        组合模式
-        享元模式
-    行为型模式
-        策略模式
-        模板方法模式
-        观察者模式
-        迭代子模式
-        责任链模式
-        命令模式
-        备忘录模式
-        状态模式
-        访问者模式
-        中介者模式
-        解释器模式
-    多例模式
-        本质上和单例一样，构造方法私有化，内部产生实例化对象，只不过单例设计模式只产生一个，多例设计模式可以产生有限的多个
-        例如：描述性别的类，只能有两个
-            class Sex&#123;
-                public static final int MALE_CH =1;
-                public static final int FEMALE_CH =2;
-                private static final Sex MALE = new Sex(&quot;男&quot;);
-                private static final Sex FEMALE = new Sex(&quot;女&quot;);
-                private String title;
-                private Sex(String title) &#123;
-                    this.title = title;
+<p>懒汉单例</p>
+<pre><code>在真正需要该对象的时候，才去创建一个对象(延迟加载对象)。
+设计步骤
+    定义一个类，把构造器私有。
+    定义一个静态变量存储一个对象。
+    提供一个返回单例对象的方法
+    例
+        /** 1.定义一个单例类 */
+        public class SingleInstance &#123;
+            
+            /** 2.单例必须私有构造器*/  
+            private SingleInstance ()&#123;
+                System.out.println(&quot;创建了一个对象&quot;); 
+            &#125;
+            
+            /** 3.定义一个静态私有变量存储一个对象即可 :属于类，与类一起加载一次 */
+            private static SingleInstance instance ; // null
+            
+            /** 4. 提供一个方法返回一个单例对象  */
+            public static SingleInstance getInstance()&#123;
+                if(instance==null)&#123;
+                    instance=new SingleInstance();
                 &#125;
-                public static Sex getInstance(int ch)&#123;
-                    switch (ch)&#123;
-                        case MALE_CH:
-                            return MALE;
-                        case FEMALE_CH:
-                            return FEMALE;
-                        default:
-                            return null;
-                    &#125;
-                &#125;
-                public String toString()&#123;
-                    return this.title;
-                &#125;
-                
-                
-                //测试
-                public static void main(String[] args)&#123;
-                    Sex sex = Sex.getInstance(Sex.MALE_CH);
-                    System.out.println(sex);
-                &#125;
+                return instance;
+            &#125;
+        &#125;
+</code></pre>
+<p>建造者模式<br>原型模式</p>
+<p>结构型模式</p>
+<pre><code>适配器模式
+装饰器模式
+代理模式
+外观模式
+桥接模式
+组合模式
+享元模式
+</code></pre>
+<p>行为型模式</p>
+<pre><code>策略模式
+模板方法模式
+观察者模式
+迭代子模式
+责任链模式
+命令模式
+备忘录模式
+状态模式
+访问者模式
+中介者模式
+解释器模式
+</code></pre>
+<p>多例模式</p>
+<pre><code>本质上和单例一样，构造方法私有化，内部产生实例化对象，只不过单例设计模式只产生一个，多例设计模式可以产生有限的多个
+例如：描述性别的类，只能有两个
+    class Sex&#123;
+        public static final int MALE_CH =1;
+        public static final int FEMALE_CH =2;
+        private static final Sex MALE = new Sex(&quot;男&quot;);
+        private static final Sex FEMALE = new Sex(&quot;女&quot;);
+        private String title;
+        private Sex(String title) &#123;
+            this.title = title;
+        &#125;
+        public static Sex getInstance(int ch)&#123;
+            switch (ch)&#123;
+                case MALE_CH:
+                    return MALE;
+                case FEMALE_CH:
+                    return FEMALE;
+                default:
+                    return null;
+            &#125;
+        &#125;
+        public String toString()&#123;
+            return this.title;
+        &#125;
+        
+        
+        //测试
+        public static void main(String[] args)&#123;
+            Sex sex = Sex.getInstance(Sex.MALE_CH);
+            System.out.println(sex);
+        &#125;
 </code></pre>
 <p>}</p>
-<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a><strong><font color=#87CEFA>代理模式</font></strong></h1><h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a><strong><font color=#87CEFA>Lambda表达式</font></strong></h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/">http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/03/02/jsp/" title="jsp"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">jsp</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">1.</span> <span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">类的加载器？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">类加载器的种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class%E7%B1%BB"><span class="toc-number">1.1.2.</span> <span class="toc-text">Class类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84-1"><span class="toc-number">1.2.</span> <span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">反射概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96Class%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text">获取Class对象的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.</span> <span class="toc-text">反射获取构造方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class%E7%B1%BB%E4%B8%AD%E4%B8%8EConstructor%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">Class类中与Constructor相关方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Constructor%E7%B1%BB%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">Constructor类中常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A0%E5%8F%82%E6%95%B0%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">获取无参数构造方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9C%89%E5%8F%82%E6%95%B0%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">获取有参数构造方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E5%92%8C%E6%89%A7%E8%A1%8C"><span class="toc-number">1.2.4.</span> <span class="toc-text">反射获取成员方法和执行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class%E7%B1%BB%E4%B8%AD%E4%B8%8EMethod%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">Class类中与Method相关方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method%E7%B1%BB%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">Method类中常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%97%A0%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">反射获取无参数方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.5.</span> <span class="toc-text">反射获取属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">关键字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%A1%88%E4%BE%8B"><span class="toc-number">1.2.6.</span> <span class="toc-text">反射案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">2.1.</span> <span class="toc-text">单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB"><span class="toc-number">2.1.1.</span> <span class="toc-text">测试分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Junit%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.2.</span> <span class="toc-text">Junit介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Junit%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.3.</span> <span class="toc-text">Junit的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.1.4.</span> <span class="toc-text">常用注解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.</span> <span class="toc-text">Java注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B3%A8%E8%A7%A3%EF%BC%9F"><span class="toc-number">2.2.1.</span> <span class="toc-text">什么是注解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.2.</span> <span class="toc-text">标准注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.3.</span> <span class="toc-text">自定义注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">定义格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">注解的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.3.3.</span> <span class="toc-text">使用自定义注解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%A1%88%E4%BE%8B"><span class="toc-number">2.2.3.4.</span> <span class="toc-text">定义注解案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7value"><span class="toc-number">2.2.3.5.</span> <span class="toc-text">特殊属性value</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.4.</span> <span class="toc-text">元注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.5.</span> <span class="toc-text">常用元注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Target"><span class="toc-number">2.2.5.1.</span> <span class="toc-text">@Target</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Retention"><span class="toc-number">2.2.6.</span> <span class="toc-text">Retention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.7.</span> <span class="toc-text">注解解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.7.1.</span> <span class="toc-text">注解的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.2.7.2.</span> <span class="toc-text">与注解解析相关的接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">2.2.7.3.</span> <span class="toc-text">获取注解数据的原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">2.2.7.4.</span> <span class="toc-text">使用反射获取注解的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E"><span class="toc-number">2.2.7.4.1.</span> <span class="toc-text">需求说明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.7.4.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E6%A1%88%E4%BE%8B-%E6%A8%A1%E6%8B%9FJunit"><span class="toc-number">2.2.8.</span> <span class="toc-text">注解案例(模拟Junit)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lombok"><span class="toc-number">2.3.</span> <span class="toc-text">lombok</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.1.</span> <span class="toc-text">lombok介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.2.</span> <span class="toc-text">lombok使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.3.3.</span> <span class="toc-text">lombok常用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Getter%E5%92%8C-Setter"><span class="toc-number">2.3.3.1.</span> <span class="toc-text">@Getter和@Setter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ToString"><span class="toc-number">2.3.3.2.</span> <span class="toc-text">@ToString</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NoArgsConstructor%E5%92%8C-AllArgsConstructor"><span class="toc-number">2.3.3.3.</span> <span class="toc-text">@NoArgsConstructor和@AllArgsConstructor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data"><span class="toc-number">2.3.3.4.</span> <span class="toc-text">@Data</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">枚举和设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-number">3.1.</span> <span class="toc-text">枚举</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE-1"><span class="toc-number">3.1.1.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE-2"><span class="toc-number">3.1.2.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE-3"><span class="toc-number">3.1.3.</span> <span class="toc-text">枚举</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">代理模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">Lambda表达式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/java%E8%BF%9B%E9%98%B6/" title="java进阶">java进阶</a><time datetime="2023-03-02T05:22:37.000Z" title="Created 2023-03-02 13:22:37">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/jsp/" title="jsp">jsp</a><time datetime="2023-03-02T05:22:18.000Z" title="Created 2023-03-02 13:22:18">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/javaoop/" title="javaoop">javaoop</a><time datetime="2023-03-02T05:22:11.000Z" title="Created 2023-03-02 13:22:11">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/26/js%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="js思维引导">js思维引导</a><time datetime="2023-02-26T05:35:49.000Z" title="Created 2023-02-26 13:35:49">2023-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/25/MySQL%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="MySQL思维引导">MySQL思维引导</a><time datetime="2023-02-25T01:02:29.000Z" title="Created 2023-02-25 09:02:29">2023-02-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a><strong><font color=#87CEFA>代理模式</font></strong></h1><p>为什么要有“代理”？生活中就有很多代理的例子，例如，我现在需要出国，但是我不愿意自己去办签证、预定机票和酒店（觉得麻烦 ，那么就可以找旅行社去帮我办，这时候旅行社就是代理，而我自己就是被代理了。</p>
+<h2 id="代理模式的定义"><a href="#代理模式的定义" class="headerlink" title="代理模式的定义"></a><strong><font color=#87CEFA>代理模式的定义</font></strong></h2><pre><code>被代理者没有能力或者不愿意去完成某一件事，那么就需要找一个人代替自己去完成这件事，这个人就是代理者，所以代理模式包含了3个角色：被代理角色、代理角色、抽象角色（协议）
+</code></pre>
+<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a><strong><font color=#87CEFA>静态代理</font></strong></h2><pre><code>public interface YueHui &#123;// 协议,被代理者需要代理的方法,就定义在这里,然后让代理者和被代理者去实现
+    // 被代理者实现: 为了确保和代理者实现的方法一致
+    // 代理者实现: 为了增强被代理者的这些方法
+    public abstract void yueHui();
+&#125;
+​
+public class LiuYiFei implements YueHui &#123;
+​
+    public void yueHui()&#123;
+        System.out.println(&quot;刘亦菲在约会...&quot;);
+    &#125;
+​
+&#125;
+​
+public class MeiPo implements YueHui&#123;
+    // 成员变量
+    LiuYiFei lyf;
+​
+    //构造方法
+    public WangPo(LiuYiFei lyf) &#123;
+        this.lyf = lyf;
+    &#125;
+​
+    //成员方法
+    @Override
+    public void yueHui() &#123;
+        System.out.println(&quot;媒婆以找到过儿的名义,并把2人约到古墓里...&quot;);
+        // 刘亦菲约会
+        lyf.yueHui();
+        System.out.println(&quot;媒婆打扫战场...&quot;);
+    &#125;
+&#125;
+
+public class DiaoSi &#123;
+    public static void main(String[] args) &#123;
+        /*
+            案例: 刘亦菲找媒婆yueHui()
+         */
+        
+        // 不请代理: 屌丝直接找刘亦菲yueHui
+        // 创建刘亦菲对象
+        LiuYiFei lyf = new LiuYiFei();
+        // lyf.yueHui();
+​
+        // 请代理: 静态代理,代理类真实存在
+        MeiPo mp = new MeiPo(lyf);// mp:代理对象   MeiPo类: 代理类   YueHui接口: 协议  LiuYiFei: 被代理类
+        mp.yueHui();
+    &#125;
+&#125;
+</code></pre>
+<p>​</p>
+<h2 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a><strong><font color=#87CEFA>动态代理</font></strong></h2><p>概述 </p>
+<pre><code>动态代理就是直接通过反射生成一个代理对象，代理对象所属的类是不需要存在的
+</code></pre>
+<p>动态代理的获取</p>
+<pre><code>jdk 提供了一个Proxy类可以直接给实现接口类的对象直接生成代理对象
+</code></pre>
+<p>动态代理相关api</p>
+<pre><code>java.lang.reflect.Proxy类可以直接生成一个代理对象
+Proxy.newProxyInstance(ClassLoader loader,Class&lt;?&gt;[] interfaces, InvocationHandler h)生成一个代理对象
+    参数1：ClassLoader loader 被代理对象的类加载器
+    参数2：Class&lt;?&gt; [] interfaces 被代理对象实现的接口
+    参数3：InvocationHander h (接口)执行处理接口
+    返回值：代理对象
+    前2个参数是为了帮助在jvm内部生成被代理对象的代理对象，第3个参数，用来监听代理对象调用方法，帮助我们调用方法
+InvocationHandler中的Object invoke(Object proxy, Method method, Object[] args) 方法：调用代理类的任何方法，此方法都会被执行
+    参数1：代理对象（慎用）
+    参数2：当前执行的方法
+    参数3：当前执行的方法运行时传过来的参数
+    返回值：当前方法执行的返回值
+</code></pre>
+<h3 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a><strong><font color=#87CEFA>案例</font></strong></h3><p>案例1: 代理方法无参数</p>
+<pre><code>public interface YueHui &#123;// 协议,被代理者需要代理的方法,就定义在这里,然后让代理者和被代理者去实现
+    // 被代理者实现: 为了确保和代理者实现的方法一致
+    // 代理者实现: 为了增强被代理者的这些方法
+    public abstract void yueHui();
+&#125;
+​
+​
+public class LiuYiFei implements YueHui &#123;
+​
+    public void yueHui()&#123;
+        System.out.println(&quot;刘亦菲在约会...&quot;);
+    &#125;
+​
+&#125;
+​
+​
+public class DiaoSi &#123;
+    public static void main(String[] args) &#123;
+        /*
+            案例: 屌丝要找刘亦菲yueHui()
+            */
+        // 不请代理: 屌丝直接找刘亦菲yueHui
+        // 创建刘亦菲对象
+        LiuYiFei lyf = new LiuYiFei();
+        // lyf.yueHui();
+​
+        // 请代理: 静态代理,代理类真实存在
+        MeiPo mp = new MeiPo(lyf);// mp:代理对象   MeiPo类: 代理类   YueHui接口: 协议  : 被代理类
+        mp.yueHui();
+​
+        /*
+            问题:
+                1.刘亦菲不方便直接找屌丝yueHui
+                2.刘亦菲的yueHui方法需要增强一下,例如:yueHui之前需要找场地,yueHui之后需要打扫战场
+​
+            静态代理: 代理类是真实存在的,通过代理类产生代理对象
+            动态代理: 代理类是不真实存在的,在程序运行中,直接产生代理对象
+            前提: 被代理类需要实现接口
+            动态代理实现获取代理对象:
+                jdk提供一个Proxy类可以直接给实现接口类的对象直接生成代理对象
+                
+            */
+        System.out.println(&quot;=========================================&quot;);
+​
+        // 使用动态代理直接产生刘亦菲的代理对象
+        // 动态代理: 代理类是不真实存在的,但代理类是一定实现了被代理类的接口的
+        // p:动态代理产生的代理对象 代理类是不真实存在的
+        YueHui p = (YueHui) Proxy.newProxyInstance(LiuYiFei.class.getClassLoader(), LiuYiFei.class.getInterfaces(), new InvocationHandler() &#123;
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
+                // 回调方法: 当代理对象调用了方法,就会来执行该invoke方法, 在该方法中就可以增强被代理类的方法
+                // 参数1: 生成的代理对象 这里就是p这个代理对象 (慎用)
+                // 参数2: 当前代理对象执行的方法 这里method就是happy()方法对象
+                // 参数3: 当前代理对象执行的方法,传入的实际参数
+                // 返回值:当前代理对象执行的方法的返回值
+                // System.out.println(&quot;invoke&quot;);
+                // 媒婆找场地
+                System.out.println(&quot;媒婆以找到过儿的名义,并把2人约到古墓里...&quot;);
+​
+                // 刘亦菲yueHui
+                method.invoke(lyf);
+                
+​
+                // 媒婆打扫
+                System.out.println(&quot;媒婆打扫战场...&quot;);
+                return null;
+            &#125;
+        &#125;);
+​
+        // 代理happy
+        p.yueHui();// 无参数
+    &#125;
+&#125;
+</code></pre>
+<p>案例2: 代理方法有参数和代理多个方法</p>
+<pre><code>public class Test &#123;
+    public static void main(String[] args) &#123;
+        /*
+            需求:
+                对List接口进行代理，以前的remove(Object obj)方法是删除集合中第一次出现的元素
+                (比如集合中有多个“abc”,调用remove(“abc”)后只会删除一个元素)。
+                代理后，要求在调用remove(Object obj)方法后，能够删除集合中所有匹配的元素。【动态代理】
+            动态代理步骤:
+                1.使用Proxy调用newProxyInstance()方法动态获取代理对象
+                2.在InvocationHandler中的invoke方法进行增强代理的方法
+            */
+        // ArrayList看成被代理类
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();// JinLian
+        list.add(&quot;abc&quot;);
+        list.add(&quot;bac&quot;);
+        list.add(&quot;cba&quot;);
+        list.add(&quot;abc&quot;);
+        list.add(&quot;abc&quot;);
+        list.add(&quot;abc&quot;);
+        list.add(&quot;abc&quot;);
+        System.out.println(&quot;删除前:&quot;+list);// [abc, bac, cba, abc, abc, abc, abc]
+​
+        // 获取代理对象
+        List&lt;String&gt; proxy = (List&lt;String&gt;)Proxy.newProxyInstance(list.getClass().getClassLoader(),ArrayList.class.getInterfaces(), new InvocationHandler() &#123;
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
+                // 代理对象调用方法就会来到这里
+                Object res = method.invoke(list, args);
+​
+                if (method.getName().equals(&quot;remove&quot;))&#123;
+                    // 迭代器循环删除
+                    Iterator&lt;String&gt; it = list.iterator();
+                    while (it.hasNext()) &#123;
+                        String e = it.next();
+                        if (e.equals(args[0]))&#123;// false
+                            it.remove();
+                        &#125;
+                    &#125;
+                &#125;
+​
+                if (method.getName().equals(&quot;set&quot;))&#123;
+                    System.out.println(&quot;hhhhhhhhh....&quot;);
+                &#125;
+                return res;
+            &#125;
+        &#125;);
+​
+        // 代理对象.remover(&quot;abc&quot;); //  [bac, cba]
+        boolean res = proxy.remove(&quot;abc&quot;);// 拆箱
+        System.out.println(&quot;res:&quot;+res);// true
+        System.out.println(&quot;删除后:&quot;+list);// [bac, cba]
+​
+​
+        // 调用proxy调用set方法设置值
+        String res2 = proxy.set(0, &quot;acb&quot;);
+        System.out.println(&quot;res2:&quot;+res2);// res2: bac
+        System.out.println(&quot;设置后:&quot;+list);// [bac, cba]
+​
+        // 未使用代理
+        // list.remove(&quot;abc&quot;);
+        // System.out.println(&quot;删除后:&quot;+list);// [bac, cba, abc, abc, abc, abc]
+    &#125;
+&#125;
+</code></pre>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong><font color=#87CEFA>小结</font></strong></h3><p>动态代理的作用</p>
+<pre><code>动态的生成一个代理对象，并可以增强被代理里的方法
+</code></pre>
+<p>使用Proxy的方法生成代理对象</p>
+<pre><code>Proxy.newProxyInstance(ClassLoader c, Class[] interfaces, InvocationHandler i)
+</code></pre>
+<h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a><strong><font color=#87CEFA>Lambda表达式</font></strong></h1><h2 id="接口组成更新概述"><a href="#接口组成更新概述" class="headerlink" title="接口组成更新概述"></a><strong><font color=#87CEFA>接口组成更新概述</font></strong></h2><p>常量</p>
+<pre><code>public static final
+</code></pre>
+<p>抽象方法</p>
+<pre><code>public abstract
+</code></pre>
+<h2 id="接口中默认方法"><a href="#接口中默认方法" class="headerlink" title="接口中默认方法"></a><strong><font color=#87CEFA>接口中默认方法</font></strong></h2><p>格式</p>
+<pre><code>public default 返回值类型 方法名(参数列表)&#123;&#125;
+</code></pre>
+<p>示例</p>
+<pre><code>public default void show3()&#123;&#125;
+</code></pre>
+<p>注意事项</p>
+<pre><code>默认方法不是抽象方法，所以不能被强制重写。当是可以被重写，重写的时候去掉default 关键字
+public 可以省略， default 不可以省略
+</code></pre>
+<h2 id="接口中静态方法"><a href="#接口中静态方法" class="headerlink" title="接口中静态方法"></a><strong><font color=#87CEFA>接口中静态方法</font></strong></h2><p>语法</p>
+<pre><code>public static 返回值类型 方法名(参数列表)&#123;&#125;
+</code></pre>
+<p>示范</p>
+<pre><code>public static void show3()&#123;&#125;
+</code></pre>
+<p>注意事项</p>
+<pre><code>静态方法只能通过接口名调用，不能通过实现类名或者对象名调用
+public 可以省略 static 不能省略
+</code></pre>
+<h2 id="接口中私有方法"><a href="#接口中私有方法" class="headerlink" title="接口中私有方法"></a><strong><font color=#87CEFA>接口中私有方法</font></strong></h2><p>私有方法产生原因</p>
+<pre><code>Java 9中新增了带方法体的私有方法，这其实在Java 8中就埋下了伏笔：Java 8允许在接口中定义带方法体的默认方法和静态方法。这样可能就会引发一个问题：当两个默认方法或者静态方法中包含一段相同的代码实现时，程序必然考虑将这段实现代码抽取成一个共性方法，而这个共性方法是不需要让别人使用的，因此用私有给隐藏起来，这就是Java 9增加私有方法的必然性
+</code></pre>
+<p>定义格式</p>
+<pre><code>格式1
+    private 返回值类型 方法名(参数列表)&#123;&#125;
+    示例
+        private void show()&#123;&#125;
+
+格式2
+    private static 返回值类型 方法名(参数列表)&#123;&#125;
+    示例
+        private static void method()&#123;&#125;
+</code></pre>
+<p>注意事项</p>
+<pre><code>默认方法可以调用私有的静态方法和非静态方法
+静态方法只能调用私有的静态方法
+</code></pre>
+<h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a><strong><font color=#87CEFA>lambda表达式</font></strong></h2><h3 id="为什么需要学习jdk8的新语法？"><a href="#为什么需要学习jdk8的新语法？" class="headerlink" title="为什么需要学习jdk8的新语法？"></a><strong><font color=#87CEFA>为什么需要学习jdk8的新语法？</font></strong></h3><h4 id="案例-2"><a href="#案例-2" class="headerlink" title="案例"></a><strong><font color=#87CEFA>案例</font></strong></h4><p>方式一</p>
+<pre><code>package lambda;
+import org.junit.jupiter.api.Test;
+class MyRunnable implements Runnable&#123;
+    @Override
+    public void run() &#123;
+        System.out.println(&quot;爱老虎油&quot;);
+    &#125;
+&#125;
+​
+public class LambdaTest &#123;
+​
+    @Test
+    public void threadTest1()&#123;
+        //普通的多线程操作，需要先准备一个Runnable的实现类
+        MyRunnable myRunnable = new MyRunnable();
+        //2.在传入Thread对象中运行
+        Thread t1 = new Thread(myRunnable);
+        tstart();
+    &#125;
+&#125;
+</code></pre>
+<p>方式二</p>
+<pre><code>@Test
+public void threadTest2()&#123;
+    //直接使用匿名内部类方式编写run方法执行内容
+    new Thread(new Runnable() &#123;
+        @Override
+        public void run() &#123;
+            System.out.println(&quot;爱老虎油&quot;);
+        &#125;
+    &#125;).start();
+&#125;
+</code></pre>
+<p>方式三</p>
+<pre><code>@Test
+public void threadTest3()&#123;
+    //使用lambda方式设置run方法执行内容
+    new Thread(() -&gt; &#123;
+        System.out.println(&quot;爱老虎油&quot;);
+    &#125;).start();
+&#125;
+</code></pre>
+<p>方式四</p>
+<pre><code>@Test
+public void threadTest4()&#123;
+    //使用lambda简化方式设置run方法执行内容
+    new Thread(() -&gt; System.out.println(&quot;爱老虎油&quot;)).start();
+&#125;
+</code></pre>
+<h3 id="Lambda表达式的标准格式"><a href="#Lambda表达式的标准格式" class="headerlink" title="Lambda表达式的标准格式"></a><strong><font color=#87CEFA>Lambda表达式的标准格式</font></strong></h3><p>Lamdba表达式的格式</p>
+<pre><code>(形式参数)--&gt;&#123;代码块&#125;
+    形式参数：()
+        如果只有一个参数，括号可以省略；如果有多个参数，参数之间用逗号隔开；如果没有参数，留空即可
+    指向动作：--&gt;
+        由英文的中划线和大于号组成，固定写法。
+    代码块：&#123;&#125;
+        我们具体的操作，也就时我们方法体的内容。如果只有一个操作可以省略
+</code></pre>
+<h3 id="Lambda表达式的标准格式-1"><a href="#Lambda表达式的标准格式-1" class="headerlink" title="Lambda表达式的标准格式"></a><strong><font color=#87CEFA>Lambda表达式的标准格式</font></strong></h3><p>Landba表达式使用前提</p>
+<pre><code>有一个接口（抽象类和普通类不可以使用Lamdba）
+接口中有且仅有一个抽象方法
+</code></pre>
+<h3 id="Lambda表达式练习"><a href="#Lambda表达式练习" class="headerlink" title="Lambda表达式练习"></a><strong><font color=#87CEFA>Lambda表达式练习</font></strong></h3><p>练习1：无参无返回值抽象方法的练习</p>
+<pre><code>package lambda.pojo;
+import org.junit.jupiter.api.Test;
+interface Animal&#123;
+    void eat();
+&#125;
+​
+class Dog implements Animal&#123;
+    @Override
+    public void eat() &#123;
+        System.out.println(&quot;狗吃骨头&quot;);
+    &#125;
+&#125;
+​
+public class Test02 &#123;
+​
+    public void lookAfter(Animal animal)&#123;
+        animal.eat();
+    &#125;
+    @Test
+    public void test()&#123;
+        //使用实现类
+        /*Animal animal = new Dog();
+        lookAfter(animal);*/
+​
+        //2.使用匿名函数
+        /*lookAfter(new Animal() &#123;
+            @Override
+            public void eat() &#123;
+                System.out.println(&quot;猫咪吃鱼&quot;);
+            &#125;
+        &#125;);*/
+​
+        //3.Lambda表达式
+        /*lookAfter(() -&gt; &#123;
+            System.out.println(&quot;猪吃私聊&quot;);
+        &#125;);*/
+        lookAfter(() -&gt; System.out.println(&quot;猪吃私聊&quot;));
+    &#125;
+&#125;
+</code></pre>
+<p>​</p>
+<p>练习2：有参无返回值抽象方法的练习</p>
+<pre><code>package lambda.pojo;
+import org.junit.jupiter.api.Test;
+interface Animal2&#123;
+    void eat(String food);
+&#125;
+​
+public class Test03 &#123;
+​
+    public void lookAfter(Animal2 animal2)&#123;
+        animal2.eat(&quot;水&quot;);
+    &#125;
+​
+    @Test
+    public void test() &#123;
+        /*lookAfter((String s) -&gt; &#123;
+            System.out.println(&quot;狗狗喝&quot; + s);
+        &#125;);*/
+​
+        //省略模式：类型可以被省略
+        /*lookAfter((s) -&gt; &#123;
+            System.out.println(&quot;狗狗喝&quot; + s);
+        &#125;);*/
+​
+        lookAfter(s -&gt; System.out.println(&quot;狗狗喝&quot; + s));
+    &#125;
+&#125;
+</code></pre>
+<p>练习3：有参有返回值抽象方法的练习</p>
+<pre><code>package lambda.pojo;
+import org.junit.jupiter.api.Test;
+interface Computer &#123;
+    int execute(int i, int j);
+&#125;
+​
+public class Test04 &#123;
+    public int useExecute(Computer computer)&#123;
+        return computer.execute(1024, 1024);
+    &#125;
+​
+    @Test
+    public void test()&#123;
+        /*int result = useExecute((i, j) -&gt; &#123;
+            return i * j;
+        &#125;);
+        System.out.println(result);*/
+​
+        int result = useExecute((i, j) -&gt; i * j);
+        System.out.println(result);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="Lambda表达式的注意事项"><a href="#Lambda表达式的注意事项" class="headerlink" title="Lambda表达式的注意事项"></a><strong><font color=#87CEFA>Lambda表达式的注意事项</font></strong></h3><pre><code>使用Lamdba必须要有接口并且要求接口中有且仅有一个抽象方法
+必须要有上下文环境，才能推导Lamdba对应的接口
+    根据局部变量的赋值得知 Lamdba对应的接口
+    根据调用方法的参数得知 Lamdba 对应的接口
+    package lambda.pojo;
+    import org.junit.jupiter.api.Test;
+    interface Inter1&#123;
+        void method();
+    ​
+        //接口中有且只有一个抽象方法
+        //void method2();
+    &#125;
+    ​
+    interface Inter2&#123;
+        void method();
+    ​
+    &#125;
+    ​
+    class ExecuteClass&#123;
+        private Inter1 inter1;
+    ​
+        public ExecuteClass(Inter1 inter1) &#123;
+            this.inter1 = inter1;
+        &#125;
+    &#125;
+    ​
+    public class Test05 &#123;
+        
+        
+        public void intermethod(Inter1 inter1)&#123;
+            inter1.method();
+        &#125;
+</code></pre>
+<p>​<br>            @Test<br>            public void test(){<br>        ​<br>                &#x2F;&#x2F;必须有上下文环境，帮助Lambda推导当前【操作】是提供给哪一个[接口]。</p>
+<pre><code>            //通过接收类型推断当前【方法体】是用于哪一个抽象方法
+            Inter1 inter1 = () -&gt; System.out.println(&quot;方法&quot;);
+    ​
+            //通过构造函数参数类型，帮助Lambda推导当前【操作】是提供给哪一个[接口]。
+            new ExecuteClass(() -&gt; System.out.println(&quot;方法&quot;));
+    ​
+            //通过方法的参数类型，帮助Lambda推导当前【操作】是提供给哪一个[接口]。
+            intermethod(() -&gt; System.out.println(&quot;方法&quot;));
+        &#125;
+    &#125;
+</code></pre>
+<h3 id="Lambda表达式和匿名内部类的区别"><a href="#Lambda表达式和匿名内部类的区别" class="headerlink" title="Lambda表达式和匿名内部类的区别"></a><strong><font color=#87CEFA>Lambda表达式和匿名内部类的区别</font></strong></h3><h4 id="所需类型不同"><a href="#所需类型不同" class="headerlink" title="所需类型不同"></a><strong><font color=#87CEFA>所需类型不同</font></strong></h4><p>匿名内部类</p>
+<pre><code>可以是接口，也可以是抽象类，还可以是具体类
+</code></pre>
+<p>Lambda表达式</p>
+<pre><code>只能事接口
+</code></pre>
+<h4 id="使用现在不同"><a href="#使用现在不同" class="headerlink" title="使用现在不同"></a><strong><font color=#87CEFA>使用现在不同</font></strong></h4><p>如果接口中仅有一个抽象方法，可以使用Lambda表达式，也可以使用匿名类</p>
+<p>如果接口多一一个抽象方法，只能使用匿名内部类，而不能使用Lambda表达式</p>
+<h4 id="实现原理不同"><a href="#实现原理不同" class="headerlink" title="实现原理不同"></a><strong><font color=#87CEFA>实现原理不同</font></strong></h4><p>匿名内部类</p>
+<pre><code>编译后产生一个单独的class字节码文件
+</code></pre>
+<p>Lambda表达式</p>
+<pre><code>编译后，没有一个单独的class字节文件。对应的字节码会在运行的时候动态生成
+
+package lambda.pojo;
+import org.junit.jupiter.api.Test;
+interface Inter3&#123;
+    void method();
+    //void method2();
+&#125;
+​
+abstract class AbClass&#123;
+    abstract void method();
+&#125;
+​
+class Class1&#123;
+    public void method()&#123;
+​
+    &#125;
+&#125;
+​
+public class Test06 &#123;
+​
+    public void useInter3(Inter3 inter3)&#123;
+​
+    &#125;
+​
+    public void useAbClass(AbClass abClass)&#123;
+​
+    &#125;
+​
+    public void useClass1(Class1 class1)&#123;
+​
+    &#125;
+​
+    @Test
+    public void test()&#123;
+        //匿名内部类
+/*        useInter3(new Inter3() &#123;
+            @Override
+            public void method() &#123;
+                System.out.println(&quot;接口&quot;);
+            &#125;
+​
+//            @Override
+//            public void method2() &#123;
+//                System.out.println(&quot;接口&quot;);
+//            &#125;
+        &#125;);
+​
+        useAbClass(new AbClass() &#123;
+            @Override
+            public void method() &#123;
+                System.out.println(&quot;接口&quot;);
+            &#125;
+        &#125;);
+​
+        useClass1(new Class1() &#123;
+            @Override
+            public void method() &#123;
+                System.out.println(&quot;接口&quot;);
+            &#125;
+        &#125;);*/
+​
+        //Lambda
+        useInter3(() -&gt; System.out.println(&quot;接口&quot;));
+        useAbClass(() -&gt; System.out.println(&quot;接口&quot;));
+        useClass1(() -&gt; System.out.println(&quot;接口&quot;));
+​
+    &#125;
+&#125;
+</code></pre>
+<h3 id="函数接口函数式编程"><a href="#函数接口函数式编程" class="headerlink" title="函数接口函数式编程"></a><strong><font color=#87CEFA>函数接口函数式编程</font></strong></h3><h4 id="函数式接口概述【理解】"><a href="#函数式接口概述【理解】" class="headerlink" title="函数式接口概述【理解】"></a><strong><font color=#87CEFA>函数式接口概述【理解】</font></strong></h4><p>概念</p>
+<pre><code>有且仅·有一个抽象方法的接口
+lambda表达式需要函数式接口的支持
+</code></pre>
+<p>如何检测一个接口是不是函数式接口</p>
+<pre><code>@Functionallnterface放在接口定义的上方：如果接口是函数式接口，编译通过；如果不是，编译失败
+</code></pre>
+<p>注意事项</p>
+<pre><code>我们自定义函数接口的时候，@Functionallnterface 是可选的，就算我们不写这个注解，只要保证满足函数式接口定义的条件，也照样是函数式接口。但是，建议加上该注解
+</code></pre>
+<p>定义</p>
+<pre><code>@FunctionalInterface
+interface MyFunctionInterface&#123;
+    void method();
+&#125;
+</code></pre>
+<h4 id="函数式接口作为方法的参数【应用】"><a href="#函数式接口作为方法的参数【应用】" class="headerlink" title="函数式接口作为方法的参数【应用】"></a><strong><font color=#87CEFA>函数式接口作为方法的参数【应用】</font></strong></h4><p>需求描述</p>
+<pre><code>定义一个接口JiechengFunction里面有一个抽象方法jiecheng，传入一个整数，返回一个整数
+定义一个computer方法传入一个整数i，传入一个JiechengFunction对象
+调用这个computer可以求1到这个整数i的和，求1到这个整数i的阶乘
+</code></pre>
+<p>代码演示</p>
+<pre><code>package com.xr;
+@FunctionalInterface
+interface JiechengFunction &#123;
+    Integer jiecheng(Integer i);
+&#125;
+​
+public class Test&#123;
+    public int computer(int i, JiechengFunction function)&#123;
+        return function.jiecheng(i);
+    &#125;
+    
+    @Test
+    public void testBase()&#123;
+        int result = computer(5, (x) -&gt; &#123;
+            int sum = 1;
+            for (int i = 2; i &lt;= x; i++) &#123;
+                sum = sum * i;
+            &#125;
+            return sum;
+        &#125;);
+        System.out.println(result);
+    &#125;
+&#125;
+</code></pre>
+<h4 id="函数式接口作为方法的返回值【应用】"><a href="#函数式接口作为方法的返回值【应用】" class="headerlink" title="函数式接口作为方法的返回值【应用】"></a><strong><font color=#87CEFA>函数式接口作为方法的返回值【应用】</font></strong></h4><p>需求描述</p>
+<pre><code>定义一个类(ComparatorDemo)，在类中提供两个方法
+    一个方法是：Comparator getComparator() 方法返回值Comparator是一个函数式接口
+    一个方法是主方法，在主方法中调用getComparator方法
+</code></pre>
+<p>代码演示</p>
+<pre><code>package function;
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+​
+public class ComparatorTest &#123;
+​
+    @Test
+    public void test() &#123;
+        //定义集合，存储字符串元素
+        ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();
+        list.add(&quot;cccc&quot;);
+        list.add(&quot;aa&quot;);
+        list.add(&quot;b&quot;);
+        list.add(&quot;ddd&quot;);
+        System.out.println(&quot;排序前：&quot; + list);
+        //开始排序
+//        Collections.sort(list, new Comparator&lt;String&gt;() &#123;
+//            @Override
+//            public int compare(String o1, String o2) &#123;
+//                return o1.length() - o2.length();
+//            &#125;
+//        &#125;);
+​
+        Collections.sort(list, getComparator());
+        System.out.println(&quot;排序后：&quot; + list);
+    &#125;
+    
+    private Comparator&lt;String&gt; getComparator() &#123;
+        //匿名内部类的方式实现
+        //    return new Comparator&lt;String&gt;() &#123;
+        //      @Override
+        //      public int compare(String s1, String s2) &#123;
+        //        return s1.length()-s2.length();
+        //      &#125;
+        //    &#125;;
+​
+        //Lambda方式实现
+        return (s1, s2) -&gt; s1.length() - s2.length();
+    &#125;
+&#125;
+</code></pre>
+<h4 id="常用函数式接口之Supplier【应用】"><a href="#常用函数式接口之Supplier【应用】" class="headerlink" title="常用函数式接口之Supplier【应用】"></a><strong><font color=#87CEFA>常用函数式接口之Supplier【应用】</font></strong></h4><p>Lambda表达式的函数式编程需要函数式接口</p>
+<pre><code>(有且只有一个抽象方法的接口)的支持，为了防止使用Lambda表达式时都必须手动添加接口，Java8内置了四大核心函数式接口
+    Consumer&lt;T&gt; :消费型接口
+        void acept(T t);
+    Supplier&lt;T&gt; :供给型接口
+        Supplier接口也被称为生产型接口，如果我们指定了接口的泛型是什么类型，那么接口中的get方法就会生产什么类型的数据供我们使用。
+        常用方法
+            只有一个无参的方法
+            T get();
+                按照某种实现逻辑(由Lambda表达式实现)返回一个数据
+</code></pre>
+<p>代码演示</p>
+<pre><code>package function;
+import org.junit.jupiter.api.Test;
+import java.util.function.Supplier;
+public class SupplierTest &#123;
+    @Test
+    public void test() &#123;
+        String s = getString(() -&gt; &quot;林青霞&quot;);
+        System.out.println(s);
+​
+        Integer i = getInteger(() -&gt; 30);
+        System.out.println(i);
+    &#125;
+    
+    //定义一个方法，返回一个整数数据
+    private Integer getInteger(Supplier&lt;Integer&gt; sup) &#123;
+        return sup.get();
+    &#125;
+    
+    //定义一个方法，返回一个字符串数据
+    private String getString(Supplier&lt;String&gt; sup) &#123;
+        return sup.get();
+    &#125;
+&#125;
+</code></pre>
+<p>Function&lt;T,R&gt; :函数型接口</p>
+<pre><code>R apply(T t);
+</code></pre>
+<p>BiFunction&lt;T, U, R&gt; :多参数函数型接口</p>
+<pre><code>    R apply(T t, U u);
+    
+</code></pre>
+<p>Predicate<T> :断言型接口</p>
+<pre><code>boolean test(T t);
+</code></pre>
+<h4 id="Supplier接口练习之获取最大值【应用】"><a href="#Supplier接口练习之获取最大值【应用】" class="headerlink" title="Supplier接口练习之获取最大值【应用】"></a><strong><font color=#87CEFA>Supplier接口练习之获取最大值【应用】</font></strong></h4><p>案例需求</p>
+<pre><code>定义一个类(SupplierTest)，在类中提供两个方法
+    一个方法是：int getMax(Supplier sup) 用于返回一个int数组中的最大值
+    一个方法是主方法，在主方法中调用getMax方法
+</code></pre>
+<p>示例代码</p>
+<pre><code>package function;
+import org.junit.jupiter.api.Test;
+​
+import java.util.function.Supplier;
+​
+public class SupplierTest2 &#123;
+​
+    @Test
+    public void test()&#123;
+        //定义一个int数组
+        int[] arr = &#123;19, 50, 28, 37, 46&#125;;
+        int maxValue = getMax(()-&gt; &#123;
+            int max = arr[0];
+            for(int i=1; i&lt;arr.length; i++) &#123;
+                if(arr[i] &gt; max) &#123;
+                    max = arr[i];
+                &#125;
+            &#125;
+            return max;
+        &#125;);
+        System.out.println(maxValue);
+    &#125;
+    //返回一个int数组中的最大值
+    private int getMax(Supplier&lt;Integer&gt; sup) &#123;
+        return sup.get();
+    &#125;
+&#125;
+</code></pre>
+<h4 id="常用函数式接口之Consumer【应用】"><a href="#常用函数式接口之Consumer【应用】" class="headerlink" title="常用函数式接口之Consumer【应用】"></a><strong><font color=#87CEFA>常用函数式接口之Consumer【应用】</font></strong></h4><p>Consumer 接口</p>
+<pre><code>Consumer接口也被称为消费型接口，它消费的数据的数据类型由泛型指定
+</code></pre>
+<p>常用方法</p>
+<pre><code>void accept(T t)
+    对给定的参数执行此操作
+default ConsumerandThen(Consumer after)
+    返回一个组合的Consumer， 依次执行此操作，然后执行 after 操作
+</code></pre>
+<p>代码演示</p>
+<pre><code>package function;
+​import org.junit.jupiter.api.Test;
+​
+import java.util.function.Consumer;
+​
+public class ConsumerTest &#123;
+​
+    @Test
+    public void test() &#123;
+        //操作一
+        operatorString(&quot;林青霞&quot;, s -&gt; System.out.println(s));
+        //操作二
+        operatorString(&quot;林青霞&quot;, s -&gt; System.out.println(new StringBuilder(s).reverse().toString()));
+​
+        System.out.println(&quot;--------&quot;);
+        //传入两个操作使用andThen完成
+        operatorString(&quot;林青霞&quot;, s -&gt; System.out.println(s), s -&gt; System.out.println(new StringBuilder(s).reverse().toString()));
+    &#125;
+​
+    //定义一个方法，用不同的方式消费同一个字符串数据两次
+    private void operatorString(String name, Consumer&lt;String&gt; con1, Consumer&lt;String&gt; con2) &#123;
+        //    con1.accept(name);
+        //    con2.accept(name);
+        con1.andThen(con2).accept(name);
+    &#125;
+​
+    //定义一个方法，消费一个字符串数据
+    private void operatorString(String name, Consumer&lt;String&gt; con) &#123;
+        con.accept(name);
+    &#125;
+&#125;
+    
+</code></pre>
+<h4 id="Consumer接口练习之按要求打印信息【应用】"><a href="#Consumer接口练习之按要求打印信息【应用】" class="headerlink" title="Consumer接口练习之按要求打印信息【应用】"></a><strong><font color=#87CEFA>Consumer接口练习之按要求打印信息【应用】</font></strong></h4><p>案例需求</p>
+<pre><code>String[] strArray = &#123;&quot;林青霞,30&quot;, &quot;张曼玉,35&quot;, &quot;王祖贤,33&quot;&#125;;
+字符串数组中有多条信息，请按照格式：“姓名：XX,年龄：XX&quot;的格式将信息打印出来
+
+要求
+    把打印姓名的动作作为第一个Consumer接口的Lambda实例
+    把打印年龄的动作作为第二个Consumer接口的Lambda实例
+    将两个Consumer接口按照顺序组合到一起使用
+</code></pre>
+<p>代码演示</p>
+<pre><code>package function;
+
+import org.junit.jupiter.api.Test;
+​
+import java.util.function.Consumer;
+​
+public class ConsumerTest2 &#123;
+    @Test
+    public void test() &#123;
+        String[] strArray = &#123;&quot;林青霞,30&quot;, &quot;张曼玉,35&quot;, &quot;王祖贤,33&quot;&#125;;
+        /*printInfo(strArray, (str) -&gt; &#123;
+            System.out.print(&quot;姓名：&quot; + str.split(&quot;,&quot;)[0]);
+        &#125;, (str) -&gt; &#123;
+            System.out.println(&quot;，年龄：&quot; + str.split(&quot;,&quot;)[1]);
+        &#125;);*/
+​
+        printInfo(
+                strArray,
+                str -&gt; System.out.print(&quot;姓名：&quot; + str.split(&quot;,&quot;)[0]),
+                str -&gt; System.out.println(&quot;，年龄：&quot; + str.split(&quot;,&quot;)[1])
+        );
+    &#125;
+​
+    private void printInfo(String[] strArray, Consumer&lt;String&gt; con1, Consumer&lt;String&gt; con2) &#123;
+        for (String s : strArray) &#123;
+            con1.andThen(con2).accept(s);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="常用函数式接口之Predicate【应用】"><a href="#常用函数式接口之Predicate【应用】" class="headerlink" title="常用函数式接口之Predicate【应用】"></a><strong><font color=#87CEFA>常用函数式接口之Predicate【应用】</font></strong></h4><p>Predicate 接口</p>
+<pre><code>Predicate接口通常用于判断参数是否满足指定的条件
+</code></pre>
+<p>常用方法</p>
+<pre><code>boolean test(T t)
+    对给定的参数进行判断（判断表达式由Lambda表达式实现），返回一个布尔值
+default Predicate negate()
+    返回一个逻辑的否定，对应逻辑非
+default Predicate and(Predicate other)
+    返回一个组合判断，对应短路与
+default Predicate or(Predicate other)
+    返回一个组合判断，对应短路或
+</code></pre>
+<p>代码演示</p>
+<pre><code>boolean test(T t)
+default Predicate negate()
+
+package function;​
+import org.junit.jupiter.api.Test;
+import java.util.function.Predicate;
+public class PredicateTest1 &#123;
+​
+    @Test
+    public void test() &#123;
+        boolean b1 = checkString(&quot;hello&quot;, s -&gt; s.length() &gt; 8);
+        System.out.println(b1);
+        boolean b2 = checkString(&quot;helloworld&quot;, s -&gt; s.length() &gt; 8);
+        System.out.println(b2);
+    &#125;
+​
+    //判断给定的字符串是否满足要求
+    private boolean checkString(String s, Predicate&lt;String&gt; pre) &#123;
+        //    return !pre.test(s);
+        return pre.negate().test(s);
+    &#125;
+&#125;
+
+default Predicate and(Predicate other)
+default Predicate or(Predicate other)
+
+package function;
+import org.junit.jupiter.api.Test;
+import java.util.function.Predicate;
+public class PredicateTest2 &#123;
+​
+    @Test
+    public void test() &#123;
+        boolean b1 = checkString(&quot;hello&quot;, s -&gt; s.length() &gt; 8);
+        System.out.println(b1);
+        boolean b2 = checkString(&quot;helloworld&quot;, s -&gt; s.length() &gt; 8);
+        System.out.println(b2);
+        boolean b3 = checkString(&quot;hello&quot;, s -&gt; s.length() &gt; 8, s -&gt; s.length() &lt; 15);
+        System.out.println(b3);
+        boolean b4 = checkString(&quot;helloworld&quot;, s -&gt; s.length() &gt; 8, s -&gt; s.length() &lt; 15);
+        System.out.println(b4);
+    &#125;
+​
+    //同一个字符串给出两个不同的判断条件，最后把这两个判断的结果做逻辑与运算的结果作为最终的结果
+    private boolean checkString(String s, Predicate&lt;String&gt; pre1, Predicate&lt;String&gt; pre2) &#123;
+        return pre1.or(pre2).test(s);
+    &#125;
+​
+    //判断给定的字符串是否满足要求
+    private boolean checkString(String s, Predicate&lt;String&gt; pre) &#123;
+        return pre.test(s);
+    &#125;
+&#125;
+    
+</code></pre>
+<h4 id="Predicate接口练习之筛选满足条件数据【应用】"><a href="#Predicate接口练习之筛选满足条件数据【应用】" class="headerlink" title="Predicate接口练习之筛选满足条件数据【应用】"></a><strong><font color=#87CEFA>Predicate接口练习之筛选满足条件数据【应用】</font></strong></h4><p>练习描述</p>
+<pre><code>String[] strArray = &#123;&quot; 林青霞,30&quot;, &quot;柳岩,34&quot;, &quot;张曼玉,35&quot;, &quot;貂蝉,31&quot;, &quot;王祖贤,33&quot;&#125;;
+字符串数组中有多条信息，请通过 Predicate接口的拼装将符合要求的字符串筛选到集合ArrayList中，并遍历ArrayList集合
+同时满足如下要求：姓名长度大于 2；年龄大于33
+</code></pre>
+<p>分析</p>
+<pre><code>有两个判断条件 ,所以需要使用两个Predicate接口,对条件进行判断
+必须同时满足两个条件 ,所以可以使用and方法连接两个判断条件
+</code></pre>
+<p>示例代码</p>
+<pre><code>package function;
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.function.Predicate;
+​
+public class PredicateTest3 &#123;
+​
+    @Test
+    public void test() &#123;
+        String[] strArray = &#123;&quot;林青霞,30&quot;, &quot;柳岩,34&quot;, &quot;张曼玉,35&quot;, &quot;貂蝉,31&quot;, &quot;王祖贤,33&quot;&#125;;
+        ArrayList&lt;String&gt; list = myFilter(
+                strArray,
+                str -&gt; str.split(&quot;,&quot;)[0].length() &gt; 2,
+                str -&gt; Integer.parseInt(str.split(&quot;,&quot;)[1]) &gt; 33
+        );
+        System.out.println(list);
+    &#125;
+​
+    //通过Predicate接口的拼装将符合要求的字符串筛选到集合ArrayList中
+    private ArrayList&lt;String&gt; myFilter(String[] strArray, Predicate&lt;String&gt; pre1, Predicate&lt;String&gt; pre2) &#123;
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        for (String s : strArray) &#123;
+            boolean b1 = pre1.and(pre2).test(s);
+            if(b1)&#123;
+                list.add(s);
+            &#125;
+        &#125;
+        return list;
+    &#125;
+&#125;
+    
+</code></pre>
+<h4 id="常用函数式接口之Function【应用】"><a href="#常用函数式接口之Function【应用】" class="headerlink" title="常用函数式接口之Function【应用】"></a><strong><font color=#87CEFA>常用函数式接口之Function【应用】</font></strong></h4><p>Function 接口</p>
+<pre><code>Function&lt;T,R&gt;接口通常用于对参数进行处理，转换(处理逻辑由Lambda表达式实现)，然后返回一个新的值
+常用方法
+    R apply(T t)
+        将此函数应用于给定的参数
+    default Function andThen(Function after)
+        返回一个组合函数，首先将该函数应用于输入，然后将after函数应用于结果
+</code></pre>
+<p>代码演示</p>
+<pre><code>package function;
+
+import org.junit.jupiter.api.Test;
+​
+import java.util.function.Function;
+​
+public class FunctionTest &#123;
+    @Test
+    public void test() &#123;
+        //操作一
+        convert(&quot;100&quot;, s -&gt; Integer.parseInt(s));
+        //操作二
+        convert(100, i -&gt; String.valueOf(i + 566));
+        //使用andThen的方式连续执行两个操作
+        convert(&quot;100&quot;, s -&gt; Integer.parseInt(s), i -&gt; String.valueOf(i + 566));
+    &#125;
+​
+    //定义一个方法，把一个字符串转换int类型，在控制台输出
+    private void convert(String s, Function&lt;String, Integer&gt; fun) &#123;
+        //    Integer i = fun.apply(s);
+        int i = fun.apply(s);
+        System.out.println(i);
+    &#125;
+​
+    //定义一个方法，把一个int类型的数据加上一个整数之后，转为字符串在控制台输出
+    private void convert(int i, Function&lt;Integer, String&gt; fun) &#123;
+        String s = fun.apply(i);
+        System.out.println(s);
+    &#125;
+​
+    //定义一个方法，把一个字符串转换int类型，把int类型的数据加上一个整数之后，转为字符串在控制台输出
+    private void convert(String s, Function&lt;String, Integer&gt; fun1, Function&lt;Integer, String&gt; fun2) &#123;
+        String ss = fun1.andThen(fun2).apply(s);
+        System.out.println(ss);
+    &#125;
+&#125;
+</code></pre>
+<h4 id="Function-接口练习之按照指定要求操作数据【应用】"><a href="#Function-接口练习之按照指定要求操作数据【应用】" class="headerlink" title="Function 接口练习之按照指定要求操作数据【应用】"></a><strong><font color=#87CEFA>Function 接口练习之按照指定要求操作数据【应用】</font></strong></h4><p>练习描述</p>
+<pre><code>String s = &quot; 林青霞,30&quot;;
+</code></pre>
+<p>请按照我指定的要求进行操作</p>
+<pre><code>1:将字符串截取得到数字年龄部分
+2:将上一步的年龄字符串转换成为int类型的数据
+3:将上一步的int数据加70，得到一个int结果，在控制台输出
+请通过 Function接口来实现函数拼接
+</code></pre>
+<p>示例代码</p>
+<pre><code>package function;
+
+import org.junit.jupiter.api.Test;
+​
+import java.util.function.Function;
+​
+public class FunctionTest2 &#123;
+​
+    @Test
+    public void test() &#123;
+        String s = &quot;林青霞,30&quot;;
+//        convert(s, str -&gt; str.split(&quot;,&quot;)[1], str -&gt; Integer.parseInt(str), i -&gt; i + 70);
+        convert(s, str -&gt; str.split(&quot;,&quot;)[1], Integer::parseInt, i -&gt; i + 70);
+    &#125;
+​
+    private void convert(
+            String s,
+            Function&lt;String, String&gt; fun1,
+            Function&lt;String, Integer&gt; fun2,
+            Function&lt;Integer, Integer&gt; fun3) &#123;
+​
+        Integer i = fun1.andThen(fun2).andThen(fun3).apply(s);
+        System.out.println(i);
+    &#125;
+&#125;
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/">http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/03/02/jsp/" title="jsp"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">jsp</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">1.</span> <span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">类的加载器？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">类加载器的种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class%E7%B1%BB"><span class="toc-number">1.1.2.</span> <span class="toc-text">Class类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84-1"><span class="toc-number">1.2.</span> <span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">反射概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96Class%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text">获取Class对象的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.</span> <span class="toc-text">反射获取构造方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class%E7%B1%BB%E4%B8%AD%E4%B8%8EConstructor%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">Class类中与Constructor相关方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Constructor%E7%B1%BB%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">Constructor类中常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A0%E5%8F%82%E6%95%B0%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">获取无参数构造方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9C%89%E5%8F%82%E6%95%B0%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">获取有参数构造方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E5%92%8C%E6%89%A7%E8%A1%8C"><span class="toc-number">1.2.4.</span> <span class="toc-text">反射获取成员方法和执行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class%E7%B1%BB%E4%B8%AD%E4%B8%8EMethod%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">Class类中与Method相关方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method%E7%B1%BB%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">Method类中常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%97%A0%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">反射获取无参数方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.5.</span> <span class="toc-text">反射获取属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">关键字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%A1%88%E4%BE%8B"><span class="toc-number">1.2.6.</span> <span class="toc-text">反射案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">2.1.</span> <span class="toc-text">单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB"><span class="toc-number">2.1.1.</span> <span class="toc-text">测试分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Junit%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.2.</span> <span class="toc-text">Junit介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Junit%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.3.</span> <span class="toc-text">Junit的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.1.4.</span> <span class="toc-text">常用注解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.</span> <span class="toc-text">Java注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B3%A8%E8%A7%A3%EF%BC%9F"><span class="toc-number">2.2.1.</span> <span class="toc-text">什么是注解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.2.</span> <span class="toc-text">标准注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.3.</span> <span class="toc-text">自定义注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">定义格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">注解的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.3.3.</span> <span class="toc-text">使用自定义注解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%A1%88%E4%BE%8B"><span class="toc-number">2.2.3.4.</span> <span class="toc-text">定义注解案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7value"><span class="toc-number">2.2.3.5.</span> <span class="toc-text">特殊属性value</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.4.</span> <span class="toc-text">元注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.5.</span> <span class="toc-text">常用元注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Target"><span class="toc-number">2.2.5.1.</span> <span class="toc-text">@Target</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Retention"><span class="toc-number">2.2.6.</span> <span class="toc-text">Retention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.7.</span> <span class="toc-text">注解解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.7.1.</span> <span class="toc-text">注解的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.2.7.2.</span> <span class="toc-text">与注解解析相关的接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">2.2.7.3.</span> <span class="toc-text">获取注解数据的原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">2.2.7.4.</span> <span class="toc-text">使用反射获取注解的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E"><span class="toc-number">2.2.7.4.1.</span> <span class="toc-text">需求说明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.7.4.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E6%A1%88%E4%BE%8B-%E6%A8%A1%E6%8B%9FJunit"><span class="toc-number">2.2.8.</span> <span class="toc-text">注解案例(模拟Junit)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lombok"><span class="toc-number">2.3.</span> <span class="toc-text">lombok</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.1.</span> <span class="toc-text">lombok介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.2.</span> <span class="toc-text">lombok使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.3.3.</span> <span class="toc-text">lombok常用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Getter%E5%92%8C-Setter"><span class="toc-number">2.3.3.1.</span> <span class="toc-text">@Getter和@Setter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ToString"><span class="toc-number">2.3.3.2.</span> <span class="toc-text">@ToString</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NoArgsConstructor%E5%92%8C-AllArgsConstructor"><span class="toc-number">2.3.3.3.</span> <span class="toc-text">@NoArgsConstructor和@AllArgsConstructor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data"><span class="toc-number">2.3.3.4.</span> <span class="toc-text">@Data</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">枚举和设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-number">3.1.</span> <span class="toc-text">枚举</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.1.</span> <span class="toc-text">枚举的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">3.1.2.</span> <span class="toc-text">枚举的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">3.1.3.</span> <span class="toc-text">枚举的定义和使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.2.1.</span> <span class="toc-text">什么是设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%AE%BE"><span class="toc-number">3.2.2.</span> <span class="toc-text">java 23种设计模式设</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">创建模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E6%BC%94%E7%A4%BA"><span class="toc-number">3.2.2.1.1.</span> <span class="toc-text">案例演示</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">4.1.</span> <span class="toc-text">代理模式的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text">静态代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="toc-number">4.3.</span> <span class="toc-text">动态代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1"><span class="toc-number">4.3.1.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">4.3.2.</span> <span class="toc-text">小结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">Lambda表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%BB%84%E6%88%90%E6%9B%B4%E6%96%B0%E6%A6%82%E8%BF%B0"><span class="toc-number">5.1.</span> <span class="toc-text">接口组成更新概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%AD%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95"><span class="toc-number">5.2.</span> <span class="toc-text">接口中默认方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%AD%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">5.3.</span> <span class="toc-text">接口中静态方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95"><span class="toc-number">5.4.</span> <span class="toc-text">接口中私有方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.5.</span> <span class="toc-text">lambda表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0jdk8%E7%9A%84%E6%96%B0%E8%AF%AD%E6%B3%95%EF%BC%9F"><span class="toc-number">5.5.1.</span> <span class="toc-text">为什么需要学习jdk8的新语法？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-2"><span class="toc-number">5.5.1.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%A0%87%E5%87%86%E6%A0%BC%E5%BC%8F"><span class="toc-number">5.5.2.</span> <span class="toc-text">Lambda表达式的标准格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%A0%87%E5%87%86%E6%A0%BC%E5%BC%8F-1"><span class="toc-number">5.5.3.</span> <span class="toc-text">Lambda表达式的标准格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BB%83%E4%B9%A0"><span class="toc-number">5.5.4.</span> <span class="toc-text">Lambda表达式练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.5.5.</span> <span class="toc-text">Lambda表达式的注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.5.6.</span> <span class="toc-text">Lambda表达式和匿名内部类的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E9%9C%80%E7%B1%BB%E5%9E%8B%E4%B8%8D%E5%90%8C"><span class="toc-number">5.5.6.1.</span> <span class="toc-text">所需类型不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%8E%B0%E5%9C%A8%E4%B8%8D%E5%90%8C"><span class="toc-number">5.5.6.2.</span> <span class="toc-text">使用现在不同</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E4%B8%8D%E5%90%8C"><span class="toc-number">5.5.6.3.</span> <span class="toc-text">实现原理不同</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="toc-number">5.5.7.</span> <span class="toc-text">函数接口函数式编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E6%A6%82%E8%BF%B0%E3%80%90%E7%90%86%E8%A7%A3%E3%80%91"><span class="toc-number">5.5.7.1.</span> <span class="toc-text">函数式接口概述【理解】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%E7%9A%84%E5%8F%82%E6%95%B0%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.2.</span> <span class="toc-text">函数式接口作为方法的参数【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.3.</span> <span class="toc-text">函数式接口作为方法的返回值【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E4%B9%8BSupplier%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.4.</span> <span class="toc-text">常用函数式接口之Supplier【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Supplier%E6%8E%A5%E5%8F%A3%E7%BB%83%E4%B9%A0%E4%B9%8B%E8%8E%B7%E5%8F%96%E6%9C%80%E5%A4%A7%E5%80%BC%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.5.</span> <span class="toc-text">Supplier接口练习之获取最大值【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E4%B9%8BConsumer%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.6.</span> <span class="toc-text">常用函数式接口之Consumer【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Consumer%E6%8E%A5%E5%8F%A3%E7%BB%83%E4%B9%A0%E4%B9%8B%E6%8C%89%E8%A6%81%E6%B1%82%E6%89%93%E5%8D%B0%E4%BF%A1%E6%81%AF%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.7.</span> <span class="toc-text">Consumer接口练习之按要求打印信息【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E4%B9%8BPredicate%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.8.</span> <span class="toc-text">常用函数式接口之Predicate【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Predicate%E6%8E%A5%E5%8F%A3%E7%BB%83%E4%B9%A0%E4%B9%8B%E7%AD%9B%E9%80%89%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E6%95%B0%E6%8D%AE%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.9.</span> <span class="toc-text">Predicate接口练习之筛选满足条件数据【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3%E4%B9%8BFunction%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.10.</span> <span class="toc-text">常用函数式接口之Function【应用】</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Function-%E6%8E%A5%E5%8F%A3%E7%BB%83%E4%B9%A0%E4%B9%8B%E6%8C%89%E7%85%A7%E6%8C%87%E5%AE%9A%E8%A6%81%E6%B1%82%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">5.5.7.11.</span> <span class="toc-text">Function 接口练习之按照指定要求操作数据【应用】</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/java%E8%BF%9B%E9%98%B6/" title="java进阶">java进阶</a><time datetime="2023-03-02T05:22:37.000Z" title="Created 2023-03-02 13:22:37">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/jsp/" title="jsp">jsp</a><time datetime="2023-03-02T05:22:18.000Z" title="Created 2023-03-02 13:22:18">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/javaoop/" title="javaoop">javaoop</a><time datetime="2023-03-02T05:22:11.000Z" title="Created 2023-03-02 13:22:11">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/26/js%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="js思维引导">js思维引导</a><time datetime="2023-02-26T05:35:49.000Z" title="Created 2023-02-26 13:35:49">2023-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/25/MySQL%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="MySQL思维引导">MySQL思维引导</a><time datetime="2023-02-25T01:02:29.000Z" title="Created 2023-02-25 09:02:29">2023-02-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
