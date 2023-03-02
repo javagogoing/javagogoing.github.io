@@ -1,0 +1,927 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>java进阶 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="反射类的加载器？我们编写的Java为后缀的文件，编译器会将我们编写的.Java的文件编译成.class文件，简单来说加载机制就是jvm从文件系统将一系列class 文件z转换为二进制流加载jvm内存中并生成一个类Class对象，为后续程序运行提供资源的动作。    类加载器的种类 启动类加载器(Bootstrap ClassLoader)：主要加载存放在java_Home&#x2F;jre&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java进阶">
+<meta property="og:url" content="http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="反射类的加载器？我们编写的Java为后缀的文件，编译器会将我们编写的.Java的文件编译成.class文件，简单来说加载机制就是jvm从文件系统将一系列class 文件z转换为二进制流加载jvm内存中并生成一个类Class对象，为后续程序运行提供资源的动作。    类加载器的种类 启动类加载器(Bootstrap ClassLoader)：主要加载存放在java_Home&#x2F;jre&amp;#x2">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-03-02T05:22:37.000Z">
+<meta property="article:modified_time" content="2023-03-02T06:24:03.405Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'java进阶',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-02 14:24:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">java进阶</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-02T05:22:37.000Z" title="Created 2023-03-02 13:22:37">2023-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-02T06:24:03.405Z" title="Updated 2023-03-02 14:24:03">2023-03-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="java进阶"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a><strong><font color=#87CEFA>反射</font></strong></h1><h2 id="类的加载器？"><a href="#类的加载器？" class="headerlink" title="类的加载器？"></a><strong><font color=#87CEFA>类的加载器？</font></strong></h2><p>我们编写的Java为后缀的文件，编译器会将我们编写的.Java的文件编译成.class文件，简单来说加载机制就是jvm从文件系统将一系列class 文件z转换为二进制流加载jvm内存中并生成一个类Class对象，为后续程序运行提供资源的动作。</p>
+<img src="/imgs/javax01.png">
+
+
+<h3 id="类加载器的种类"><a href="#类加载器的种类" class="headerlink" title="类加载器的种类"></a><strong><font color=#87CEFA>类加载器的种类</font></strong></h3><ul>
+<li><p>启动类加载器(Bootstrap ClassLoader)：主要加载存放在java_Home&#x2F;jre&#x2F;lib下的，用于提供jvm自身需要的类</p>
+</li>
+<li><p>扩展加载器（Extenison ClassLoader）：负责加载扩展包的类</p>
+</li>
+<li><p>系统类加载器（System ClassLoader）：负责加载我们的java应用类</p>
+</li>
+<li><p>自定义类加载器（Custom ClassLoader）：自定义，用于加载特定类</p>
+</li>
+</ul>
+<h3 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a><strong><font color=#87CEFA>Class类</font></strong></h3><p>Class类是一个叫Class的class</p>
+<p>当一个类被类加载器加载到内存后，类加载器就会创建出此类的Class类对象</p>
+<p>Class类的对象，是反射技术的基石</p>
+<h2 id="反射-1"><a href="#反射-1" class="headerlink" title="反射"></a><strong><font color=#87CEFA>反射</font></strong></h2><h3 id="反射概念"><a href="#反射概念" class="headerlink" title="反射概念"></a><strong><font color=#87CEFA>反射概念</font></strong></h3><p>反射</p>
+<pre><code>java的反射（erflection） 机制是指在程序的运行状态中，可以构造任意一个类的对象，可以了解任意一个对象所属的类，可以了解任意一个类的成员变量和方法，可以调用任意一个对象的属性和方法
+</code></pre>
+<p>反射的好处</p>
+<pre><code>可以在程序运行过程中，操作这些对象。
+可以解藕，提高程序的可扩展性。
+</code></pre>
+<h3 id="获取Class对象的方式"><a href="#获取Class对象的方式" class="headerlink" title="获取Class对象的方式"></a><strong><font color=#87CEFA>获取Class对象的方式</font></strong></h3><h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a><strong><font color=#87CEFA>案例</font></strong></h4><p>Student类</p>
+<pre><code>public class Student &#123;
+    private String name;
+    private int age;
+    public Student()&#123;
+    &#125;
+    public Student(String name,int age) &#123;
+        this.name = name;
+        this.age = age;
+    &#125;
+    public void study()&#123;
+        System.out.println(&quot;学生在学习&quot;);
+    &#125;
+​
+    public void eat(String s,double d)&#123;
+        System.out.println(&quot;带参数方法:&quot;+s+&quot;::&quot;+d);
+    &#125;
+    public String toString() &#123;
+        return &quot;Student&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, age=&quot; + age +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+    
+</code></pre>
+<p>获取Student类的class文件对象</p>
+<pre><code>public static void main(String[] args)throws Exception&#123;
+    //方式一：
+    Student sudent = new Student();
+    Class c1 = student.getClass();
+    System .out.println(c1);
+
+    //方式二：
+    Class c2 = Student.class;
+    System.out.println(c2);
+    
+    //方式三
+    Class c3 = Class.forName(&quot;com.xrit.communication.Student&quot;);
+    System.out.println(c3);
+&#125;
+</code></pre>
+<h3 id="反射获取构造方法"><a href="#反射获取构造方法" class="headerlink" title="反射获取构造方法"></a><strong><font color=#87CEFA>反射获取构造方法</font></strong></h3><h4 id="Class类中与Constructor相关方法"><a href="#Class类中与Constructor相关方法" class="headerlink" title="Class类中与Constructor相关方法"></a><strong><font color=#87CEFA>Class类中与Constructor相关方法</font></strong></h4><p>获取所有的public修饰的构造方法</p>
+<pre><code>Constructor[] getConstructors()
+</code></pre>
+<p>获取单个public修饰的构造方法</p>
+<pre><code>Constructor getConstructors(Class... parameterTypes)
+根据参数类型获取构造方法对象，只能获得public修饰的构造方法。
+    如果不存在对应的构造方法，则会抛出 java.lang.NoSuchMethodException 异常。
+    参数是可变参数,调用此方法时,可以不写参数,获取的空参构造
+    可以写参数,给定的参数必须是Class对象
+比如
+    参数 String name, int age
+    调用此方法：String.class,int.class
+</code></pre>
+<p>获取单个构造方法（可获取私有的）</p>
+<pre><code>Constructor getDeclaredConstructor(Class... parameterType)
+在使用私有构造方法的之前要
+    构造方法对象.setAccessible(true);
+    来取消访问安全检查的开关
+</code></pre>
+<h4 id="Constructor类中常用方法"><a href="#Constructor类中常用方法" class="headerlink" title="Constructor类中常用方法"></a><strong><font color=#87CEFA>Constructor类中常用方法</font></strong></h4><p>构造方法创建对象</p>
+<pre><code>T newInstance()
+</code></pre>
+<p>指定参数创建对象</p>
+<pre><code>T newInstance(Object... initargs)
+</code></pre>
+<h4 id="获取无参数构造方法"><a href="#获取无参数构造方法" class="headerlink" title="获取无参数构造方法"></a><strong><font color=#87CEFA>获取无参数构造方法</font></strong></h4><pre><code>public static void main(String[] args)throws Exception&#123;
+    Class cla = Class.forName(&quot;com.xrit.communication.Student&quot;);
+    //获取无参数构造方法
+    Constructor constructor.newInstance();
+    //运行构造方法
+    Object object = constructor.newInstance();
+    System.out.println(object);
+&#125;
+</code></pre>
+<h4 id="获取有参数构造方法"><a href="#获取有参数构造方法" class="headerlink" title="获取有参数构造方法"></a><strong><font color=#87CEFA>获取有参数构造方法</font></strong></h4><pre><code>public static void main(String[] args)throws Throwable&#123;
+    Class cla = Class.forName(&quot;com.xrit.communication.Student&quot;);
+    //获取有参数构造方法
+    Constructor constructor = cla.getConstructor(String.class,int.class);
+    //运行构造方法，传递实际参数
+​    Object bject = constructor.newInstance(&quot;张三&quot;,20);
+    System.outt.println(object);
+&#125;
+</code></pre>
+<h3 id="反射获取成员方法和执行"><a href="#反射获取成员方法和执行" class="headerlink" title="反射获取成员方法和执行"></a><strong><font color=#87CEFA>反射获取成员方法和执行</font></strong></h3><h4 id="Class类中与Method相关方法"><a href="#Class类中与Method相关方法" class="headerlink" title="Class类中与Method相关方法"></a><strong><font color=#87CEFA>Class类中与Method相关方法</font></strong></h4><p>Method getMethods()</p>
+<pre><code>获取所有的public修饰的成员方法，包括父类中
+</code></pre>
+<p>Method getMethod(“方法名”,方法的参数类型… 类型)</p>
+<pre><code>根据方法名和参数类型获得一个方法对象（包含父类的），只能是获取public修饰符的
+</code></pre>
+<p>Method getDeclaredMethod(String name,Class… parameterTypes)</p>
+<pre><code>通过方法名和方法参数类型获取本类中声明的方法的反射对象，包含本类中的私有方法，但不包含父类中的任何方法
+</code></pre>
+<p>Method[] getDelaredMethods()</p>
+<pre><code>获取本类中所有方法，包含本类中的私有方法，但不包含父类中的任何方法
+</code></pre>
+<h4 id="Method类中常用方法"><a href="#Method类中常用方法" class="headerlink" title="Method类中常用方法"></a><strong><font color=#87CEFA>Method类中常用方法</font></strong></h4><p>Object invoke(Object obj, Object… args)</p>
+<pre><code>返回值Object，表示调用方法后，该方法的返回值
+    根据参数args调用对象obj的该成员方法   
+    如果obj=null，则表示该方法是静态方法
+    如果是私有的需要先调用setAccessible(true)取消访问安全检查的开关，才能使用.
+            
+</code></pre>
+<h4 id="反射获取无参数方法"><a href="#反射获取无参数方法" class="headerlink" title="反射获取无参数方法"></a><strong><font color=#87CEFA>反射获取无参数方法</font></strong></h4><pre><code>public static void main(String[] args)throws Throwable&#123;
+    Class cla = Class.forName(&quot;com.xrit.communication.Student&quot;);
+    Object object = cla.newInstance();
+    //获取study方法
+    Method method = cla.getMethod(&quot;study&quot;);
+    //执行方法，传递对象
+    method.invoke(object);
+&#125;
+
+            
+</code></pre>
+<h3 id="反射获取属性"><a href="#反射获取属性" class="headerlink" title="反射获取属性"></a><strong><font color=#87CEFA>反射获取属性</font></strong></h3><h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a><strong><font color=#87CEFA>关键字</font></strong></h4><p>Field</p>
+<pre><code>1、通过名字获取公有属性反射对象，包含父类中声明的公有属性
+    Field getField(String)
+2、通过名字获取属性反射对象，包含本类的private属性，但父类中声明的任何属性都不包含
+    Field getDeclaredField(String)
+3、获取所有公有属性反射对象，包含父类中声明的公有属性
+    Field[] getFields()
+4、获取所有属性反射对象，包含private属性，但不包含父类中声明的任何属性
+    Field[] getDeclaedFields()
+5、给属性反射对象赋值
+    属性对象。set(示例对象,值);
+6、获取属性反射对象的值
+    属性对象.get(示例对象);
+    注意
+        不管是设置属性对象的值，还是获取属性对象的值都是要有实例对象，没有实例对象就没有获取和赋值一说
+7.取消访问安全检查的开关
+    setAccessible(true)
+    如果是私有属性的需要先调用setAccessible(true)取消访问安全检查的开关，才能使用.
+8.获取属性反射对象的信息
+    获取访问修饰符
+        Modifier.toString(f.getModifiers());
+    获取访问修饰符
+        f.getType()
+    获取名字
+        f.getName()
+</code></pre>
+<h3 id="反射案例"><a href="#反射案例" class="headerlink" title="反射案例"></a><strong><font color=#87CEFA>反射案例</font></strong></h3><p>需求</p>
+<pre><code>写一个&quot;框架&quot;，通过配置文件可以帮我们创建任意类的对象，并且执行其中任意方法
+</code></pre>
+<p>实现</p>
+<pre><code>配置文件
+反射
+</code></pre>
+<p>步骤</p>
+<pre><code>将需要创建的对象的全类名和需要执行的方法定义在配置文件中
+在程序中加载读取配置文件
+使用反射技术来加载类文件进内存
+创建对象
+执行方法
+</code></pre>
+<p>注意</p>
+<pre><code>需要将配置文件放在src目录下，放在src目录下的任何文件，都会被编译到classes目录下，这样做的目的是为了让配置文件跟随编译后的class文件一起，因为交付用户使用的是class文件，而不是源代码。
+</code></pre>
+<p>如何读取src目录下的文件</p>
+<pre><code>使用类的加载器ClassLoader类的方法
+    InputStream getResourceAsStream(String name)
+        此方法返回输入流，该流从类目录下读取文件
+        参数传递文件名
+</code></pre>
+<p>properties文件</p>
+<pre><code>className=com.xrit.domain.Student
+methodName=sleep
+        Student类
+            package com.xrit.domain;
+​
+public class Student &#123;
+    public void sleep()&#123;
+        System.out.println(&quot;sleep...&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>RefectTest测试类</p>
+<pre><code>public static void main(String[] args)throws Throwable&#123;
+    //获取RefectTest类的加载器
+    ClassLoader classLoader = RefectTest.class.getClassLoader();
+    //加载器获取输入流，读取pro.properties文件
+    InputStream inputStream = classLoader.getResourceAsStream(&quot;pro.properties&quot;);
+    Properties properties = new Properties();
+    //集合IO关联
+    properties.load(inputStream);
+    //获取集合中的键值对，类名
+    String className = properties.getProperty(&quot;className&quot;);
+    //获取集合中的键值对，方法名
+    String methodName = properties.getProperty(&quot;methodName&quot;);
+    //反射获取指定类的class文件对象
+    Class cla = Class.forName(className);
+    Object object = cla.newInstance();
+    //获取指定的方法
+    Method method = cla.getMethod(methodName);
+    //运行方法
+    method.invoke(object);
+&#125;
+</code></pre>
+<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a><strong><font color=#87CEFA>注解</font></strong></h1><h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a><strong><font color=#87CEFA>单元测试</font></strong></h2><h3 id="测试分类"><a href="#测试分类" class="headerlink" title="测试分类"></a><strong><font color=#87CEFA>测试分类</font></strong></h3><p>黑盒测试</p>
+<pre><code>不需要写代码，给输入值，看程序是否能够输出期望的值
+</code></pre>
+<img src="/imgs/javax02.png">
+
+
+<p>白盒测试</p>
+<pre><code>需要写代码的，关注程序具体的执行流程。
+</code></pre>
+<img src="/imgs/javax03.png">
+
+
+<h3 id="Junit介绍"><a href="#Junit介绍" class="headerlink" title="Junit介绍"></a><strong><font color=#87CEFA>Junit介绍</font></strong></h3><p>Junit是一个Java语言的单元测试框架，属于白盒测试，简单理解为可以用于取代java的main方法。Junit属于第三方工具，需要导入jar包后使用。</p>
+<p>hamcrest-core-1.3.jar</p>
+<p>junit-4.12.jar</p>
+<h3 id="Junit的使用"><a href="#Junit的使用" class="headerlink" title="Junit的使用"></a><strong><font color=#87CEFA>Junit的使用</font></strong></h3><p>编写测试类，简单理解Junit可以用于取代java的main方法。</p>
+<p>在测试类方法上添加注解 @Test。</p>
+<p>@Test修饰的方法要求：public void 方法名() {…} ，方法名自定义建议test开头，没有参数。</p>
+<p>添加Junit库到lib文件夹中，然后进行jar包关联。</p>
+<p>使用</p>
+<pre><code>点击方法左侧绿色箭头，执行当前方法（方法必须标记@Test）。执行结果红色：代表失败；执行结果绿色：代表成功。
+哪个方法想使用单元测试,就在方法上,添加注解: @Test
+</code></pre>
+<p>注意</p>
+<pre><code>该方法的返回值类型,必须写为void
+该方法必须没有参数列表
+</code></pre>
+<p>运行</p>
+<pre><code>方法上右键运行,运行的是含有@Test注解的方法
+类上右键运行,运行的是类当中含有@Test注解的所有方法
+绿条: 正常运行
+红条: 出现问题,异常了
+</code></pre>
+<h3 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a><strong><font color=#87CEFA>常用注解</font></strong></h3><ul>
+<li><p>@Test，用于修饰需要执行的测试方法。</p>
+</li>
+<li><p>@Before，修饰的方法会在测试方法之前被自动执行。</p>
+</li>
+<li><p>@After，修饰的方法会在测试方法执行之后自动被执行。</p>
+</li>
+</ul>
+<h2 id="Java注解"><a href="#Java注解" class="headerlink" title="Java注解"></a><strong><font color=#87CEFA>Java注解</font></strong></h2><h3 id="什么是注解？"><a href="#什么是注解？" class="headerlink" title="什么是注解？"></a><strong><font color=#87CEFA>什么是注解？</font></strong></h3><p>注解（Annotation），也叫元数据。是一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性。它可以声明在类、属性、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。</p>
+<p>注解的作用</p>
+<pre><code>生成文档：通过代码里标识的注解生成文档【例如，生成接口文档】
+
+编译检查：通过代码里标识的注解让编译器能够实现基本的编译检查【例如，Override】
+
+代码分析：通过代码里标识的注解对代码进行分析【例如，注解的反射】
+</code></pre>
+<p>注解的分类</p>
+<pre><code>java中自带的标准注解
+自定义注解
+元注解
+</code></pre>
+<h3 id="标准注解"><a href="#标准注解" class="headerlink" title="标准注解"></a><strong><font color=#87CEFA>标准注解</font></strong></h3><ul>
+<li>@Deprecated  用来标识方法已过时，不推荐使用</li>
+<li>@SuppressWarnings:抑制警告(如定义变量未使用)。</li>
+<li>@Override ：用来修饰方法声明，告诉编译器该方法是重写父类中的方法，如果父类不存在该方法，则编译失败。</li>
+</ul>
+<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a><strong><font color=#87CEFA>自定义注解</font></strong></h3><h4 id="定义格式"><a href="#定义格式" class="headerlink" title="定义格式"></a><strong><font color=#87CEFA>定义格式</font></strong></h4><pre><code>public @interface 注解名称&#123;
+    属性列表;
+&#125;
+注解本质上就是一个接口，该接口默认继承Annotation接口。
+public @interface MyAnno extends java.lang.annotation.Annotation &#123;&#125;
+</code></pre>
+<p>注意</p>
+<pre><code>任何一个注解，都默认的继承Annotation接口。
+</code></pre>
+<h4 id="注解的属性"><a href="#注解的属性" class="headerlink" title="注解的属性"></a><strong><font color=#87CEFA>注解的属性</font></strong></h4><p>属性的作用</p>
+<pre><code>可以让用户在使用注解时传递参数，让注解的功能更加强大。
+</code></pre>
+<p>属性的格式</p>
+<pre><code>格式1
+    数据类型 属性名();
+        格式2
+格式2
+    数据类型 属性名() default 默认值;
+</code></pre>
+<p>属性适用的数据类型</p>
+<pre><code>八种基本数据类型（int,float,boolean,byte,double,char,long,short)。
+String类型，Class类型，枚举类型，注解类型。
+以上所有类型的一维数组。
+</code></pre>
+<p>属性定义示例</p>
+<pre><code>public @interface Student &#123;
+    String name(); // 姓名
+    int age() default 18; // 年龄
+    String gender() default &quot;男&quot;; // 性别
+&#125; 
+该注解就有了三个属性：name，age，gender
+    
+</code></pre>
+<h4 id="使用自定义注解"><a href="#使用自定义注解" class="headerlink" title="使用自定义注解"></a><strong><font color=#87CEFA>使用自定义注解</font></strong></h4><p>使用格式</p>
+<pre><code>@注解名(属性名=属性值,属性名=属性值,属性名=属性值...)
+</code></pre>
+<h4 id="定义注解案例"><a href="#定义注解案例" class="headerlink" title="定义注解案例"></a><strong><font color=#87CEFA>定义注解案例</font></strong></h4><p>需求</p>
+<pre><code>定义一个注解：Book
+包含属性：String value() 书名
+包含属性：double price() 价格，默认值为 100
+包含属性：String[] authors() 多位作者
+</code></pre>
+<p>定义</p>
+<pre><code>public @interface Book &#123;
+    // 书名
+    String value();
+    // 价格
+    double price() default 100;
+    // 多位作者
+    String[] authors();
+&#125;
+</code></pre>
+<p>使用注解</p>
+<pre><code>/**
+    * @author xrit
+    * @version 1.0
+    */
+public class BookShelf &#123;
+    
+    @Book(value = &quot;西游记&quot;,price = 998,authors = &#123;&quot;吴承恩&quot;,&quot;白求恩&quot;&#125;)
+    public void showBook()&#123;
+​
+    &#125;
+&#125;
+</code></pre>
+<p>使用注意事项</p>
+<pre><code>如果属性有默认值，则使用注解的时候，这个属性可以不用赋值。
+如果属性没有默认值，那么在使用注解时一定要给属性赋值。
+    
+</code></pre>
+<h4 id="特殊属性value"><a href="#特殊属性value" class="headerlink" title="特殊属性value"></a><strong><font color=#87CEFA>特殊属性value</font></strong></h4><p>如果注解中除了value属性还有其他属性，且至少有一个属性没有默认值，则在使用注解给属性赋值时，value属性名不能省略。</p>
+<pre><code>// 定义注解Book
+public @interface Book &#123;
+    // 书名
+    String value();
+    // 价格
+    double price() default 100;
+    // 多位作者
+    String[] authors();
+&#125;
+​
+// 使用Book注解：正确方式
+@Book(value=&quot;红楼梦&quot;,authors = &quot;曹雪芹&quot;)
+public class BookShelf &#123;
+    // 使用Book注解：正确方式
+    @Book(value=&quot;西游记&quot;,authors = &#123;&quot;吴承恩&quot;,&quot;白求恩&quot;&#125;)
+    public void showBook()&#123;
+​
+    &#125;
+&#125;
+
+
+// 使用Book注解：错误方式（此时value属性名不能省略了)
+public class BookShelf &#123;
+    @Book(&quot;西游记&quot;,authors = &#123;&quot;吴承恩&quot;,&quot;白求恩&quot;&#125;)
+    public void showBook()&#123;
+​
+    &#125;
+&#125;
+</code></pre>
+<p>当注解中只有一个属性且名称是value，在使用注解时给value属性赋值可以直接给属性值，无论value是单值元素还是数组类型。</p>
+<pre><code>// 定义注解Book
+public @interface Book &#123;
+    // 书名
+    String value();
+&#125;
+​
+// 使用注解Book
+public class BookShelf &#123;
+    @Book(&quot;西游记&quot;)
+    public void showBook()&#123;
+​
+    &#125;
+&#125;
+// 指定也可以
+public class BookShelf &#123;
+    @Book(value=&quot;西游记&quot;)
+    public void showBook()&#123;
+​
+    &#125;
+&#125;
+</code></pre>
+<h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a><strong><font color=#87CEFA>元注解</font></strong></h3><p>元注解是用于定义注解的注解。元注解也属于是Java自带的标准注解，只不过用于修饰注解，比较特殊。</p>
+<p>默认情况下，注解可以用在任何地方，比如类，成员方法，构造方法，成员变量等地方。如果要限制注解的使用位置怎么办？<br>    那就需要使用元注解。</p>
+<h3 id="常用元注解"><a href="#常用元注解" class="headerlink" title="常用元注解"></a><strong><font color=#87CEFA>常用元注解</font></strong></h3><h4 id="Target"><a href="#Target" class="headerlink" title="@Target"></a><strong><font color=#87CEFA>@Target</font></strong></h4><p>作用</p>
+<pre><code>指明此注解用在哪个位置，如果不写默认是任何地方都可以使用。
+</code></pre>
+<p>可选的参数值在枚举类ElemenetType中包括</p>
+<pre><code>TYPE
+    用在类，接口上
+FIELD
+    用在成员变量上
+METHOD
+    用在方法上
+RARAMETER
+    用在参数上
+CONSTRUCTOR
+    用在构造方法上
+LOCAL_VARIABLE
+    用在局部变量上
+</code></pre>
+<p>案例</p>
+<pre><code>@Target(&#123;ElementType.METHOD,ElementType.TYPE&#125;)
+public @interface Book &#123;
+    // 书名
+    String value();
+    // 价格
+    double price() default 100;
+    // 作者
+    String[] authors();
+&#125;
+</code></pre>
+<h3 id="Retention"><a href="#Retention" class="headerlink" title="Retention"></a><strong><font color=#87CEFA>Retention</font></strong></h3><p>作用</p>
+<pre><code>定义该注解的生命周期(有效范围)。
+</code></pre>
+<p>可选的参数值在枚举类型RetentionPolicy中包括</p>
+<pre><code>CLASS
+    注解存在于Java源代码、编译以后的字节码文件中，运行的时候内存中没有，默认值。
+COURCE
+    注解只存在于原代码中，编译生成的字节码文件中就不存在了
+RUNTIME
+    注解存在于Java源代码中、编译以后的字节码文件中、运行时内存中，程序可以通过反射获取该注解。
+</code></pre>
+<p>案例</p>
+<pre><code>@Target(&#123;ElementType.METHOD,ElementType.TYPE&#125;)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Book &#123;
+    // 书名
+    String value();
+    // 价格
+    double price() default 100;
+    // 作者
+    String[] authors();
+&#125;
+</code></pre>
+<h3 id="注解解析"><a href="#注解解析" class="headerlink" title="注解解析"></a><strong><font color=#87CEFA>注解解析</font></strong></h3><p>通过Java反射技术获取注解数据的过程则称为注解解析。</p>
+<h4 id="注解的使用"><a href="#注解的使用" class="headerlink" title="注解的使用"></a><strong><font color=#87CEFA>注解的使用</font></strong></h4><pre><code>声明注解-&gt;使用注解-&gt;解析注解
+</code></pre>
+<h4 id="与注解解析相关的接口"><a href="#与注解解析相关的接口" class="headerlink" title="与注解解析相关的接口"></a><strong><font color=#87CEFA>与注解解析相关的接口</font></strong></h4><p>Anontation：所有注解类型的公共接口，类似所有类的父类是Object。</p>
+<p>AnnotatedElement(Class实现了该接口)：定义了与注解解析相关的方法，常用方法以下四个</p>
+<pre><code>//用于判断当前对象(Class、Field、Method)是否有指定的注解，有则返回true，否则返回false。
+boolean isAnnotationPresent(Class annotationClass); 
+
+//获得当前对象上指定的注解对象。
+T getAnnotation(Class&lt;T&gt; annotationClass);
+
+//获得当前对象及其从父类上继承的所有的注解对象。
+Annotation[] getAnnotations(); 
+
+//获得当前对象上所有的注解对象，不包括父类的。
+Annotation[] getDeclaredAnnotations();
+</code></pre>
+<h4 id="获取注解数据的原理"><a href="#获取注解数据的原理" class="headerlink" title="获取注解数据的原理"></a><strong><font color=#87CEFA>获取注解数据的原理</font></strong></h4><p>注解作用在哪个成员上，就通过反射获得该成员的对象来得到它的注解。</p>
+<p>如：注解作用在方法上，就通过方法(Method)对象得到它的注解。</p>
+<pre><code>// 得到方法对象
+Method method = clazz.getDeclaredMethod(&quot;方法名&quot;); 
+// 根据注解名得到方法上的注解对象
+Book book = method.getAnnotation(Book.class); 
+</code></pre>
+<p>如：注解作用在类上，就通过Class对象得到它的注解。</p>
+<pre><code>// 获得Class对象
+Class c = 类名.class;
+// 根据注解的Class获得使用在类上的注解对象
+Book book = c.getAnnotation(Book.class);
+</code></pre>
+<h4 id="使用反射获取注解的数据"><a href="#使用反射获取注解的数据" class="headerlink" title="使用反射获取注解的数据"></a><strong><font color=#87CEFA>使用反射获取注解的数据</font></strong></h4><h5 id="需求说明"><a href="#需求说明" class="headerlink" title="需求说明"></a><strong><font color=#87CEFA>需求说明</font></strong></h5><pre><code>定义注解Book，要求如下
+    包含属性：String value() 书名
+    包含属性：double price() 价格，默认值为 100
+    包含属性：String[] authors() 多位作者
+    限制注解使用的位置：类和成员方法上
+    指定注解的有效范围：RUNTIME
+定义BookStore类，在类和成员方法上使用Book注解
+定义TestAnnotation测试类获取Book注解上的数据
+</code></pre>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong><font color=#87CEFA>代码实现</font></strong></h5><p>注解Book</p>
+<pre><code>@Target(&#123;ElementType.METHOD,ElementType.TYPE&#125;)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Book &#123;
+    // 书名
+    String value();
+    // 价格
+    double price() default 100;
+    // 作者
+    String[] authors();
+&#125;
+    
+</code></pre>
+<p>BookStore类</p>
+<pre><code>@Book(value = &quot;红楼梦&quot;,authors = &quot;曹雪芹&quot;,price = 998)
+public class BookStore &#123;
+&#125;
+    
+</code></pre>
+<p>TestAnnotation类</p>
+<pre><code>public class TestAnnotation &#123;
+    public static void main(String[] args)  throws Exception&#123;
+        System.out.println(&quot;---------获取类上注解的数据----------&quot;);
+        test();
+    &#125;
+​
+    /**
+        * 获取BookStore类上使用的Book注解数据
+        */
+    public static void test()&#123;
+        // 获得BookStore类对应的Class对象
+        Class c = BookStore.class;
+        // 判断BookStore类是否使用了Book注解
+        if(c.isAnnotationPresent(Book.class)) &#123;
+            // 根据注解Class对象获取注解对象
+            Book book = (Book) c.getAnnotation(Book.class);
+            // 输出book注解属性值
+            System.out.println(&quot;书名：&quot; + book.value());
+            System.out.println(&quot;价格：&quot; + book.price());
+            System.out.println(&quot;作者：&quot; + Arrays.toString(book.authors()));
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="注解案例-模拟Junit"><a href="#注解案例-模拟Junit" class="headerlink" title="注解案例(模拟Junit)"></a><strong><font color=#87CEFA>注解案例(模拟Junit)</font></strong></h3><p>案例分析</p>
+<pre><code>模拟Junit测试的注解@Test，首先需要编写自定义注解@MyTest，并添加元注解，保证自定义注解只能修饰方法，且在运行时可以获得。
+然后编写目标类（测试类），然后给目标方法（测试方法）使用 @MyTest注解，编写三个方法，其中两个加上@MyTest注解。
+最后编写调用类，使用main方法调用目标类，模拟Junit的运行，只要有@MyTest注释的方法都会运行。
+</code></pre>
+<p>注解MyTest</p>
+<pre><code>@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyTest &#123;
+&#125;
+        目标类MyTestDemo
+            public class MyTestDemo &#123;
+    @MyTest
+    public void test01()&#123;
+        System.out.println(&quot;test01&quot;);
+    &#125;
+​
+    public void test02()&#123;
+        System.out.println(&quot;test02&quot;);
+    &#125;
+​
+    @MyTest
+    public void test03()&#123;
+        System.out.println(&quot;test03&quot;);
+    &#125;
+&#125;
+</code></pre>
+<p>调用类TestMyTest</p>
+<pre><code>public class TestMyTest &#123;
+    public static void main(String[] args) throws  Exception&#123;
+        // 获得MyTestDemo类Class对象
+        Class c = MyTestDemo.class;
+        // 获得所有的成员方法对象
+        Method[] methods = c.getMethods();
+        // 创建MyTestDemo类对象
+        Object obj = c.newInstance();
+        // 遍历数组
+        for (Method m:methods) &#123;
+            // 判断方法m上是否使用注解MyTest
+            if(m.isAnnotationPresent(MyTest.class))&#123;
+                // 执行方法m
+                m.invoke(obj);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="lombok"><a href="#lombok" class="headerlink" title="lombok"></a><strong><font color=#87CEFA>lombok</font></strong></h2><h3 id="lombok介绍"><a href="#lombok介绍" class="headerlink" title="lombok介绍"></a><strong><font color=#87CEFA>lombok介绍</font></strong></h3><p>Lombok通过增加一些“处理程序”，可以让java变得简洁、快速。</p>
+<p>Lombok能以注解形式来简化java代码，提高开发效率。开发中经常需要写的javabean，都需要花时间去添加相应的getter&#x2F;setter，也许还要去写构造器、equals等方法，而且需要维护。</p>
+<p>Lombok能通过注解的方式，在编译时自动为属性生成构造器、getter&#x2F;setter、equals、hashcode、toString方法。出现的神奇就是在源码中没有getter和setter方法，但是在编译生成的字节码文件中有getter和setter方法。这样就省去了手动重建这些代码的麻烦，使代码看起来更简洁些。</p>
+<h3 id="lombok使用"><a href="#lombok使用" class="headerlink" title="lombok使用"></a><strong><font color=#87CEFA>lombok使用</font></strong></h3><p>添加lombox的jar包：lombok-1.18.8.jar。</p>
+<p>为IDEA添加lombok插件（连接网络使用）</p>
+<p>安装完毕后，重启IDEA。</p>
+<h3 id="lombok常用注解"><a href="#lombok常用注解" class="headerlink" title="lombok常用注解"></a><strong><font color=#87CEFA>lombok常用注解</font></strong></h3><h4 id="Getter和-Setter"><a href="#Getter和-Setter" class="headerlink" title="@Getter和@Setter"></a><strong><font color=#87CEFA>@Getter和@Setter</font></strong></h4><p>作用</p>
+<pre><code>生成成员变量的get和set方法。
+</code></pre>
+<p>写在成员变量上，指对当前成员变量有效。<br>写在类上，对所有成员变量有效。</p>
+<p>注意</p>
+<pre><code>静态成员变量无效。
+</code></pre>
+<h4 id="ToString"><a href="#ToString" class="headerlink" title="@ToString"></a><strong><font color=#87CEFA>@ToString</font></strong></h4><p>作用</p>
+<pre><code>生成toString()方法。
+</code></pre>
+<p>注解只能写在类上。</p>
+<h4 id="NoArgsConstructor和-AllArgsConstructor"><a href="#NoArgsConstructor和-AllArgsConstructor" class="headerlink" title="@NoArgsConstructor和@AllArgsConstructor"></a><strong><font color=#87CEFA>@NoArgsConstructor和@AllArgsConstructor</font></strong></h4><pre><code>@NoArgsConstructor：无参数构造方法。
+@AllArgsConstructor：满参数构造方法。
+</code></pre>
+<p>注解只能写在类上。</p>
+<h4 id="Data"><a href="#Data" class="headerlink" title="@Data"></a><strong><font color=#87CEFA>@Data</font></strong></h4><p>作用</p>
+<pre><code>生成get/set，toString，hashCode，equals，无参构造方法
+</code></pre>
+<p>注解只能写在类上</p>
+<h1 id="枚举和设计模式"><a href="#枚举和设计模式" class="headerlink" title="枚举和设计模式"></a><strong><font color=#87CEFA>枚举和设计模式</font></strong></h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h2><h3 id="枚举-1"><a href="#枚举-1" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h3><p>枚举的概念</p>
+<pre><code>枚举是Java中的一种特殊类型，用来表示固定个数值的引用数据类型,例如性别,季节,方向等等这些数据都是有固定个数数值的。
+</code></pre>
+<h3 id="枚举-2"><a href="#枚举-2" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h3><p>枚举的作用</p>
+<pre><code>是为了做信息的标志和信息的分类。
+</code></pre>
+<h3 id="枚举-3"><a href="#枚举-3" class="headerlink" title="枚举"></a><strong><font color=#87CEFA>枚举</font></strong></h3><pre><code>枚举的定义和使用
+    定义枚举
+        public enum 枚举名&#123;
+            // 第一行都是罗列枚举实例，这些枚举实列直接大写名字即可
+            实例,实例,实例...;
+        &#125;
+        例
+            //定义
+            public enum Season &#123;
+                SPEING, SUMMER, AUTUMN, WINTER;
+            &#125;
+        反编译后我们看到的枚举会是这样的
+            Compiled from &quot;Season.java&quot;
+            public final class Season extends java.lang.Enum&lt;Season&gt; &#123;
+                public static final Season SPRING = new Season();
+                public static final Season SUMMER = new Season();
+                public static final Season AUTUMN = new Season();
+                public static final Season WINTER = new Season();
+                public static Season[] values();
+                public static Season valueOf(java.lang.String);
+            &#125;
+    使用枚举
+        // 使用
+        public class EnumDemo1 &#123;
+            public static void main(String[] args) &#123;
+                /*
+                   使用枚举:  其实就是把枚举当成一个数据类型来使用
+                */
+                // 定义一个Season枚举类型的变量,并赋值
+                Season season1 = Season.SPRING;
+                Season season2 = Season.SUMMER;
+                Season season3 = Season.AUTUMN;
+                Season season4 = Season.WINTER;
+        ​
+            &#125;
+        &#125;
+    总结
+        枚举类第一行默认都是罗列枚举对象的名称的
+        枚举类都是继承了枚举类型：java.lang.Enum
+        枚举都是最终类，不可以被继承
+        构造器都是私有的，枚举对外不能创建对象
+        枚举类相当于是多列模式。
+</code></pre>
+<p>设计模式<br>    什么是设计模式<br>        其实我们可以说设计模式是一些前辈们总结的经验，来帮我们解决程序中遇见的问题。提高代码的质量。 更简单的说就是设计模式可以帮我们更简单的解决一些程序问题。<br>    java 23种设计模式。<br>        创建模式<br>            工厂模式<br>                什么是工厂模式？<br>                    之前我们创建类对象时, 都是使用new 对象的形式创建,在很多业务场景下也提供了不直接new的方式<br>                    工厂模式（Factory Pattern）是 Java 中最常用的设计模式之一， 这种类型的设计模式属于创建型模式，它提供了一种获取对象的方式。<br>                工厂模式的作用<br>                    工厂的方法可以封装对象的创建细节，比如：为该对象进行加工和数据注入。 可以实现类与类之间的解耦操作（核心思想）。<br>                耦合度<br>                    类与类之间的关系,如果关系比较强,高耦合, 如果关系比较弱,低耦合<br>                案例演示<br>                    需求<br>                        编写一个Car接口, 提供run方法<br>                        编写一个Falali类实现Car接口,重写run方法<br>                        编写一个Benchi类实现Car接口,重写run方法<br>                        &#x2F;&#x2F; Car接口<br>                        public interface Car {<br>                            public void run();<br>                        }<br>                        ​<br>                        ​<br>                        &#x2F;&#x2F;Falali类实现Car接口<br>                        public class Falali implements Car {<br>                            @Override<br>                            public void run() {<br>                                System.out.println(“法拉利以每小时500公里的速度在奔跑…..”);<br>                            }<br>                        }<br>                        ​<br>                        ​<br>                        &#x2F;&#x2F;Benchi类实现Car接口<br>                        public class Benchi implements Car {<br>                            @Override<br>                            public void run() {<br>                                System.out.println(“奔驰汽车以每秒1米的速度在挪动…..”);<br>                            }<br>                        }<br>                    提供一个CarFactory(汽车工厂),用于生产汽车对象<br>                        public class CarFactory {<br>                            &#x2F;**<br>                             * @param id : 车的标识<br>                             *           benchi : 代表需要创建Benchi类对象<br>                             *           falali : 代表需要创建Falali类对象<br>                             *           如果传入的车标识不正确,代表当前工厂生成不了当前车对象,则返回null<br>                             * @return<br>                             *&#x2F;<br>                            public Car createCar(String id){<br>                                if(“falali”.equals(id)){<br>                                    return new Falali();<br>                                }else if(“benchi”.equals(id)){<br>                                    return new Benchi();<br>                                }<br>                                return null;<br>                            }<br>                        }<br>                    定义CarFactoryTest测试汽车工厂<br>                        public class CarFactoryTest {<br>                            public static void main(String[] args) {<br>                                CarFactory carFactory &#x3D; new CarFactory();<br>                                Car benchi &#x3D; carFactory.createCar(“benchi”);<br>                                benchi.run();<br>                                Car falali &#x3D; carFactory.createCar(“falali”);<br>                                falali.run();<br>                            }<br>                        }<br>                    总结<br>                        工厂模式的存在可以改变创建类的对象的方式,解决类与类之间的耦合.</p>
+<pre><code>        工厂方法模式
+        抽象工厂模式
+        单例模式
+            什么是单例模式？
+                可以保证系统中，应用该模式的这个类永远只有一个实例，即一个类永远只能创建一个对象。
+            单例的实现方式
+                饿汉单例
+                    在用类获取对象的时候，对象已经提前为你创建好了。
+                    设计步骤
+                        定义一个类，把构造器私有。
+                        定义一个静态变量存储一个对象。
+                        例
+                            /** 1.定义一个单例类 */
+                            public class SingleInstance &#123;
+                                /** 3.定义一个静态变量存储一个对象即可 :属于类，与类一起加载一次 */
+                                public static SingleInstance instance = new SingleInstance ();
+                                /** 2.单例必须私有构造器*/  
+                                private SingleInstance ()&#123;
+                                    System.out.println(&quot;创建了一个对象&quot;); 
+                                &#125;
+                            &#125;
+                懒汉单例
+                    在真正需要该对象的时候，才去创建一个对象(延迟加载对象)。
+                    设计步骤
+                        定义一个类，把构造器私有。
+                        定义一个静态变量存储一个对象。
+                        提供一个返回单例对象的方法
+                        例
+                            /** 1.定义一个单例类 */
+                            public class SingleInstance &#123;
+                              
+                                /** 2.单例必须私有构造器*/  
+                                private SingleInstance ()&#123;
+                                    System.out.println(&quot;创建了一个对象&quot;); 
+                                &#125;
+                                
+                                /** 3.定义一个静态私有变量存储一个对象即可 :属于类，与类一起加载一次 */
+                                private static SingleInstance instance ; // null
+                                
+                                /** 4. 提供一个方法返回一个单例对象  */
+                                public static SingleInstance getInstance()&#123;
+                                    if(instance==null)&#123;
+                                        instance=new SingleInstance();
+                                    &#125;
+                                    return instance;
+                                &#125;
+                            &#125;
+        建造者模式
+        原型模式
+    结构型模式
+        适配器模式
+        装饰器模式
+        代理模式
+        外观模式
+        桥接模式
+        组合模式
+        享元模式
+    行为型模式
+        策略模式
+        模板方法模式
+        观察者模式
+        迭代子模式
+        责任链模式
+        命令模式
+        备忘录模式
+        状态模式
+        访问者模式
+        中介者模式
+        解释器模式
+    多例模式
+        本质上和单例一样，构造方法私有化，内部产生实例化对象，只不过单例设计模式只产生一个，多例设计模式可以产生有限的多个
+        例如：描述性别的类，只能有两个
+            class Sex&#123;
+                public static final int MALE_CH =1;
+                public static final int FEMALE_CH =2;
+                private static final Sex MALE = new Sex(&quot;男&quot;);
+                private static final Sex FEMALE = new Sex(&quot;女&quot;);
+                private String title;
+                private Sex(String title) &#123;
+                    this.title = title;
+                &#125;
+                public static Sex getInstance(int ch)&#123;
+                    switch (ch)&#123;
+                        case MALE_CH:
+                            return MALE;
+                        case FEMALE_CH:
+                            return FEMALE;
+                        default:
+                            return null;
+                    &#125;
+                &#125;
+                public String toString()&#123;
+                    return this.title;
+                &#125;
+                
+                
+                //测试
+                public static void main(String[] args)&#123;
+                    Sex sex = Sex.getInstance(Sex.MALE_CH);
+                    System.out.println(sex);
+                &#125;
+</code></pre>
+<p>}</p>
+<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a><strong><font color=#87CEFA>代理模式</font></strong></h1><h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a><strong><font color=#87CEFA>Lambda表达式</font></strong></h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/">http://example.com/2023/03/02/java%E8%BF%9B%E9%98%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/03/02/jsp/" title="jsp"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">jsp</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-number">1.</span> <span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">类的加载器？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">类加载器的种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class%E7%B1%BB"><span class="toc-number">1.1.2.</span> <span class="toc-text">Class类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84-1"><span class="toc-number">1.2.</span> <span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">反射概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96Class%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text">获取Class对象的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.</span> <span class="toc-text">反射获取构造方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class%E7%B1%BB%E4%B8%AD%E4%B8%8EConstructor%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">Class类中与Constructor相关方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Constructor%E7%B1%BB%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">Constructor类中常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A0%E5%8F%82%E6%95%B0%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">获取无参数构造方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9C%89%E5%8F%82%E6%95%B0%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">获取有参数构造方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E5%92%8C%E6%89%A7%E8%A1%8C"><span class="toc-number">1.2.4.</span> <span class="toc-text">反射获取成员方法和执行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class%E7%B1%BB%E4%B8%AD%E4%B8%8EMethod%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">Class类中与Method相关方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method%E7%B1%BB%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">Method类中常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%97%A0%E5%8F%82%E6%95%B0%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">反射获取无参数方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.5.</span> <span class="toc-text">反射获取属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">关键字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%A1%88%E4%BE%8B"><span class="toc-number">1.2.6.</span> <span class="toc-text">反射案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">2.1.</span> <span class="toc-text">单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB"><span class="toc-number">2.1.1.</span> <span class="toc-text">测试分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Junit%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.2.</span> <span class="toc-text">Junit介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Junit%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.1.3.</span> <span class="toc-text">Junit的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.1.4.</span> <span class="toc-text">常用注解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.</span> <span class="toc-text">Java注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B3%A8%E8%A7%A3%EF%BC%9F"><span class="toc-number">2.2.1.</span> <span class="toc-text">什么是注解？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.2.</span> <span class="toc-text">标准注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.3.</span> <span class="toc-text">自定义注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">定义格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">注解的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.3.3.</span> <span class="toc-text">使用自定义注解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%A1%88%E4%BE%8B"><span class="toc-number">2.2.3.4.</span> <span class="toc-text">定义注解案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7value"><span class="toc-number">2.2.3.5.</span> <span class="toc-text">特殊属性value</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.4.</span> <span class="toc-text">元注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%85%83%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.2.5.</span> <span class="toc-text">常用元注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Target"><span class="toc-number">2.2.5.1.</span> <span class="toc-text">@Target</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Retention"><span class="toc-number">2.2.6.</span> <span class="toc-text">Retention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90"><span class="toc-number">2.2.7.</span> <span class="toc-text">注解解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.7.1.</span> <span class="toc-text">注解的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8E%E6%B3%A8%E8%A7%A3%E8%A7%A3%E6%9E%90%E7%9B%B8%E5%85%B3%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.2.7.2.</span> <span class="toc-text">与注解解析相关的接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">2.2.7.3.</span> <span class="toc-text">获取注解数据的原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%B0%84%E8%8E%B7%E5%8F%96%E6%B3%A8%E8%A7%A3%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">2.2.7.4.</span> <span class="toc-text">使用反射获取注解的数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E"><span class="toc-number">2.2.7.4.1.</span> <span class="toc-text">需求说明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.2.7.4.2.</span> <span class="toc-text">代码实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E6%A1%88%E4%BE%8B-%E6%A8%A1%E6%8B%9FJunit"><span class="toc-number">2.2.8.</span> <span class="toc-text">注解案例(模拟Junit)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lombok"><span class="toc-number">2.3.</span> <span class="toc-text">lombok</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.1.</span> <span class="toc-text">lombok介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.2.</span> <span class="toc-text">lombok使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lombok%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.3.3.</span> <span class="toc-text">lombok常用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Getter%E5%92%8C-Setter"><span class="toc-number">2.3.3.1.</span> <span class="toc-text">@Getter和@Setter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ToString"><span class="toc-number">2.3.3.2.</span> <span class="toc-text">@ToString</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NoArgsConstructor%E5%92%8C-AllArgsConstructor"><span class="toc-number">2.3.3.3.</span> <span class="toc-text">@NoArgsConstructor和@AllArgsConstructor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data"><span class="toc-number">2.3.3.4.</span> <span class="toc-text">@Data</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E5%92%8C%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">枚举和设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-number">3.1.</span> <span class="toc-text">枚举</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE-1"><span class="toc-number">3.1.1.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE-2"><span class="toc-number">3.1.2.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE-3"><span class="toc-number">3.1.3.</span> <span class="toc-text">枚举</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">代理模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">Lambda表达式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/java%E8%BF%9B%E9%98%B6/" title="java进阶">java进阶</a><time datetime="2023-03-02T05:22:37.000Z" title="Created 2023-03-02 13:22:37">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/jsp/" title="jsp">jsp</a><time datetime="2023-03-02T05:22:18.000Z" title="Created 2023-03-02 13:22:18">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/javaoop/" title="javaoop">javaoop</a><time datetime="2023-03-02T05:22:11.000Z" title="Created 2023-03-02 13:22:11">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/26/js%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="js思维引导">js思维引导</a><time datetime="2023-02-26T05:35:49.000Z" title="Created 2023-02-26 13:35:49">2023-02-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/25/MySQL%E6%80%9D%E7%BB%B4%E5%BC%95%E5%AF%BC/" title="MySQL思维引导">MySQL思维引导</a><time datetime="2023-02-25T01:02:29.000Z" title="Created 2023-02-25 09:02:29">2023-02-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
