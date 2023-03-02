@@ -1,0 +1,1028 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>MybBatis | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MyBatis流程认识框架什么是框架 框架就是一个半成品，已经实现部分功能代码，能加速我们的开发，提高开发效率  什么时候用框架 企业级项目开发，不可能任何一个项目的代码都是凑从0开始。此时就需要一个非常优秀的框架把基础技术整合完毕，我们在基础上进一步开发  怎么使用框架 java的框架是有些共性     导入jar包     框架运行细节定义，也就是编写配置文件（xml）     调用框架中的a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MybBatis">
+<meta property="og:url" content="http://example.com/2023/03/02/MybBatis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MyBatis流程认识框架什么是框架 框架就是一个半成品，已经实现部分功能代码，能加速我们的开发，提高开发效率  什么时候用框架 企业级项目开发，不可能任何一个项目的代码都是凑从0开始。此时就需要一个非常优秀的框架把基础技术整合完毕，我们在基础上进一步开发  怎么使用框架 java的框架是有些共性     导入jar包     框架运行细节定义，也就是编写配置文件（xml）     调用框架中的a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-03-02T07:17:58.000Z">
+<meta property="article:modified_time" content="2023-03-02T08:01:21.769Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/03/02/MybBatis/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MybBatis',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-02 16:01:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MybBatis</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-02T07:17:58.000Z" title="Created 2023-03-02 15:17:58">2023-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-02T08:01:21.769Z" title="Updated 2023-03-02 16:01:21">2023-03-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MybBatis"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="MyBatis流程"><a href="#MyBatis流程" class="headerlink" title="MyBatis流程"></a><strong><font color=#87CEFA>MyBatis流程</font></strong></h1><h2 id="认识框架"><a href="#认识框架" class="headerlink" title="认识框架"></a><strong><font color=#87CEFA>认识框架</font></strong></h2><p>什么是框架</p>
+<pre><code>框架就是一个半成品，已经实现部分功能代码，能加速我们的开发，提高开发效率
+</code></pre>
+<p>什么时候用框架</p>
+<pre><code>企业级项目开发，不可能任何一个项目的代码都是凑从0开始。此时就需要一个非常优秀的框架把基础技术整合完毕，我们在基础上进一步开发
+</code></pre>
+<p>怎么使用框架</p>
+<pre><code>java的框架是有些共性
+    导入jar包
+    框架运行细节定义，也就是编写配置文件（xml）
+    调用框架中的api
+</code></pre>
+<h2 id="原生JDBC案例"><a href="#原生JDBC案例" class="headerlink" title="原生JDBC案例"></a><strong><font color=#87CEFA>原生JDBC案例</font></strong></h2><p>查询user表以List集合形式返回<br>mysql导入sql脚本创建数据库表</p>
+<pre><code>创建数据库mybatis_test
+数据库中直接导入sql脚本先运行user.sql,才能运行orders.sql
+</code></pre>
+<p>创建pojo对象</p>
+<pre><code>注意
+    pojo（Plain Ordinary Java Object）普通的java对象，和entity（数据表对应到实体类的映射）差不多的意思。只是有些人喜欢用pojo有的喜欢交entity
+
+public class User &#123;
+    private int id;
+    private String username;
+    private String sex;
+    private Date birthday;
+    private String address;
+    public int getId() &#123;
+        return id;
+    &#125;
+    public void setId(int id) &#123;
+        this.id = id;
+    &#125;
+    public String getUsername() &#123;
+        return username;
+    &#125;
+    public void setUsername(String username) &#123;
+        this.username = username;
+    &#125;
+    public String getSex() &#123;
+        return sex;
+    &#125;
+    public void setSex(String sex) &#123;
+        this.sex = sex;
+    &#125;
+    public Date getBirthday() &#123;
+        return birthday;
+    &#125;
+    public void setBirthday(Date birthday) &#123;
+        this.birthday = birthday;
+    &#125;
+    public String getAddress() &#123;
+        return address;
+    &#125;
+    public void setAddress(String address) &#123;
+        this.address = address;
+    &#125;
+    @Override
+    public String toString() &#123;
+        return &quot;User&#123;&quot; +
+                &quot;id=&quot; + id +
+                &quot;, username=&#39;&quot; + username + &#39;\&#39;&#39; +
+                &quot;, sex=&#39;&quot; + sex + &#39;\&#39;&#39; +
+                &quot;, birthday=&quot; + birthday +
+                &quot;, address=&#39;&quot; + address + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<p>创建UserDao接口</p>
+<pre><code>今后的我们编程规范都是面向接口编程，面向接口编程的好处可以更好的应对需求的变化，降低程序模块间的耦合性。
+故原本UserDao，我们会分为UserDao接口和UserDao的实现类，从此养成面向接口编程的习惯。
+public interface UserDao &#123;
+    List&lt;User&gt; queryUserList() throws Exception;
+&#125;
+</code></pre>
+<p>创建UserDao接口实现类</p>
+<pre><code>public class UserDaoImpl implements UserDao &#123;
+    private String driverClass = &quot;com.mysql.jdbc.Driver&quot;;
+    private String url=&quot;jdbc:mysql://localhost:3306/mybatis_test&quot;;
+    private String username=&quot;root&quot;;
+    private String password=&quot;123456&quot;;
+    @Override
+    public List&lt;User&gt; queryUserList()throws Exception &#123;
+        List&lt;User&gt; list = new ArrayList&lt;User&gt;();
+        Class.forName(driverClass);
+        Connection conn = DriverManager.getConnection(url,username,password);
+        String sql = &quot;select * from user&quot;;
+        PreparedStatement pst = conn.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        User user = null;
+        while (rs.next())&#123;
+            user = new User();
+            user.setId(rs.getInt(&quot;id&quot;));
+            user.setUsername(rs.getString(&quot;username&quot;));
+            user.setSex(rs.getString(&quot;sex&quot;));
+            user.setBirthday(rs.getDate(&quot;birthday&quot;));
+            user.setAddress(rs.getString(&quot;address&quot;));
+            list.add(user);
+        &#125;
+        rs.close();
+        pst.close();
+        conn.close();
+        return list;
+    &#125;
+&#125;
+</code></pre>
+<p>测试程序</p>
+<pre><code>public class MainTest &#123;
+    @Test
+    public void testJDBC() throws Exception &#123;
+        UserDao userDao = new UserDaoImpl();
+        List&lt;User&gt; list = userDao.queryUserList();
+        if(list!=null &amp;&amp; list.size()&gt;0)&#123;
+            for(User user : list)&#123;
+                System.out.println(user);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>原生JDBC案例的问题</p>
+<pre><code>频繁的连接和释放数据库资源，降低系统性能
+SQL语句硬编码，难以维护
+参数和占位符对应问题
+结果集解析复杂，列名硬编码
+</code></pre>
+<h2 id="MyBatis框架概述"><a href="#MyBatis框架概述" class="headerlink" title="MyBatis框架概述"></a><strong><font color=#87CEFA>MyBatis框架概述</font></strong></h2><p>Mybatis原本是Apache软件基金会的一个开源项目叫做iBatis，2010年这个项目由Apache迁移到了google code管理才改名为Mybatis，2013年又迁移到了GitHub。</p>
+<p>Mybatis是一个优秀的持久层框架（Dao层框架），它是对JDBC的封装，使得开发者只需要关注Sql语句（业务）本身即可，无需开发者处理加载驱动、获取连接、创建Statement等繁琐的过程。</p>
+<p>Mybatis最大的特点是把Sql语句写在XML配置文件当中。而且Mybatis执行完Sql语句之后可以以对象形式返回（POJO&#x2F;POJO集合等）。</p>
+<p>Mybatis是一个实现了ORM思想的持久层框架。</p>
+<p>ORM：Object&#x2F;Relation Mapping 对象&#x2F;关系映射。</p>
+<p>ORM思想：将数据库中的关系数据表映射为JAVA中的对象，把对数据表的操作转换为对对象的操作，实现面向对象编程。因此ORM的目的是使得开发人员以面向对象的思想来操作数据库。</p>
+<p>Mybatis框架是一个半自动的ORM持久层框架，也可以在Java中实现类似 insert(User)的操作最终操作数据库，但是需要我们自己写Sql语句。Mybatis是目前比较流行的Dao层框架。</p>
+<h2 id="MyBatis快速入门"><a href="#MyBatis快速入门" class="headerlink" title="MyBatis快速入门"></a><strong><font color=#87CEFA>MyBatis快速入门</font></strong></h2><pre><code>步骤
+    导入MyBatis框架jar包
+</code></pre>
+<img src= "/imgs/MyBatis.png">
+
+<p>配置文件</p>
+<pre><code>SqlSessionFactoryBuilder，传入字节输入流，构建工厂
+SqlSessionFactory，创建SqlSession
+SqlSession执行selectList方法查询数据
+</code></pre>
+<p>导入MyBatis框架jar包<br>SqlMapperConfig.xml配置</p>
+<pre><code>&lt;!DOCTYPE configuration
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;!--配置--&gt;
+&lt;configuration&gt;
+    &lt;!--配置数据源环境信息--&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;!-- 开发环境数据源配置--&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://127.0.0.1:3306/mybatis?characterEncoding=utf8&quot; /&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot; /&gt;
+                &lt;property name=&quot;password&quot; value=&quot;123456&quot; /&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+​
+        &lt;!--测试环境数据源 --&gt;
+        &lt;environment id=&quot;test&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://127.0.0.1:3306/mybatis?characterEncoding=utf8&quot; /&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot; /&gt;
+                &lt;property name=&quot;password&quot; value=&quot;123456&quot; /&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+​
+        &lt;!-- 生产环境数据源--&gt;
+        &lt;environment id=&quot;produce&quot;&gt;
+            &lt;!--
+                事务管理器
+                type=&quot;JDBC&quot; 使用的是JDBC的事务
+                type=&quot;MANAGERED&quot; 不管理事务，交给其他框架管理
+            --&gt;
+            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+            &lt;!--
+                数据源
+                type=&quot;POOLED&quot; 使用数据库连接池
+                type=&quot;UNPOOLED&quot; 不使用连接池
+            --&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://127.0.0.1:3306/mybatis?characterEncoding=utf8&quot; /&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot; /&gt;
+                &lt;property name=&quot;password&quot; value=&quot;123456&quot; /&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+&lt;/configuration&gt;
+    UserMapper.xml配置
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!-- namespace:命名空间，对配置的SQL语句隔离，方便管理，后面有特殊作用 --&gt;
+&lt;mapper namespace=&quot;test&quot;&gt;
+    &lt;!--
+    在mapper中可配置很多个SQL语句
+    select标签表示该sql是一个查询类语句
+    id属性表示该sql语句的命名
+    resultType属性表示返回的类型
+    --&gt;
+    &lt;select id=&quot;queryList&quot; resultType=&quot;com.xrit.pojo.User&quot;&gt;
+        select * from user
+    &lt;/select&gt;
+&lt;/mapper&gt;
+    SqlMapperConfig.xml中引入UserMapper.xml
+        &lt;!DOCTYPE configuration
+PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;!--配置--&gt;
+&lt;configuration&gt;
+    &lt;!--配置数据源环境信息--&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        .......
+    &lt;/environments&gt;
+    
+    &lt;mappers&gt;
+        &lt;!-- 通过resource引用mapper的映射文件 --&gt;
+        &lt;mapper resource=&quot;UserMapper.xml&quot; /&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt; 
+</code></pre>
+<p>测试程序</p>
+<pre><code>MyBatis的结构层次非常清晰
+    SqlSession接口:Session是会话，SqlSession被称为一次和数据库的对话，可以完成对数据库的CRUD操作
+    SqlSessionFactory工厂：由于SqlSession是接口，实现类需要继承去CRUD，但是，实现类由于不确定性，导致用户需要修改源码，所以，Mybatis提供了工厂来生产对象，专门产生SqlSession的实现类对象，通过工厂的oprenSession()
+    SqlSessionFactoryBuiler：Mybatis还有一个最牛的地方是，它为了解决扩展维护性问题，将sql语句和数据库配置信息规范到了配置文件，这样一来就需要一个读配置文件的API，可以将它理解为一个施工队，根据配置文件&quot;图纸&quot;，造一个工厂SqlSessionFactory
+    
+/**
+* MyBaits框架的快速入门
+* SQL语句，连接信息，都写在配置文件当中
+* SqlMapConfig.xml：配置的是连接数据库的信息
+* UserMapper.xml:配置的是数据表user的SQL语句
+*/
+public class MainTest &#123;
+    @Test
+    public void testMyBatis() throws Exception &#123;
+        //加载配置文件到流
+        InputStream is = Demo02.class.getClassLoader().getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+        //1、工厂的构建者
+        SqlSessionFactoryBuilder ssfb = new SqlSessionFactoryBuilder();
+        //2、根据IO流创建工厂
+        SqlSessionFactory sqlSessionFactory = ssfb.build(is);
+        //3、工厂产生sqlSession接口的实现类
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        //4、使用sqlSeesion进行CRUD
+        List&lt;User&gt; queryAll = sqlSession.selectList(&quot;test.queryList&quot;);
+        //5、遍历
+        for (User t:queryAll)&#123;
+            System.out.println(t);
+        &#125;
+        sqlSession.close();
+    &#125;
+&#125;
+</code></pre>
+<h2 id="执行的sql语句想要打印日志要加log4j"><a href="#执行的sql语句想要打印日志要加log4j" class="headerlink" title="执行的sql语句想要打印日志要加log4j"></a><strong><font color=#87CEFA>执行的sql语句想要打印日志要加log4j</font></strong></h2><img src="/imgs/MyBtais.png">
+
+
+
+<h1 id="MyBatis-CRUD"><a href="#MyBatis-CRUD" class="headerlink" title="MyBatis-CRUD"></a><strong><font color=#87CEFA>MyBatis-CRUD</font></strong></h1><h2 id="根据id查询用户"><a href="#根据id查询用户" class="headerlink" title="根据id查询用户"></a><strong><font color=#87CEFA>根据id查询用户</font></strong></h2><p>SqlMapperConfig.xml</p>
+<pre><code>&lt;mappers&gt;
+    &lt;!-- 配置User表SQL语句 --&gt;
+    &lt;mapper resource=&quot;UserMapper.xml&quot; /&gt;
+&lt;/mappers&gt;
+    UserMapper.xml配置
+        &lt;mapper namespace=&quot;test&quot;&gt;
+    &lt;!--
+        命名空间+.+id 如test.queryUserById 锁定唯一SQL语句
+        resultType 结果集封装类型
+        parameterType 参数的数据类型
+        SQL语句中的取参数语法相当于占位符 #&#123;基本类型 任意命名&#125;
+    --&gt;
+    &lt;select id=&quot;queryUserById&quot; parameterType=&quot;Integer&quot; resultType=&quot;com.xrit.pojo.User&quot;&gt;
+        select * from user where id=#&#123;id&#125;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<p>测试</p>
+<pre><code>public void queryUserById() throws IOException &#123;
+    InputStream inputStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+    SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+    SqlSessionFactory sqlSessionFactory = builder.build(inputStream);
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    User user = sqlSession.selectOne(&quot;test.queryUserById&quot;,2);
+    System.out.println(user);
+    sqlSession.close();
+&#125;
+    
+</code></pre>
+<h2 id="根据用户名模糊查询"><a href="#根据用户名模糊查询" class="headerlink" title="根据用户名模糊查询"></a><strong><font color=#87CEFA>根据用户名模糊查询</font></strong></h2><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a><strong><font color=#87CEFA>方式一</font></strong></h3><p>SqlMapperConfig.xml</p>
+<pre><code>&lt;select id=&quot;queryUserByUsername&quot; parameterType=&quot;String&quot; resultType=&quot;com.xrit.pojo.User&quot;&gt;
+    select * from user where username like #&#123;username&#125;
+&lt;/select&gt;
+</code></pre>
+<p>测试</p>
+<pre><code>public void queryUserByUsername()throws IOException&#123;
+    InputStream inputStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+    SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+    SqlSessionFactory sqlSessionFactory = builder.build(inputStream);
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    List&lt;User&gt; list = sqlSession.selectList(&quot;test.queryUserByUsername&quot;,&quot;%王%&quot;);
+    for(User user : list)&#123;
+        System.out.println(user);
+    &#125;
+    sqlSession.close();
+&#125;
+</code></pre>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a><strong><font color=#87CEFA>方式二</font></strong></h3><p>SqlMapperConfig.xml</p>
+<pre><code>&lt;!--
+    #&#123;&#125;: 表: 示一个占位符 mybatis不需要你加单引号，会自动加上，模糊查询需要用户传参时手动加上%%号
+    $&#123;value&#125;: 表示sql的拼接，参数传递过来不会加单引号
+    注意：$&#123;value&#125;拼接不能防止SQL注入攻击，所以建议使用#&#123;&#125; 
+--&gt;
+&lt;select id=&quot;queryUserByUsername&quot; parameterType=&quot;java.lang.String&quot; resultType=&quot;com.xr.entity.User&quot;&gt;
+    select * from user where username like &#39;%$&#123;value&#125;%&#39;
+&lt;/select&gt;
+</code></pre>
+<p>测试</p>
+<pre><code>public void queryUserByUsername()throws IOException&#123;
+    InputStream inputStream = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+    SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+    SqlSessionFactory sqlSessionFactory = builder.build(inputStream);
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    List&lt;User&gt; list = sqlSession.selectList(&quot;test.queryUserByUsername&quot;,&quot;王&quot;);
+    for(User user : list)&#123;
+        System.out.println(user);
+    &#125;
+    sqlSession.close();
+&#125;
+        
+</code></pre>
+<h2 id="添加新用户"><a href="#添加新用户" class="headerlink" title="添加新用户"></a><strong><font color=#87CEFA>添加新用户</font></strong></h2><h3 id="添加用户指定主键"><a href="#添加用户指定主键" class="headerlink" title="添加用户指定主键"></a><strong><font color=#87CEFA>添加用户指定主键</font></strong></h3><p>SqlMapperConfig.xml</p>
+<pre><code>&lt;!-- 添加用户 
+    parameterType:输入参数类型变为User对象，里面包含了插入需要的所有属性
+    #&#123;&#125;接收POJO数据，使用OGNL解析POJO里的属性值
+    --&gt;
+&lt;insert id=&quot;saveUser&quot; parameterType=&quot;com.xrit.pojo.User&quot;&gt;
+    insert into user (id,username,sex,birthday,address)
+    values(#&#123;id&#125;,#&#123;username&#125;,#&#123;sex&#125;,#&#123;birthday&#125;,#&#123;address&#125;)
+&lt;/insert&gt;
+</code></pre>
+<p>测试</p>
+<pre><code>public void saveUser()&#123;
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    User user = new User();
+    user.setId(1);
+    user.setUsername(&quot;刘备&quot;);
+    user.setSex(&quot;男&quot;);
+    user.setBirthday(new Date());
+    user.setAddress(&quot;大树楼桑&quot;);
+    sqlSession.insert(&quot;test.saveUser&quot;,user);
+    //##注意需要提交
+    sqlSession.commit();
+    sqlSession.close();
+&#125;
+</code></pre>
+<h3 id="主键使用Oracle序列"><a href="#主键使用Oracle序列" class="headerlink" title="主键使用Oracle序列"></a><strong><font color=#87CEFA>主键使用Oracle序列</font></strong></h3><pre><code>&lt;insert id=&quot;saveUser&quot; parameterType=&quot;com.xrit.pojo.User&quot;&gt;
+    insert into user (id,username,sex,birthday,address)
+    values(users_seq.nextval,#&#123;username&#125;,#&#123;sex&#125;,#&#123;birthday&#125;,#&#123;address&#125;)
+&lt;/insert&gt;
+</code></pre>
+<h3 id="主键使用自动增长"><a href="#主键使用自动增长" class="headerlink" title="主键使用自动增长"></a><strong><font color=#87CEFA>主键使用自动增长</font></strong></h3><pre><code>&lt;!--
+    useGeneratedKeys:允许自动增长 
+    keyProperty:指明自动增长列
+--&gt;
+&lt;insert id=&quot;saveUser&quot; parameterType=&quot;com.xrit.pojo.User&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;&gt;
+    insert into user (username,sex,birthday,address)
+    values(#&#123;username&#125;,#&#123;sex&#125;,#&#123;birthday&#125;,#&#123;address&#125;)
+&lt;/insert&gt;
+</code></pre>
+<h3 id="selectKey子标签"><a href="#selectKey子标签" class="headerlink" title="selectKey子标签"></a><strong><font color=#87CEFA>selectKey子标签</font></strong></h3><p>场景</p>
+<pre><code>页面填手机号完成快速注册，注册完事之后立马需要完善信息，update from xxx where 主键 = ?
+
+&lt; selectKey&gt;&lt; /selectKey&gt; 再执行一次SQL语句
+
+&lt;insert id=&quot;saveUser&quot; parameterType=&quot;com.xrit.pojo.User&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;&gt;
+    &lt;!-- 
+        keyProperty:语句结果应该被设置的目标属性 这里是id字段
+        resultType:返回的字段类型
+        order:定义了查询主键的SQL，相对于插入语句来说的
+            BEFORE先查询，然后执行插入语句 --适用于oracle查询序列，而且oracle只能写BEFORE
+            AFTER,先执行插入语句，再查询自定等着的id
+    --&gt;
+    &lt;selectKey keyProperty=&quot;id&quot; resultType=&quot;int&quot; order=&quot;AFTER&quot;&gt;
+        &lt;!-- insert语句之后执行，查询结果集直接封装pojo对象--&gt;
+        SELECT LAST_INSERT_ID()
+    &lt;/selectKey&gt;
+    insert into user (username,sex,birthday,address)
+    values(#&#123;username&#125;,#&#123;sex&#125;,#&#123;birthday&#125;,#&#123;address&#125;)
+&lt;/insert&gt;
+</code></pre>
+<p>测试</p>
+<pre><code>public void saveUser()&#123;
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    User user = new User();
+    user.setUsername(&quot;刘备&quot;);
+    user.setSex(&quot;男&quot;);
+    user.setBirthday(new Date());
+    user.setAddress(&quot;大树楼桑&quot;);
+    sqlSession.insert(&quot;test.saveUser&quot;,user);
+    //##注意需要提交
+    sqlSession.commit();
+    
+    //输出刚刚添加的主键
+    System.out.println(user.getId());
+    System.out.println(user);
+    
+    sqlSession.close();
+&#125;
+</code></pre>
+<h2 id="根据id修改用户名"><a href="#根据id修改用户名" class="headerlink" title="根据id修改用户名"></a><strong><font color=#87CEFA>根据id修改用户名</font></strong></h2><p>SqlMapperConfig.xml</p>
+<pre><code>&lt;update id=&quot;updateUser&quot; parameterType=&quot;com.xrit.pojo.User&quot;&gt;
+    update user set username=#&#123;username&#125; where id=#&#123;id&#125;
+&lt;/update&gt;
+</code></pre>
+<p>测试</p>
+<pre><code>public void updateUsernameById() throws IOException &#123;
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    User user = new User();
+    user.setUsername(&quot;关羽&quot;);
+    user.setSex(&quot;男&quot;);
+    user.setBirthday(new Date());
+    user.setAddress(&quot;大树楼桑&quot;);
+    user.setId(10);
+    int i = sqlSession.update(&quot;test.updateUser&quot;, user);
+    System.out.println(i);
+    sqlSession.commit();
+    sqlSession.close();
+&#125;
+    
+</code></pre>
+<h2 id="根据id删除用户"><a href="#根据id删除用户" class="headerlink" title="根据id删除用户"></a><strong><font color=#87CEFA>根据id删除用户</font></strong></h2><p>SqlMapperConfig.xml</p>
+<pre><code>&lt;delete id=&quot;delUserById&quot; parameterType=&quot;int&quot;&gt;
+    delete from user where id=#&#123;id&#125;
+&lt;/delete&gt;
+</code></pre>
+<p>测试</p>
+<pre><code>public void updateUsernameById() throws IOException &#123;
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    int i = sqlSession.update(&quot;test.delUserById&quot;, 1);
+    System.out.println(i);
+    sqlSession.commit();
+    sqlSession.close();
+&#125;
+</code></pre>
+<h1 id="MyBatis-封装DAO"><a href="#MyBatis-封装DAO" class="headerlink" title="MyBatis-封装DAO"></a><strong><font color=#87CEFA>MyBatis-封装DAO</font></strong></h1><h2 id="原始Dao开发方式"><a href="#原始Dao开发方式" class="headerlink" title="原始Dao开发方式"></a><strong><font color=#87CEFA>原始Dao开发方式</font></strong></h2><pre><code>//定义UserDao接口
+public interface UserDao &#123;
+    //查询全部的方法
+    List&lt;User&gt; queryAll();
+&#125;
+​
+​
+//UserDao的实现类
+public class UserDaoImpl implements UserDao &#123;
+    
+    
+    //SqlSessionFactory使用的范围应该是全局的，最好是单例模式（到后面整合的时候，spring管理就是单例模式管理）
+    private SqlSessionFactory sqlSessionFactory;
+    
+    //注入的SqlSessionFactory
+    public UsersDAOImpl(SqlSessionFactory sqlSessionFactory) &#123;
+        this.sqlSessionFactory = sqlSessionFactory;
+    &#125;
+​
+    
+​
+    @Override
+    public List&lt;User&gt; queryAll() &#123;
+        //SqlSession全局使用单例的话，是会引起数据冲突或者丢失，而且不是线程安全的，所以还是定义在方法里，局部使用.
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List&lt;User&gt; list = sqlSession.selectList(&quot;test.queryList&quot;);
+        sqlSession.close()
+        return list;
+    &#125;
+&#125;
+​
+​
+​
+//测试类
+public class MyBatisDaoDemo &#123;
+    
+    private  SqlSessionFactory sqlSessionFactory;
+    
+    @Before
+    public void createSqlSessionFactory() throws Exception &#123;
+        InputStream is = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+        SqlSessionFactoryBuilder sfb = new SqlSessionFactoryBuilder();
+        sqlSessionFactory = sfb.build(is);
+    &#125;           
+    
+​
+    @Test
+    public void testQueryList()&#123;
+        UserDao udao = new UserDaoImpl(sqlSessionFactory);
+        List&lt;User&gt; list = udao.queryAll();
+        for (User t:list)&#123;
+            System.out.println(t);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="MyBatis动态代理开发方式"><a href="#MyBatis动态代理开发方式" class="headerlink" title="MyBatis动态代理开发方式"></a><strong><font color=#87CEFA>MyBatis动态代理开发方式</font></strong></h2><p>采用Mybatis的代理开发方式实现DAO层的开发这种就是后面进入企业的主流</p>
+<p>我们只需要定义一个Mapper接口（其实就是UserDao接口），由Mybatis框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边UserDao接口实现类方法。通过代理对象调用接口当中的方法完成业务</p>
+<h3 id="Mapper-接口开发需要遵循以下规范"><a href="#Mapper-接口开发需要遵循以下规范" class="headerlink" title="Mapper 接口开发需要遵循以下规范"></a><strong><font color=#87CEFA>Mapper 接口开发需要遵循以下规范</font></strong></h3><ul>
+<li><p>Mapper.xml文件中的namespace于mapper接口的全限定名相同</p>
+</li>
+<li><p>Mapper接口方法名和Mapper.xml中定义的每个sql相同</p>
+</li>
+<li><p>Mapper接口方法的输入参数类型和mapper.xml中定义的每个sqlparameterType的类型相同</p>
+</li>
+<li><p>Mapper接口方法的输出参数类型和mapper.xml中定义的每个sql的resultype的类型相同</p>
+</li>
+</ul>
+<p>注意</p>
+<pre><code>一般来说会创建一个mapper包，用于存放Mapper.xml文件和接口文件且他们的文件名一致
+</code></pre>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a><strong><font color=#87CEFA>案例</font></strong></h3><p>UserMapper.xml</p>
+<pre><code>&lt;mapper namespace=&quot;com.xr.mapper.UserMapper&quot;&gt;
+
+    &lt;select id=&quot;queryList&quot; resultType=&quot;com.xr.pojo.User&quot;&gt;
+        select * from user
+    &lt;/select&gt;
+    
+    &lt;select id=&quot;queryByUserName&quot; parameterType=&quot;String&quot; resultType=&quot;com.xr.pojo.User&quot;&gt;
+        select * from user where username like #&#123;value&#125;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<p>UserMapper接口</p>
+<pre><code>package com.xr.mapper;
+....
+public interface UserMapper &#123;
+    /*
+    查询全部
+    */
+    List&lt;User&gt; queryList();
+​
+    /*
+    模糊查询
+        */
+    List&lt;User&gt; queryByUserName(String userName);
+&#125;
+</code></pre>
+<p>测试类</p>
+<pre><code>public class MyBatisDaoDemo2 &#123;
+
+private  SqlSessionFactory sqlSessionFactory;
+@Before
+public void createSqlSessionFactory() throws Exception &#123;
+    SqlSessionFactoryBuilder sfb = new SqlSessionFactoryBuilder();
+    InputStream is = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+    sqlSessionFactory = sfb.build(is);
+&#125;
+</code></pre>
+<p>​<br>    @Test<br>    public void testQueryTeacherList(){<br>        SqlSession sqlSession &#x3D; sqlSessionFactory.openSession();<br>        &#x2F;*<br>        getMapper()：获取动态代理对象生成的接口的实现类<br>        参数：实现类的接口<br>            *&#x2F;<br>        UserMapper mapper &#x3D; sqlSession.getMapper(UserMapper.class);<br>        List<User> list &#x3D; mapper.queryList();<br>        for (User t:list){<br>            System.out.println(t);<br>        }<br>        sqlSession.close();<br>    }<br>}</p>
+<p>执行过程分析</p>
+<ul>
+<li>读取MyBatis的住配置文件</li>
+<li>加载了Mapper.xml中有namespace&#x3D;”接口全类名”</li>
+<li>读取一个个的sql id 代表接口里面的方法</li>
+<li>根据接口生成接口的代理对象，根据接口的信息可以应对具体的Mapper.xml的statement id</li>
+<li>根据接口的返回值判断调用SqlSession的方法</li>
+</ul>
+<h2 id="MyBatis手动映射"><a href="#MyBatis手动映射" class="headerlink" title="MyBatis手动映射"></a><strong><font color=#87CEFA>MyBatis手动映射</font></strong></h2><p>当数据表中的列名和entity中类的属性名不同时，将会出现封装数据失败的现象，MyBatis无法将数据表 中的数据准确的封装到entity对象中，因此必须使用手动映射的方式来实现</p>
+<p>xr.com.pojo.User</p>
+<pre><code>public class User&#123;
+    private int id;
+    private String uname;
+    private String usex;
+    private Date birthday;
+    private String address;
+    //get set 省.....
+&#125;
+    
+</code></pre>
+<p>UserMapper.xml</p>
+<pre><code>&lt;mapper namespace=&quot;com.xr.dao.UserMapper&quot;&gt;
+    &lt;!--
+    当表中的列和类的属性列表不一致，则需要手动配置映射
+    --&gt;
+    &lt;select id=&quot;queryList&quot;  resultMap=&quot;userResult&quot;&gt;
+    select * from user
+    &lt;/select&gt;
+    
+    
+    &lt;!--
+    id:resultMap的名字，唯一
+    type:最终这个resultMap对应要返回的类型，还是Users实体对象
+    --&gt;
+    &lt;resultMap id=&quot;userResult&quot; type=&quot;xr.com.pojo.User&quot;&gt;
+        &lt;!--
+        column:查询的结果集上显示的列名
+        property:对应的实体类中的属性名，注意大小写
+        --&gt;
+    
+        &lt;!--配置主键映射--&gt;
+        &lt;id property=&quot;id&quot; column=&quot;id&quot; /&gt;
+        &lt;!--配置其他属性--&gt;
+        &lt;result property=&quot;uname&quot; column=&quot;username&quot;/&gt;
+        &lt;result property=&quot;usex&quot; column=&quot;sex&quot;/&gt;
+        &lt;result property=&quot;birthday&quot; column=&quot;birthday&quot;/&gt;
+        &lt;result property=&quot;address&quot; column=&quot;address&quot;/&gt;
+    &lt;/resultMap&gt;
+&lt;/mapper&gt;
+</code></pre>
+<h2 id="其他优化配置"><a href="#其他优化配置" class="headerlink" title="其他优化配置"></a><strong><font color=#87CEFA>其他优化配置</font></strong></h2><h3 id="全局Properties配置"><a href="#全局Properties配置" class="headerlink" title="全局Properties配置"></a><strong><font color=#87CEFA>全局Properties配置</font></strong></h3><p>配置jdbc.properties,将容易写错的变量提取出来，以后就不需要修改源配置文件了</p>
+<p>jdbc.properties文件</p>
+<pre><code>jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/test?characterEncoding=utf-8
+jdbc.username=root
+jdbc.password=123456
+</code></pre>
+<p>SqlMapConfig.xml</p>
+<pre><code>&lt;configuration&gt;
+    &lt;!--引用jdbc配置文件--&gt;
+    &lt;properties resource=&quot;jdbc.properties&quot; /&gt;
+    
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;$&#123;jdbc.driver&#125;&quot; /&gt;
+                &lt;property name=&quot;url&quot; value=&quot;$&#123;jdbc.url&#125;&quot; /&gt;
+                &lt;property name=&quot;username&quot; value=&quot;$&#123;jdbc.username&#125;&quot; /&gt;
+                &lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot; /&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+&lt;/configuration&gt; 
+</code></pre>
+<h3 id="全局typeAliases配置"><a href="#全局typeAliases配置" class="headerlink" title="全局typeAliases配置"></a><strong><font color=#87CEFA>全局typeAliases配置</font></strong></h3><h4 id="typeAliases"><a href="#typeAliases" class="headerlink" title="typeAliases"></a><strong><font color=#87CEFA>typeAliases</font></strong></h4><p>别名处理器，可以为java类型起别名。就是为 Java 类型设置一个短的名字。它只在 XML 配置中有效，存在的意义仅在于用来减少类完全限定名的冗余。</p>
+<h4 id="常见的-Java-类型内建的相应的类型别名"><a href="#常见的-Java-类型内建的相应的类型别名" class="headerlink" title="常见的 Java 类型内建的相应的类型别名"></a><strong><font color=#87CEFA>常见的 Java 类型内建的相应的类型别名</font></strong></h4><p>它们都是大小写不敏感的，需要注意的是由基本类型名称重复导致的特殊处理。</p>
+<h4 id="自定义别名"><a href="#自定义别名" class="headerlink" title="自定义别名"></a><strong><font color=#87CEFA>自定义别名</font></strong></h4><p>通过单个定义别名的方式</p>
+<pre><code>&lt;typeAliases&gt;
+        &lt;typeAlias type=&quot;com.xr.pojo.User&quot; alias=&quot;user&quot; /&gt;
+        &lt;typeAlias type=&quot;com.xr.pojo.Orders&quot; alias=&quot;orders&quot; /&gt;
+&lt;/typeAliases&gt;
+
+&lt;select id=&quot;queryList&quot; resultType=&quot;user&quot;&gt;
+        select * from user
+&lt;/select&gt;
+</code></pre>
+<p>为包下所有类取别名</p>
+<pre><code>&lt;typeAliases&gt;
+    &lt;typeAlias type=&quot;com.xr.entity.User&quot; alias=&quot;user&quot; /&gt;
+    &lt;typeAlias type=&quot;com.xr.entity.UserAddress&quot; alias=&quot;userAddress&quot; /&gt;
+    &lt;!-- 自动扫描pojo包下的全部类,整体包取别名，使用时直接填类名即可，类名不区分大小写--&gt;
+    &lt;package name=&quot;com.xrit.pojo&quot; &gt;&lt;/package&gt;
+&lt;/typeAliases&gt;
+</code></pre>
+<p>注意</p>
+<pre><code>若该包下面还用子包，并且子包与该包有相同的类名，则需要为其中一个类进行注解，否则将会报错(冲突)，因为mybatis不知道是哪个包，必须明确的指明才可以。
+</code></pre>
+<h4 id="按包整体加载mapper文件"><a href="#按包整体加载mapper文件" class="headerlink" title="按包整体加载mapper文件"></a><strong><font color=#87CEFA>按包整体加载mapper文件</font></strong></h4><p>SqlMapConfig.xml</p>
+<pre><code>&lt;mappers&gt;
+    &lt;!-- 按照包整体加载mapper文件，前提是mapper.java和mapper.xml文件在一个包下 --&gt;
+    &lt;package name=&quot;com.xr.mapper&quot;/&gt;
+&lt;/mappers&gt;
+</code></pre>
+<h1 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a><strong><font color=#87CEFA>动态SQL</font></strong></h1><h2 id="resultMap"><a href="#resultMap" class="headerlink" title="resultMap"></a><strong><font color=#87CEFA>resultMap</font></strong></h2><p>resultType</p>
+<pre><code>用于指定输出结果的类型（pojo、简单类型、HashMap），pojo时会自动将sql查询结果映射为java对象 使用resultType注意：sql查询的列名要和resultType指定pojo的属性名相同，指定相同属性才能映射成功
+</code></pre>
+<p>作用</p>
+<pre><code>将返回的结果和对象进行关联
+</code></pre>
+<p>定义</p>
+<pre><code>&lt;resultMap id=&quot;userResult&quot; type=&quot;xr.com.pojo.User&quot;&gt;
+        &lt;!--
+        column:查询的结果集上显示的列名
+        property:对应的实体类中的属性名，注意大小写
+        --&gt;
+    
+        &lt;!--配置主键映射--&gt;
+        &lt;id property=&quot;id&quot; column=&quot;id&quot; /&gt;
+        &lt;!--配置其他属性--&gt;
+        &lt;result property=&quot;username&quot; column=&quot;uname&quot;/&gt;
+        &lt;result property=&quot;sex&quot; column=&quot;usex&quot;/&gt;
+        &lt;result property=&quot;birthday&quot; column=&quot;birthday&quot;/&gt;
+        &lt;result property=&quot;address&quot; column=&quot;address&quot;/&gt;
+&lt;/resultMap&gt;
+</code></pre>
+<p>引入</p>
+<pre><code>&lt;select id=&quot;queryUser&quot; resultMap=&quot;usersResultMap&quot;&gt;
+    select id,username uname,sex usex,birthday,address from user
+&lt;/select&gt;
+</code></pre>
+<h1 id="关系查询"><a href="#关系查询" class="headerlink" title="关系查询"></a><strong><font color=#87CEFA>关系查询</font></strong></h1><h1 id="association"><a href="#association" class="headerlink" title="association"></a><strong><font color=#87CEFA>association</font></strong></h1><p>映射对象</p>
+<p>映射语法</p>
+<pre><code>&lt;resultMap id=&quot;ordersUserResultMap&quot; type=&quot;TOrders&quot;&gt;
+    &lt;id column=&quot;id&quot; property=&quot;id&quot;&gt;&lt;/id&gt;
+    &lt;result column=&quot;order_no&quot; property=&quot;order_no&quot;&gt;&lt;/result&gt;
+    &lt;!--property:订单实体里面的用户属性名 javaType：用户的实体路径 --&gt;
+    &lt;association property=&quot;user&quot; javaType=&quot;xr.entity.TUsers&quot;&gt;
+        &lt;result column=&quot;uid&quot; property=&quot;id&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;name&quot; property=&quot;name&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;sex&quot; property=&quot;sex&quot;&gt;&lt;/result&gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;
+</code></pre>
+<h1 id="collection"><a href="#collection" class="headerlink" title="collection"></a><strong><font color=#87CEFA>collection</font></strong></h1><p>映射集合</p>
+<p>映射语法</p>
+<pre><code>&lt;resultMap type=&quot;orders&quot; id=&quot;ordersAndUsersAndDetailsResultMap&quot; extends=&quot;ordersResultMap&quot;&gt;
+    &lt;collection property=&quot;orderDetailList&quot; ofType=&quot;orderDetail&quot;&gt;
+        &lt;id column=&quot;odid&quot; property=&quot;id&quot; /&gt;
+        &lt;result column=&quot;num&quot; property=&quot;num&quot; /&gt;
+        &lt;result column=&quot;gid&quot; property=&quot;goods_id&quot; /&gt;
+    &lt;/collection&gt;
+&lt;/resultMap&gt;
+</code></pre>
+<p>extends</p>
+<pre><code>继承某个resultMap，重复的部分可以不用写了
+</code></pre>
+<h1 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a><strong><font color=#87CEFA>延迟加载</font></strong></h1><p>进行数据库查询时，单表的查询性能最好，比表连接查快很多。如果有关联关系时，开始只查询单表，当需要关联信息时，再去查询关联的信息，比如说查询订单关联查询用户和订单详情，但是我先只查订单，当需要使用订单的用户信息时再查询用户，需要使用订单的订单详情时再查询订单详情 ，这个就叫延时加载。<br>mybatis中的resultMap提供了延时加载功能</p>
+<p>首先在SqlMapConfig.xml中的全局参数中配置延迟加载的总开关和按需加载</p>
+<pre><code>&lt;sertings&gt;
+    &lt;!-- 延迟加载的总开关，默认是false --&gt;
+    &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;
+    &lt;!-- 是否立即加载，设置为true时关联对象会被全部加载 设置为false表示按需加载 --&gt;
+    &lt;setting name=&quot;aggressiveLazyLoading&quot; value=&quot;false&quot;/&gt;
+&lt;/settings&gt;
+</code></pre>
+<p>一对一延迟加载</p>
+<pre><code>&lt;resultMap&gt;
+     &lt;association property=&quot;user&quot; select=&quot;com.xr.mapper.TUsersMapper.findById&quot; column=&quot;u_id&quot; &gt;&lt;/association&gt;
+&lt;/resultMap&gt;
+</code></pre>
+<p>一对多延迟加载</p>
+<pre><code>&lt;resultMap&gt;
+    &lt;collection property=&quot;orderDetaiList&quot; column=&quot;id&quot; select=&quot;com.xr.mapper.TOrdersDetailMapper.findByOrderNo&quot;&gt;&lt;/collection&gt;
+&lt;/resultMap&gt;
+</code></pre>
+<h1 id="注解开发"><a href="#注解开发" class="headerlink" title="注解开发"></a><strong><font color=#87CEFA>注解开发</font></strong></h1><h2 id="Insert注解"><a href="#Insert注解" class="headerlink" title="@Insert注解"></a><strong><font color=#87CEFA>@Insert注解</font></strong></h2><pre><code>注解属性value:写入SQL语句
+@Insert(&quot;insert into user(username,sex,birthday,address)values(#&#123;username&#125;,#&#123;sex&#125;,#&#123;birthday&#125;,#&#123;address&#125;)&quot;)
+void saveUser(User user);
+</code></pre>
+<h2 id="Options注解"><a href="#Options注解" class="headerlink" title="@Options注解"></a><strong><font color=#87CEFA>@Options注解</font></strong></h2><pre><code>实现添加新数据的主键封装
+注解属性
+    useGeneratedKeys：使用生成的主键，配置为true
+    keyProperty：主键封装的pojo对象属性
+@Options(useGeneratedKeys = true,keyProperty = &quot;id&quot;)
+</code></pre>
+<h2 id="SelectKey注解"><a href="#SelectKey注解" class="headerlink" title="@SelectKey注解"></a><strong><font color=#87CEFA>@SelectKey注解</font></strong></h2><pre><code>实现添加新数据的主键封装
+注解属性
+    statement：要执行的SQL语句
+    before：在添加SQL语句之前还是之后进行，配置为false
+    keyProperty：主键封装的pojo对象属性
+@SelectKey(statement = &quot;select last_insert_id()&quot;,before = false,keyProperty =&quot;id&quot;,resultType=Integer.class)
+</code></pre>
+<h2 id="Update注解"><a href="#Update注解" class="headerlink" title="@Update注解"></a><strong><font color=#87CEFA>@Update注解</font></strong></h2><pre><code>注解属性value:写入SQL语句
+@Update(&quot;update user set username=#&#123;username&#125;,sex=#&#123;sex&#125;,birthday=#&#123;birthday&#125;,address=#&#123;address&#125; where id=#&#123;id&#125;&quot;)
+void updateUser(User user);
+</code></pre>
+<h2 id="Delete注解"><a href="#Delete注解" class="headerlink" title="@Delete注解"></a><strong><font color=#87CEFA>@Delete注解</font></strong></h2><pre><code>注解属性value:写入SQL语句
+//删除用户
+@Delete(&quot;delete from user where id = #&#123;id&#125;&quot;)
+void deleteUser(int id);
+</code></pre>
+<h2 id="Select注解"><a href="#Select注解" class="headerlink" title="@Select注解"></a><strong><font color=#87CEFA>@Select注解</font></strong></h2><pre><code>注解属性value:写入SQL语句
+//主键查询用户
+@Select(&quot;select id,username,sex,birthday,address from user where id = #&#123;id&#125;&quot;)
+User queryUserById(int id);
+</code></pre>
+<h2 id="Results注解"><a href="#Results注解" class="headerlink" title="@Results注解"></a><strong><font color=#87CEFA>@Results注解</font></strong></h2><pre><code>配置手动映射，取代resultMap标签
+
+@Result注解
+
+配置手动映射，取代result标签
+
+@Results(&#123;
+        //配置主键映射，id默认false,用此来判断是不是主键
+        @Result(id = true,column = &quot;id&quot;,property = &quot;id&quot;),
+        //配置其他映射关系
+        @Result(column = &quot;user_id&quot;,property = &quot;userId&quot;),
+        @Result(column = &quot;number&quot;,property = &quot;number&quot;),
+        @Result(column = &quot;createtime&quot;,property = &quot;createtime&quot;),
+        @Result(column = &quot;note&quot;,property = &quot;note&quot;),
+        /*
+             配置关联查询用户表
+             property查询的pojo对象哪个属性做为条件查询
+               这个属性还是个pojo对象
+             column查询条件的pojo对象的属性
+             @One注解配置一对一的另一个查询语句
+               此语句需要对应的接口方法出现
+         */
+         // 一对一
+        @Result(column = &quot;user_id&quot;,property = &quot;user&quot;,javaType = User.class,
+                one = @One(select = &quot;com.xrit.mapper.UserMapper.queryUserByUserId&quot;,fetchType = FetchType.LAZY))
+
+
+        //  一对多
+        @Result(column = &quot;id&quot;,property = &quot;ordersList&quot;,javaType = List.class,
+        many = @Many(select = &quot;com.xrit.mapper.OrdersMapper.queryOrdersByUserId&quot;,fetchType = FetchType.LAZY))
+&#125;)
+</code></pre>
+<h2 id="Param注解"><a href="#Param注解" class="headerlink" title="@Param注解"></a><strong><font color=#87CEFA>@Param注解</font></strong></h2><p>@Param用于指定参数名</p>
+<pre><code>注解属性value:表示参数别名
+@Select(&quot;select id,username,sex,birthday,address from user where id=#&#123;uid&#125;&quot;)
+User queryUserByUserId(@Param(&quot;uid&quot;)Integer id);
+@Param(&quot;uid&quot;)就是告诉 mybatis , 参数 id在 SQL 语句中用 uid 作为 key。
+</code></pre>
+<h1 id="缓存机制、分页、逆向工程"><a href="#缓存机制、分页、逆向工程" class="headerlink" title="缓存机制、分页、逆向工程"></a><strong><font color=#87CEFA>缓存机制、分页、逆向工程</font></strong></h1><h2 id="MyBatis缓存"><a href="#MyBatis缓存" class="headerlink" title="MyBatis缓存"></a><strong><font color=#87CEFA>MyBatis缓存</font></strong></h2><p>用户查询数据时，需要读取数据库里信息，数据库信息存在磁盘上，是需要IO操作的，高并发的时候，性能消耗比较大 将用户将经常查询的数据放在内存中，用户需要时直接从内存中取，不需要再去读取磁盘上的数据，这就是缓存解决高并发的问题 mybatis的缓存分为：​ 一级缓存和二级缓存</p>
+<h3 id="MyBatis一级缓存"><a href="#MyBatis一级缓存" class="headerlink" title="MyBatis一级缓存"></a><strong><font color=#87CEFA>MyBatis一级缓存</font></strong></h3><p>是SqlSession级别的，也就是同一个SqlSession内执行相同select语句的时候，不再去查询数据库，而是从Mybatis内部的缓存内存结构去直接拿到数据。</p>
+<p>一级缓存是默认开启的，而且不需要配置</p>
+<p>缓存失效时机</p>
+<pre><code>sqlSession关闭
+
+sqlSession提交事务（意味着可能是一个增删改的动作，需要更新缓存，那么这个时候 
+</code></pre>
+<h3 id="MyBatis二级缓存"><a href="#MyBatis二级缓存" class="headerlink" title="MyBatis二级缓存"></a><strong><font color=#87CEFA>MyBatis二级缓存</font></strong></h3><p>二级缓存的范围是mapper级别（mapper同一个命名空间），mapper以命名空间为单位创建缓存数据结构，结构是map&lt;key、value&gt;可以跨SqlSession，不同的SqlSession可以共享</p>
+<h4 id="开启二级缓存"><a href="#开启二级缓存" class="headerlink" title="开启二级缓存"></a><strong><font color=#87CEFA>开启二级缓存</font></strong></h4><p>二级缓存默认是不开启的，需要手动开启二级缓存</p>
+<h5 id="实现二级缓存的时候步骤"><a href="#实现二级缓存的时候步骤" class="headerlink" title="实现二级缓存的时候步骤"></a><strong><font color=#87CEFA>实现二级缓存的时候步骤</font></strong></h5><p>SqlMapCongig.xml文件加上配置</p>
+<pre><code>&lt;settings&gt;
+        &lt;!--这个配置使全局的映射器(二级缓存)启用或禁用缓存--&gt;
+        &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot; /&gt;
+&lt;/settings&gt;
+</code></pre>
+<p>Mapper映射文件中添加一行<cache /> ，表示此mapper开启二级缓存</p>
+<pre><code>&lt;!-- 表示表查询结果保存到二级缓存(共享缓存) --&gt;
+&lt;cache/&gt;
+</code></pre>
+<p>如果是注解开发，那么给Mapper接口加上@CacheNamespaceRef的注解</p>
+<pre><code>@CacheNamespaceRef(TUserMapper.class)
+public interface TUserMapper &#123;
+    .....
+&#125;
+</code></pre>
+<p>查询结果映射的实体类需要序列化</p>
+<pre><code>public class Users implements Serializable 
+    
+</code></pre>
+<p>注意<br>    sqlsession未关闭或者未提交，SQL 语句产生的查询结果还没有放入二级缓存中，这个时候 SqlSession2 在查询的时候是感受不到二级缓存的存在的</p>
+<h4 id="二级缓存禁用"><a href="#二级缓存禁用" class="headerlink" title="二级缓存禁用"></a><strong><font color=#87CEFA>二级缓存禁用</font></strong></h4><p>对于变化频率较高的sql，需要禁用二级缓存： 在statement中设置useCache&#x3D;false可以禁用当前select语句的二级缓存，即每次查询都会发出sql去查询，默认情况是true，即该sql使用二级缓存。</p>
+<pre><code>&lt;select id=&quot;findUserById&quot; useCache=&quot;false&quot; parameterType=&quot;int&quot; resultType=&quot;Users&quot;&gt;
+    select * from users where id=#&#123;id&#125;
+&lt;/select&gt;
+</code></pre>
+<p>如果是注解开发，禁用则加上注解@Options去设置属性</p>
+<pre><code>@Select(&quot;select * from users where id=#&#123;id&#125;&quot;)
+@Options(useCache = false)
+TUsers findById(int id);
+</code></pre>
+<p>如果SqlSession操作commit操作，会对二级缓存进行刷新（全局清空）可以设置statement的flushCache是否刷新缓存，默认值是true</p>
+<pre><code>&lt;update id=&quot;updateUser&quot; flushCache=&quot;false&quot; parameterType=&quot;Users&quot;&gt;
+    .....
+&lt;/update&gt;
+</code></pre>
+<h2 id="逆向工程"><a href="#逆向工程" class="headerlink" title="逆向工程"></a><strong><font color=#87CEFA>逆向工程</font></strong></h2><p>mybatis官方为了提高开发效率，提供自动对单表生成sql，包括 ：mapper.xml、mapper.java、实体类 逆向工程是：数据库—》生成Java代码 </p>
+<p>1.需要使用的jar包</p>
+<pre><code>mybatis-generator-core-1.3.2.jar mybatis-3.2.7.jar 核心包 数据库连接的驱动包
+</code></pre>
+<p>2.复制generatorConfig.xml到src下</p>
+<pre><code>里面的数据库信息需要修改，具体参考里面的注释
+</code></pre>
+<p>3.复制GeneratorSqlMap.java运行里面的main方法</p>
+<p>4.刷新工程，将产生的实体类、mapper.java、mapper.xml拷贝到开发环境下</p>
+<p>注意</p>
+<pre><code>我们使用的是Java程序运行逆向工程，和开发工具无关
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/02/MybBatis/">http://example.com/2023/03/02/MybBatis/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/02/maven/" title="maven"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">maven</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/02/java%E8%BF%9B%E9%98%B6/" title="java进阶"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">java进阶</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MyBatis%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">MyBatis流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text">认识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%94%9FJDBC%E6%A1%88%E4%BE%8B"><span class="toc-number">1.2.</span> <span class="toc-text">原生JDBC案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0"><span class="toc-number">1.3.</span> <span class="toc-text">MyBatis框架概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-number">1.4.</span> <span class="toc-text">MyBatis快速入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E7%9A%84sql%E8%AF%AD%E5%8F%A5%E6%83%B3%E8%A6%81%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97%E8%A6%81%E5%8A%A0log4j"><span class="toc-number">1.5.</span> <span class="toc-text">执行的sql语句想要打印日志要加log4j</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MyBatis-CRUD"><span class="toc-number">2.</span> <span class="toc-text">MyBatis-CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEid%E6%9F%A5%E8%AF%A2%E7%94%A8%E6%88%B7"><span class="toc-number">2.1.</span> <span class="toc-text">根据id查询用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E7%94%A8%E6%88%B7%E5%90%8D%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.2.</span> <span class="toc-text">根据用户名模糊查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80"><span class="toc-number">2.2.1.</span> <span class="toc-text">方式一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="toc-number">2.2.2.</span> <span class="toc-text">方式二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%94%A8%E6%88%B7"><span class="toc-number">2.3.</span> <span class="toc-text">添加新用户</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E6%8C%87%E5%AE%9A%E4%B8%BB%E9%94%AE"><span class="toc-number">2.3.1.</span> <span class="toc-text">添加用户指定主键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%94%AE%E4%BD%BF%E7%94%A8Oracle%E5%BA%8F%E5%88%97"><span class="toc-number">2.3.2.</span> <span class="toc-text">主键使用Oracle序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%94%AE%E4%BD%BF%E7%94%A8%E8%87%AA%E5%8A%A8%E5%A2%9E%E9%95%BF"><span class="toc-number">2.3.3.</span> <span class="toc-text">主键使用自动增长</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#selectKey%E5%AD%90%E6%A0%87%E7%AD%BE"><span class="toc-number">2.3.4.</span> <span class="toc-text">selectKey子标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEid%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E5%90%8D"><span class="toc-number">2.4.</span> <span class="toc-text">根据id修改用户名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEid%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="toc-number">2.5.</span> <span class="toc-text">根据id删除用户</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MyBatis-%E5%B0%81%E8%A3%85DAO"><span class="toc-number">3.</span> <span class="toc-text">MyBatis-封装DAO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8BDao%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">原始Dao开发方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">MyBatis动态代理开发方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mapper-%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91%E9%9C%80%E8%A6%81%E9%81%B5%E5%BE%AA%E4%BB%A5%E4%B8%8B%E8%A7%84%E8%8C%83"><span class="toc-number">3.2.1.</span> <span class="toc-text">Mapper 接口开发需要遵循以下规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">3.2.2.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis%E6%89%8B%E5%8A%A8%E6%98%A0%E5%B0%84"><span class="toc-number">3.3.</span> <span class="toc-text">MyBatis手动映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">3.4.</span> <span class="toc-text">其他优化配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80Properties%E9%85%8D%E7%BD%AE"><span class="toc-number">3.4.1.</span> <span class="toc-text">全局Properties配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80typeAliases%E9%85%8D%E7%BD%AE"><span class="toc-number">3.4.2.</span> <span class="toc-text">全局typeAliases配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#typeAliases"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">typeAliases</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84-Java-%E7%B1%BB%E5%9E%8B%E5%86%85%E5%BB%BA%E7%9A%84%E7%9B%B8%E5%BA%94%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">常见的 Java 类型内建的相应的类型别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%AB%E5%90%8D"><span class="toc-number">3.4.2.3.</span> <span class="toc-text">自定义别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E5%8C%85%E6%95%B4%E4%BD%93%E5%8A%A0%E8%BD%BDmapper%E6%96%87%E4%BB%B6"><span class="toc-number">3.4.2.4.</span> <span class="toc-text">按包整体加载mapper文件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81SQL"><span class="toc-number">4.</span> <span class="toc-text">动态SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#resultMap"><span class="toc-number">4.1.</span> <span class="toc-text">resultMap</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E6%9F%A5%E8%AF%A2"><span class="toc-number">5.</span> <span class="toc-text">关系查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#association"><span class="toc-number">6.</span> <span class="toc-text">association</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#collection"><span class="toc-number">7.</span> <span class="toc-text">collection</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD"><span class="toc-number">8.</span> <span class="toc-text">延迟加载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91"><span class="toc-number">9.</span> <span class="toc-text">注解开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Insert%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.1.</span> <span class="toc-text">@Insert注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Options%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.2.</span> <span class="toc-text">@Options注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SelectKey%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.3.</span> <span class="toc-text">@SelectKey注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Update%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.4.</span> <span class="toc-text">@Update注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delete%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.5.</span> <span class="toc-text">@Delete注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Select%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.6.</span> <span class="toc-text">@Select注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Results%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.7.</span> <span class="toc-text">@Results注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Param%E6%B3%A8%E8%A7%A3"><span class="toc-number">9.8.</span> <span class="toc-text">@Param注解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E3%80%81%E5%88%86%E9%A1%B5%E3%80%81%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B"><span class="toc-number">10.</span> <span class="toc-text">缓存机制、分页、逆向工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis%E7%BC%93%E5%AD%98"><span class="toc-number">10.1.</span> <span class="toc-text">MyBatis缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">10.1.1.</span> <span class="toc-text">MyBatis一级缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">10.1.2.</span> <span class="toc-text">MyBatis二级缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="toc-number">10.1.2.1.</span> <span class="toc-text">开启二级缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98%E7%9A%84%E6%97%B6%E5%80%99%E6%AD%A5%E9%AA%A4"><span class="toc-number">10.1.2.1.1.</span> <span class="toc-text">实现二级缓存的时候步骤</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98%E7%A6%81%E7%94%A8"><span class="toc-number">10.1.2.2.</span> <span class="toc-text">二级缓存禁用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B"><span class="toc-number">10.2.</span> <span class="toc-text">逆向工程</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/spring/" title="spring">spring</a><time datetime="2023-03-02T07:19:10.000Z" title="Created 2023-03-02 15:19:10">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/maven/" title="maven">maven</a><time datetime="2023-03-02T07:18:37.000Z" title="Created 2023-03-02 15:18:37">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/MybBatis/" title="MybBatis">MybBatis</a><time datetime="2023-03-02T07:17:58.000Z" title="Created 2023-03-02 15:17:58">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/java%E8%BF%9B%E9%98%B6/" title="java进阶">java进阶</a><time datetime="2023-03-02T05:22:37.000Z" title="Created 2023-03-02 13:22:37">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/jsp/" title="jsp">jsp</a><time datetime="2023-03-02T05:22:18.000Z" title="Created 2023-03-02 13:22:18">2023-03-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
