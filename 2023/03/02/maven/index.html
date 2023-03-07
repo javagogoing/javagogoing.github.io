@@ -1,11 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>maven | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>maven | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="安装与使用maven是什么?maven是apache基金会的开源项目，基于java语言开发，源于犹太语，意思知识的累计。 主要是以project object manager（POM）思想管理项目的构建、报告、文档。 maven有什么用?构建项目 加入单元测试模块,将java文件与配置文件（.xml、 .properties、 .yml ）进行分离. src(源文件夹)     ├main(主程序">
+<meta property="og:type" content="article">
 <meta property="og:title" content="maven">
 <meta property="og:url" content="http://example.com/2023/03/02/maven/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="安装与使用maven是什么?maven是apache基金会的开源项目，基于java语言开发，源于犹太语，意思知识的累计。 主要是以project object manager（POM）思想管理项目的构建、报告、文档。 maven有什么用?构建项目 加入单元测试模块,将java文件与配置文件（.xml、 .properties、 .yml ）进行分离. src(源文件夹)     ├main(主程序">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2023-03-02T07:18:37.000Z">
-<meta property="article:modified_time" content="2023-03-02T07:18:37.224Z">
+<meta property="article:modified_time" content="2023-03-03T01:06:58.143Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/03/02/maven/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
@@ -53,8 +55,8 @@
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2023-03-02 15:18:37'
+  isToc: true,
+  postUpdate: '2023-03-03 09:06:58'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -158,4 +160,225 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">maven</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-02T07:18:37.000Z" title="Created 2023-03-02 15:18:37">2023-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-02T07:18:37.224Z" title="Updated 2023-03-02 15:18:37">2023-03-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="maven"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/02/maven/">http://example.com/2023/03/02/maven/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/02/spring/" title="spring"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">spring</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/02/MybBatis/" title="MybBatis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">MybBatis</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/spring/" title="spring">spring</a><time datetime="2023-03-02T07:19:10.000Z" title="Created 2023-03-02 15:19:10">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/maven/" title="maven">maven</a><time datetime="2023-03-02T07:18:37.000Z" title="Created 2023-03-02 15:18:37">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/MybBatis/" title="MybBatis">MybBatis</a><time datetime="2023-03-02T07:17:58.000Z" title="Created 2023-03-02 15:17:58">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/java%E8%BF%9B%E9%98%B6/" title="java进阶">java进阶</a><time datetime="2023-03-02T05:22:37.000Z" title="Created 2023-03-02 13:22:37">2023-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/02/jsp/" title="jsp">jsp</a><time datetime="2023-03-02T05:22:18.000Z" title="Created 2023-03-02 13:22:18">2023-03-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">maven</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-02T07:18:37.000Z" title="Created 2023-03-02 15:18:37">2023-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-03T01:06:58.143Z" title="Updated 2023-03-03 09:06:58">2023-03-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="maven"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a><strong><font color=#87CEFA>安装与使用</font></strong></h1><h2 id="maven是什么"><a href="#maven是什么" class="headerlink" title="maven是什么?"></a><strong><font color=#87CEFA>maven是什么?</font></strong></h2><p>maven是apache基金会的开源项目，基于java语言开发，源于犹太语，意思知识的累计。</p>
+<p>主要是以project object manager（POM）思想管理项目的构建、报告、文档。</p>
+<h2 id="maven有什么用"><a href="#maven有什么用" class="headerlink" title="maven有什么用?"></a><strong><font color=#87CEFA>maven有什么用?</font></strong></h2><p>构建项目</p>
+<pre><code>加入单元测试模块,将java文件与配置文件（.xml、 .properties、 .yml ）进行分离.
+src(源文件夹)
+    ├main(主程序)
+        ┌java(.java文件)
+        └resources(资源文件)
+    ├test(测试程序)
+        ┌java(.java文件)
+        └resources(资源文件)
+target(编译好的.class文件,以及打好的包)
+pom.xml(项目依赖信息)
+</code></pre>
+<p>下载jar包</p>
+<pre><code>通过GAV坐标自动下载所需jar包,不需要再去官网苦苦找寻jar包下载地址.
+所有常用jar包都可以从  https://mvnrepository.com/  搜索下载。
+</code></pre>
+<p>依赖管理</p>
+<pre><code>对于重复多次开发依赖jar包较多的工程,可以建立父工程,多个项目继承父工程即可.
+可以直接依赖其他的工程，使用其他工程已经开发完毕的功能。
+</code></pre>
+<p>分模块开发</p>
+<pre><code>spring cloud ==&gt; dubbo
+可以将同一个工程中的不同的模块以模块工程的方式进行区分.
+</code></pre>
+<p>项目打包</p>
+<pre><code>可以快速将项目打包（jar、war、pom）
+</code></pre>
+<h2 id="为什么需要使用maven"><a href="#为什么需要使用maven" class="headerlink" title="为什么需要使用maven?"></a><strong><font color=#87CEFA>为什么需要使用maven?</font></strong></h2><p>maven提供了对项目的全方位管理,可以有效的提高开发的效率,节约磁盘的空间,最重要的是更加适合分布式项目开发.</p>
+<h2 id="maven的安装"><a href="#maven的安装" class="headerlink" title="maven的安装"></a><strong><font color=#87CEFA>maven的安装</font></strong></h2><p>下载</p>
+<p>进入官网下载最新版本的maven:   <a target="_blank" rel="noopener" href="http://maven.apache.org/download.cgi#">http://maven.apache.org/download.cgi#</a></p>
+<img src="/imgs/maven01.png">
+    
+    
+    
+<p>解压</p>
+<p>将下载好的zip压缩包解压到不包含中文的路径下.</p>
+<ul>
+<li>bin: 主程序</li>
+<li>boot: maven独立的类加载器</li>
+<li>conf: settings.xml maven的全局配置</li>
+<li>lib: jar包</li>
+</ul>
+<img src="/imgs/maven02.png">
+    
+<p>配置</p>
+<p>MAVEN_HOME(安装根目录)</p>
+<img src="/imgs/maven03.png">
+        
+        
+<p>Path(path配置bin目录)</p>
+<img src="/imgs/maven04.png">
+    
+        
+<p>检查</p>
+<p>在管理员权限的cmd界面mvn -v 查看maven安装是否成功.</p>
+<img src="/imgs/maven05.png">
+        
+        
+<h2 id="maven仓库"><a href="#maven仓库" class="headerlink" title="maven仓库"></a><strong><font color=#87CEFA>maven仓库</font></strong></h2><p>仓库就用来管理maven项目的jar包的，maven的仓库分为</p>
+<ul>
+<li>maven中央仓库</li>
+<li>国内镜像服务器</li>
+<li>公司局域网私服</li>
+<li>本地仓库</li>
+</ul>
+<img src="/imgs/maven06.png">
+        
+    
+<h2 id="maven配置"><a href="#maven配置" class="headerlink" title="maven配置"></a><strong><font color=#87CEFA>maven配置</font></strong></h2><p>maven安装目录下面的settings.xml文件属于全局配置文件.(E:\apache-maven-3.x.x\conf)</p>
+<p>修改本地仓库位置</p>
+<pre><code>maven默认的本地仓库地址是在C盘的用户-当前登录用户文件夹下的.m2里， 如：C:\Users\Administrator.m2
+修改settings.xml文件中localRepository（本地仓库）的配置
+</code></pre>
+<img src="/imgs/maven07.png">
+        
+        
+<p>配置镜像服务器，使用阿里云镜像服务器</p>
+<pre><code>修改settings.xml文件在mirrors中加入mirror（镜像服务器）内容.
+    &lt;mirror&gt;
+        &lt;id&gt;aliyunmaven&lt;/id&gt;
+        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+        &lt;name&gt;aliyun maven&lt;/name&gt;
+        &lt;url&gt;https://maven.aliyun.com/repository/public &lt;/url&gt;
+        &lt;/mirror&gt;
+    
+</code></pre>
+<p>注意</p>
+<pre><code>修改好全局配置文件之后，将maven安装目录下的D:\apache-maven-3.0.5\conf的settings.xml文件拷贝到新仓库根目录，仓库中的settings.xml文件和与maven安装路径下的内容最好保持一致
+    
+</code></pre>
+<h2 id="maven工程"><a href="#maven工程" class="headerlink" title="maven工程"></a><strong><font color=#87CEFA>maven工程</font></strong></h2><p>IDEA配置maven</p>
+<img src="/imgs/maven08.png">
+
+
+<img src="/imgs/maven09.png">
+    
+
+<p>IDEA构建maven项目</p>
+<img src="/imgs/maven010.png">
+
+
+<img src="/imgs/maven011.png">
+
+
+<img src="/imgs/maven012.png">
+
+
+
+
+<p>注意</p>
+<img src="/imgs/maven013.png">
+    
+<p>创建好项目后，maven会自动下载maven依赖，等待完成之后，项目结构会如下</p>
+<pre><code>src(源文件夹)
+    ├main(主程序)
+        ┌java(.java文件)
+        └resources(资源文件)
+    ├test(测试程序)
+        ┌java(.java文件)
+        └resources(资源文件)
+target(编译好的.class文件,以及打好的包)
+pom.xml(项目依赖信息)
+</code></pre>
+<p>如果没有java或者是resources文件文件夹， 选中main文件夹，右键，选择new–》Directory</p>
+<img src="/imgs/maven014.png">
+    
+<p>pom.xml基本信息</p>
+<img src="/imgs/maven015.png">
+    
+<img src="/imgs/maven016.png">
+    
+    
+    
+<p>想要继续添加jar包依赖</p>
+<pre><code>mvn中央仓库地址:http://mvnrepository.com/
+可以在此网站搜索jar的坐标(组织名称,项目名称,版本号)
+我们添加了依赖之后，会根据配置文件的信息，从镜像服务器中下载到本地仓库。如果下次再需要这个依赖在本地仓库中已有就可以直接复用了
+</code></pre>
+<h2 id="maven-java项目运行"><a href="#maven-java项目运行" class="headerlink" title="maven java项目运行"></a><strong><font color=#87CEFA>maven java项目运行</font></strong></h2><p>打开cmd进入maven工程的pom.xml文件目录下</p>
+<img src="/imgs/maven017.png">
+    
+<p>在cmd中输入mvn compile</p>
+<pre><code>如果下载时出现网络问题,会导致jar包下载失败出现.lastUpdate后缀文件,如果不清除这个文件无法重新下载.请在本地仓库搜索 *.lastUpdate 文件,手动删除之后再进行下载.
+</code></pre>
+<h2 id="maven命令"><a href="#maven命令" class="headerlink" title="maven命令"></a><strong><font color=#87CEFA>maven命令</font></strong></h2><p>mvn compile</p>
+<pre><code>编译(.java ==&gt; .class) 生成 target目录,并下载依赖文件中指定的jar包
+</code></pre>
+<p>mvn test </p>
+<pre><code>测试，执行完毕后，字节码生成目录中生成了被测试类与测试类的编译字节码和测试执行过程日志与详细报告
+</code></pre>
+<p>mvn clean</p>
+<pre><code>执行完毕后，字节码生成目录被删除(target目录下的.class)
+</code></pre>
+<p>mvn install</p>
+<pre><code>安装(打成jar包、war包,存放在在maven本地仓库中根据项目本身的坐标新建文件夹保存)经历（编译，测试，打包，将打好的包装入本地仓库中）
+</code></pre>
+<p>mvn clean compile</p>
+<pre><code>组合指令，先执行clean，再执行compile，通常应用于上线前执行，清除测试类
+</code></pre>
+<p>mvn clean test</p>
+<pre><code>组合指令，先执行clean，再执行test，通常应用于测试环节
+</code></pre>
+<p>mvn clean package</p>
+<pre><code>组合指令，先执行clean，再执行package，将项目打包，通常应用于发布前
+执行过程
+    清理————清空环境
+    编译————编译源码
+    测试————测试源码
+    打包————将编译的非测试类打包
+</code></pre>
+<p>mvn clean install</p>
+<pre><code>查看仓库，当前项目被发布到仓库中
+组合指令，先执行clean，再执行install，将项目打包，通常应用于发布前
+执行过程
+    清理————清空环境
+    编译————编译源码
+    测试————测试源码
+    打包————将编译的非测试类打包
+    部署————将打好的包发布到资源仓库中
+</code></pre>
+<img src="/imgs/maven018.png">
+
+
+<img src="/imgs/maven019.png">
+    
+    
+<h2 id="maven仓库-1"><a href="#maven仓库-1" class="headerlink" title="maven仓库"></a><strong><font color=#87CEFA>maven仓库</font></strong></h2><p>打包方式</p>
+<img src="/imgs/maven020.png">
+    
+<h2 id="属性设置"><a href="#属性设置" class="headerlink" title="属性设置"></a><strong><font color=#87CEFA>属性设置</font></strong></h2><p>properties用于定义一些常量,属性表述类似于EL表达式.</p>
+<pre><code>&lt;properties&gt;
+    &lt;commons.io&gt;2.2&lt;/commons.io&gt;
+    &lt;/properties&gt;
+    &lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;commons-io&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+            &lt;version&gt;$&#123;commons.io&#125;&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+</code></pre>
+<h2 id="中央仓库地址"><a href="#中央仓库地址" class="headerlink" title="中央仓库地址"></a><strong><font color=#87CEFA>中央仓库地址</font></strong></h2><p>mvn中央仓库地址:     <a target="_blank" rel="noopener" href="http://mvnrepository.com/">http://mvnrepository.com/</a></p>
+<p>可以在此网站搜索jar的坐标(组织名称,项目名称,版本号)</p>
+<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误?"></a><strong><font color=#87CEFA>常见错误?</font></strong></h2><p>下载jar包失败</p>
+<pre><code>如果下载时出现网络问题,会导致jar包下载失败出现.lastUpdate后缀文件,如果不清除这个文件无法重新下载.请在本地仓库搜索 *.lastUpdate 文件,手动删除之后再进行下载.
+</code></pre>
+<p>idea中运行项目提示找不到依赖jar包中的类<br>    File&#x3D;&#x3D;》Settings</p>
+<img src="/imgs/maven021.png">
+        
+        
+<p>如果发现新添加的代码运行没有更新</p>
+<img src="/imgs/maven022.png">
+        
+        
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/03/02/maven/">http://example.com/2023/03/02/maven/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/02/spring/" title="spring"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">spring</div></div></a></div><div class="next-post pull-right"><a href="/2023/03/02/MybBatis/" title="MybBatis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">MybBatis</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">安装与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.1.</span> <span class="toc-text">maven是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">maven有什么用?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8maven"><span class="toc-number">1.3.</span> <span class="toc-text">为什么需要使用maven?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">1.4.</span> <span class="toc-text">maven的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E4%BB%93%E5%BA%93"><span class="toc-number">1.5.</span> <span class="toc-text">maven仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E9%85%8D%E7%BD%AE"><span class="toc-number">1.6.</span> <span class="toc-text">maven配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E5%B7%A5%E7%A8%8B"><span class="toc-number">1.7.</span> <span class="toc-text">maven工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven-java%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C"><span class="toc-number">1.8.</span> <span class="toc-text">maven java项目运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E5%91%BD%E4%BB%A4"><span class="toc-number">1.9.</span> <span class="toc-text">maven命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maven%E4%BB%93%E5%BA%93-1"><span class="toc-number">1.10.</span> <span class="toc-text">maven仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.11.</span> <span class="toc-text">属性设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80"><span class="toc-number">1.12.</span> <span class="toc-text">中央仓库地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="toc-number">1.13.</span> <span class="toc-text">常见错误?</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/06/Dubbo/" title="Dubbo">Dubbo</a><time datetime="2023-03-06T06:14:42.000Z" title="Created 2023-03-06 14:14:42">2023-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/06/Bootstrap/" title="Bootstrap">Bootstrap</a><time datetime="2023-03-06T06:14:16.000Z" title="Created 2023-03-06 14:14:16">2023-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/06/vue/" title="vue">vue</a><time datetime="2023-03-06T06:14:00.000Z" title="Created 2023-03-06 14:14:00">2023-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/06/Linux/" title="Linux">Linux</a><time datetime="2023-03-06T06:13:49.000Z" title="Created 2023-03-06 14:13:49">2023-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/06/Radis/" title="Radis">Radis</a><time datetime="2023-03-06T06:13:32.000Z" title="Created 2023-03-06 14:13:32">2023-03-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
